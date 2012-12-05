@@ -1,0 +1,18 @@
+/* 
+    Document   : PropertiesStyles
+    Created on : 30/08/2012, 05:08:18 PM
+    Author     : ESKUINKLE
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+.ready{
+    -fx-background-color: green;
+}
+.notReady{
+    -fx-background-color: red;
+}
+
