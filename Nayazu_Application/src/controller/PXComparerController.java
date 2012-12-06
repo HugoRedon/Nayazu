@@ -3,7 +3,6 @@ package controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ChangeListener;
@@ -84,7 +83,7 @@ public class PXComparerController implements Initializable {
         vaporExpLine = new XYChart.Series();
        
            int index = 0 ;
-           for(double i = 0.0; i <= 1; i += 0.01){
+           for(double i = 0.0; i <= 1.01; i += 0.01){
                 solutionLine.getData().add(index, new XYChart.Data<>(i, 0 * i));
                 mixtureLine.getData().add(index,new XYChart.Data<>(1-i, (1-i) * 0));         
                  index++;
@@ -133,11 +132,11 @@ public class PXComparerController implements Initializable {
        UserProperties.setBinaryComponentsObservable(component1ComboBox.getItems());
          
          if(secondaryStage == null){
-        secondaryStage = new Stage();
-        Pane pane = (Pane)FXMLLoader.load(ApplicationStartup.class.getResource("BinaryExperimentalDataWindow.fxml"));
-        Scene scene = new Scene(pane,626,472);
-       
-        secondaryStage.setScene(scene);
+            secondaryStage = new Stage();
+            Pane pane = (Pane)FXMLLoader.load(ApplicationStartup.class.getResource("BinaryExperimentalDataWindow.fxml"));
+            Scene scene = new Scene(pane,626,472);
+
+            secondaryStage.setScene(scene);
        }
        secondaryStage.show();
        secondaryStage.toFront();
@@ -181,10 +180,7 @@ public class PXComparerController implements Initializable {
    }
 
     protected void drawDiagram(){
-        ArrayList<Component> components = new ArrayList<>();
-        components.add(component1);
-        components.add(component2);
-        
+     
         getKInteractions();
         double pressureTemperature =Double.valueOf( pressureTemperatureTextField.getText());
         double tol = 0.00001;
@@ -196,59 +192,15 @@ public class PXComparerController implements Initializable {
            ToggleButton pressTemp = (ToggleButton)pressTempToggleGroup.getSelectedToggle();
            PhaseEquilibria calculator = (type.equals(bubbleToggle))? bubbleCalculator: dewCalculator;
             if(pressTemp.equals(pressToggleButton)){
-              drawPressureDiagram(pressureTemperature,components, cubic, kinteraction,tol,calculator);  
+              drawPressureDiagram(pressureTemperature, cubic, kinteraction,tol,calculator);  
             }else {
-                drawTemperatureDiagram(pressureTemperature,components,cubic,kinteraction,tol,calculator);
+                drawTemperatureDiagram(pressureTemperature,cubic,kinteraction,tol,calculator);
             }
         }
     }
     
-//    protected void drawTemperatureDiagram(double pressure, 
-//            ArrayList<Component> components,
-//            Cubic cubic,
-//            BinaryInteractionParameters kinteraction,
-//            double tol,
-//            PhaseEquilibria temperatureCalculator
-//            ){
-//        
-//         double lastTemperature=0;
-//            HashMap<Component,Double> lastSolutionFractions = new HashMap<>();
-//            boolean firstEstimate = true;
-//            int index = 0 ;
-//            for(double i = 0.0; i <= 1; i += 0.01){
-//                HashMap<Component,Double> zFractions = new HashMap<>();
-//                zFractions.put(component1, i);
-//                zFractions.put(component2,(1 - i));
-//                if(firstEstimate){
-//                    EquilibriaPhaseSolution estimate = temperatureCalculator.getTemperatureEstimate(pressure,  zFractions);
-//                   lastSolutionFractions = estimate.getSolutionFractions();
-//                   lastTemperature =  estimate.getTemperature();
-//                   firstEstimate = false;
-//                }
-//               EquilibriaPhaseSolution solution =  temperatureCalculator.getTemperature(lastTemperature, pressure, components, zFractions, lastSolutionFractions, cubic, kinteraction, tol);
-//                double temperature = solution.getTemperature();
-//                if(!Double.isNaN(temperature)  ){
-//                            lastTemperature = temperature;
-//                            HashMap<Component,Double> solutionFractions = (HashMap)solution.getSolutionFractions();
-//                            lastSolutionFractions = solutionFractions;
-//                            XYChart.Data<Number,Number> solutionData= ( XYChart.Data<Number,Number> ) this.solutionLine.getData().get(index);
-//                            XYChart.Data<Number,Number> mixtureData= ( XYChart.Data<Number,Number> ) mixtureLine.getData().get(index);
-//
-//                            solutionData.setXValue(solutionFractions.get(components.get(0)));
-//                            solutionData.setYValue(temperature);
-//
-//                           // mixtureData.setXValue(zFractions.get(components.get(0)));
-//                            mixtureData.setXValue(i);
-//                            mixtureData.setYValue(temperature);
-//                }else {
-//                    firstEstimate = true;
-//                }
-//                index++;
-//            }
-//        
-//    }
+
      protected void drawTemperatureDiagram(double pressure, 
-            ArrayList<Component> components,
             Cubic cubic,
             BinaryInteractionParameters kinteraction,
             double tol,
@@ -261,75 +213,37 @@ public class PXComparerController implements Initializable {
                     int index = diagramT.indexOf(sol);
                     XYChart.Data<Number,Number> solutionData= ( XYChart.Data<Number,Number> ) this.solutionLine.getData().get(index);
                     XYChart.Data<Number,Number> mixtureData= ( XYChart.Data<Number,Number> ) mixtureLine.getData().get(index);
-
-                    
-                    
+       
                     solutionData.setXValue(sol.getSolutionFractions().get(component1));
                     solutionData.setYValue(sol.getTemperature());
-
-                   // mixtureData.setXValue(zFractions.get(components.get(0)));
+    
                     mixtureData.setXValue(sol.getMixtureFractions().get(component1));
                     mixtureData.setYValue(sol.getTemperature());
                 }
-            
-        
     }
-    boolean fistCalculation = true;
-    protected void drawPressureDiagram(double temperature,
-            ArrayList<Component> components,
+     
+     
+     protected void drawPressureDiagram(double temperature,
             Cubic cubic,
             BinaryInteractionParameters kinteraction,
-            double tolerance,
-            PhaseEquilibria pressureCalculator
-            ){
-
-            double lastPressure=0;
-            HashMap<Component,Double> lastVaporFractions = new HashMap<>();
-            boolean firstEstimate = true;
-            int index = 0 ;
-            
-            for(double i = 0.0; i <= 1; i += 0.01){
-                
-                HashMap<Component,Double> zFractions = new HashMap<>();
-
-                zFractions.put(component1, i);
-                zFractions.put(component2,(1 - i));
-                if(firstEstimate){
-                    EquilibriaPhaseSolution estimate = pressureCalculator.getPressureEstimate(temperature,  zFractions);
-
-                   lastVaporFractions = estimate.getSolutionFractions();
-                   lastPressure =  estimate.getPressure();
-                   firstEstimate = false;
-                   
+            double tol,
+            PhaseEquilibria pressureCalculator){
+         ArrayList<EquilibriaPhaseSolution> diagramP = 
+                   pressureCalculator.getPressureDiagram(temperature, component1, component2, kinteraction, cubic, tol);
+         
+               for(EquilibriaPhaseSolution sol : diagramP){
+                    int index = diagramP.indexOf(sol);
+                    XYChart.Data<Number,Number> solutionData= ( XYChart.Data<Number,Number> ) this.solutionLine.getData().get(index);
+                    XYChart.Data<Number,Number> mixtureData= ( XYChart.Data<Number,Number> ) mixtureLine.getData().get(index);
+       
+                    solutionData.setXValue(sol.getSolutionFractions().get(component1));
+                    solutionData.setYValue(sol.getPressure());
+    
+                    mixtureData.setXValue(sol.getMixtureFractions().get(component1));
+                    mixtureData.setYValue(sol.getPressure());
                 }
-               EquilibriaPhaseSolution solution =  pressureCalculator.getPressure(temperature,
-                       lastPressure, 
-                       components, 
-                       zFractions, 
-                       lastVaporFractions, 
-                       cubic, 
-                       kinteraction,
-                       tolerance);
-
-                double pressure = solution.getPressure();
-                if(!Double.isNaN(pressure)  ){
-                        lastPressure = pressure;
-                        HashMap<Component,Double> solutionFractions = (HashMap)solution.getSolutionFractions();
-                        lastVaporFractions = solutionFractions;
-                        XYChart.Data<Number,Number> solutionData= ( XYChart.Data<Number,Number> ) this.solutionLine.getData().get(index);
-                        XYChart.Data<Number,Number> mixtureData= ( XYChart.Data<Number,Number> ) mixtureLine.getData().get(index);
-                        
-                        solutionData.setXValue(solutionFractions.get(components.get(0)));
-                        solutionData.setYValue(pressure);
-
-                        mixtureData.setXValue(zFractions.get(components.get(0)));
-                        mixtureData.setYValue(pressure);
-                }else {
-                    firstEstimate = true;
-                }
-                index++;
-            }
-    }
+     }
+           
     @FXML protected void selectComponent1(ActionEvent event){
         component1 = (Component)component1ComboBox.getSelectionModel().getSelectedItem();
         actualizeBinaryInteractions();
