@@ -1,4 +1,4 @@
-package controller;
+    package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -8,9 +8,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import termo.component.BinaryInteractionParameters;
-//import termo.component.BinaryInteractionParameters;
 import termo.component.Component;
+import termo.component.VanDerWaalsParameters;
 
 /**
  *
@@ -51,7 +50,7 @@ public class ComponentSelectionController implements Initializable {
         components.getItems().addAll(n_heptane,ethane,propane,methanol,n_hexane,water,cyclohexane);
         components.setValue(methanol);
         
-        BinaryInteractionParameters kinteraction = new BinaryInteractionParameters();
+        VanDerWaalsParameters kinteraction = new VanDerWaalsParameters();
         
         kinteraction.setValue(ethane, propane, 0.0011, true);
         kinteraction.setValue(ethane, n_heptane, 0.0067, true);

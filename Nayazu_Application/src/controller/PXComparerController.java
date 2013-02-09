@@ -26,6 +26,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import termo.component.BinaryInteractionParameters;
 import termo.component.Component;
+import termo.component.VanDerWaalsParameters;
 import termo.data.ExperimentalDataBinary;
 import termo.eos.Cubic;
 import termo.eos.EOS;
@@ -33,7 +34,7 @@ import termo.equilibrium.BubblePoint;
 import termo.equilibrium.DewPoint;
 import termo.equilibrium.EquilibriaPhaseSolution;
 import termo.equilibrium.PhaseEquilibria;
-import termo.optimization.BinaryParameterOptimizer;
+import termo.optimization.VDWBinaryParameterOptimizer;
 import view.ApplicationStartup;
 
 /**
@@ -57,7 +58,7 @@ public class PXComparerController implements Initializable {
     Series vaporExpLine;
     Series liquidExpLine;
     
-    BinaryInteractionParameters  kinteraction;
+    VanDerWaalsParameters  kinteraction;
     Component component1;
     Component component2;
     SimpleBooleanProperty component1Selected;
@@ -94,7 +95,7 @@ public class PXComparerController implements Initializable {
         lineCharts.addAll(solutionLine,mixtureLine);
         PXChart.setData(lineCharts);
      //   PXChart.setCreateSymbols(false);
-        kinteraction = new BinaryInteractionParameters();
+        kinteraction = new VanDerWaalsParameters();
         kinteraction.setSymmetric(false);   
         ObservableList<Component> allComponents = UserProperties.getSelectedComponentsObservableList();
         component1ComboBox.setItems(allComponents);
@@ -169,7 +170,7 @@ public class PXComparerController implements Initializable {
     }
     
    @FXML  protected void optimizeBinaryParameter(ActionEvent event){
-       BinaryParameterOptimizer optimizer = new BinaryParameterOptimizer();
+       VDWBinaryParameterOptimizer optimizer = new VDWBinaryParameterOptimizer();
        Cubic eos =(Cubic) UserProperties.getSelectedEOS();
        ArrayList<ExperimentalDataBinary> exp = UserProperties.getExperimentalDataArrayList();
        double k12 = optimizer.optimizeParameter(eos, exp);
@@ -251,7 +252,7 @@ public class PXComparerController implements Initializable {
     }
     
     protected void actualizeBinaryInteractions(){
-            BinaryInteractionParameters k = UserProperties.getInteractionParameters();
+            VanDerWaalsParameters k = (VanDerWaalsParameters)UserProperties.getInteractionParameters();
         double k12 = k.getValue(component1, component2);
         double k21 = k.getValue(component2, component1);
         symmetricToggle.setSelected(false);
