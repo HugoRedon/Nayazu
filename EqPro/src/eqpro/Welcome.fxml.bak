@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="345.0" prefWidth="421.0" xmlns:fx="http://javafx.com/fxml" fx:controller="eqpro.WelcomeController">
+  <children>
+    <Text id="" fx:id="welcomeText" layoutX="129.0" layoutY="87.0" scaleX="1.1609158336020637" scaleY="1.1994459833795015" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Bienvenido" />
+    <Hyperlink id="crateComponents" layoutX="136.0" layoutY="137.0" onAction="#openComponentManager" text="Ingresar componentes" />
+    <Hyperlink layoutX="99.0" layoutY="190.0" text="Crear un paquete termodinámico" />
+    <Hyperlink layoutX="113.0" layoutY="252.0" text="Entrar al ambiente de simulación" />
+  </children>
+  <stylesheets>
+    <URL value="@welcomeStyles.css" />
+    <URL value="@Styles.css" />
+  </stylesheets>
+</AnchorPane>

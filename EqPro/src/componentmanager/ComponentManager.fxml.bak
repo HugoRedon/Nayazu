@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.web.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="622.0" prefWidth="877.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml" fx:controller="componentmanager.ComponentManagerController">
+  <children>
+    <Text layoutX="73.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Propiedades críticas" />
+    <Text layoutX="335.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Parámetros para paquetes termodinámicos" />
+    <GridPane layoutX="48.0" layoutY="217.0" prefHeight="87.0">
+      <children>
+        <Label text="Temperatura [K]" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Label text="Presión [Pa]" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="criticalTemperature" prefWidth="200.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <TextField fx:id="criticalPressure" prefWidth="200.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Label text="Factor acéntrico" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="acentricFactor" prefWidth="200.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="119.0" minWidth="10.0" prefWidth="119.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="97.0" minWidth="10.0" prefWidth="81.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+    <GridPane alignment="CENTER" layoutX="385.0" layoutY="107.0" prefWidth="156.0205078125">
+      <children>
+        <Label prefWidth="14.0" text="N" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <Label text="M" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Label text="L" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="L_Twu" prefWidth="200.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <TextField fx:id="M_Twu" prefWidth="200.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <TextField fx:id="N_Twu" prefWidth="200.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="99.0" minWidth="10.0" prefWidth="49.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.0" minWidth="10.0" prefWidth="151.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+    <Text layoutX="357.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expresión de alpha Twu" />
+    <Text layoutX="357.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expresión de alpha Mathias Copema" />
+    <GridPane layoutX="385.0" layoutY="230.0" prefWidth="157.0">
+      <children>
+        <Label text="A" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Label text="B" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Label text="C" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="A_Mathias_Copeman" prefWidth="200.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <TextField fx:id="B_Mathias_Copeman" prefWidth="200.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <TextField fx:id="C_Mathias_Copeman" prefWidth="200.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="98.0" minWidth="10.0" prefWidth="30.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="165.0" minWidth="10.0" prefWidth="109.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+    <Text layoutX="38.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Componente" />
+    <Text layoutX="357.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modelo de actividad UNIQUAC" />
+    <GridPane layoutX="388.0" layoutY="372.0" prefHeight="64.0" prefWidth="157.0">
+      <children>
+        <Label text="R" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Label text="Q" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="r_UNIQUAC" prefWidth="200.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <TextField fx:id="q_UNIQUAC" prefWidth="200.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="40.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="10.0" prefWidth="160.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+    <GridPane layoutX="51.0" layoutY="106.0">
+      <children>
+        <Label text="Nombre" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Label text="CAS" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="name" prefWidth="200.0" text="Componente" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <TextField fx:id="casNumber" prefWidth="200.0" text="CAS" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+    <GridPane layoutX="73.0" layoutY="457.0" prefWidth="157.0">
+      <children>
+        <Label text="A" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Label text="B" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Label text="E" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <TextField fx:id="A_dippr1007" prefWidth="200.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <TextField fx:id="B_dippr1007" prefWidth="200.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <TextField fx:id="E__dippr1007" prefWidth="200.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+        <Label text="D" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <Label text="C" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="C__dippr1007" prefWidth="118.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <TextField fx:id="D__dippr1007" prefWidth="118.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="98.0" minWidth="10.0" prefWidth="30.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="165.0" minWidth="10.0" prefWidth="109.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+    <Text layoutX="32.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DIPPR ecuación 107 para Cp" />
+    <ImageView fitHeight="64.69491344935203" fitWidth="238.5625" layoutX="48.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@Eqn107.gif" />
+      </image>
+    </ImageView>
+    <Button layoutX="392.0" layoutY="558.0" mnemonicParsing="false" onAction="#createComponent" text="Agregar componente" />
+    <Text layoutX="339.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expressión de alpha para prsv" />
+    <GridPane layoutX="370.0" layoutY="483.0" prefHeight="38.0" prefWidth="157.0">
+      <children>
+        <Label text="kappa" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField id="r_UNIQUAC" fx:id="prsvKappa" prefWidth="118.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="44.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="10.0" prefWidth="113.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+    <ListView fx:id="componentsListView" layoutX="637.0" layoutY="90.0" prefHeight="355.05078125" prefWidth="200.0" />
+    <Text layoutX="617.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Componentes" />
+    <Label fx:id="errorLabel" layoutX="73.0" layoutY="79.0" text="" />
+    <Button layoutX="637.0" layoutY="465.0" mnemonicParsing="false" onAction="#saveObjects" text="Guardar lista de componentes" />
+    <Button layoutX="637.0" layoutY="494.0" mnemonicParsing="false" onAction="#loadObjects" text="Abrir lista desde archivo" />
+    <Hyperlink layoutX="691.0" layoutY="559.0" text="Regresar" />
+  </children>
+  <stylesheets>
+    <URL value="@componentmanager.css" />
+    <URL value="@../eqpro/Styles.css" />
+  </stylesheets>
+</AnchorPane>
