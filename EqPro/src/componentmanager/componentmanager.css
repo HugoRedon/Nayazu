@@ -5,3 +5,14 @@
 .mainFxmlClass {
 
 }
+.text-field{
+    
+}
+.error{
+    -fx-background-color: red;
+    -fx-text-fill: white;
+}
+.good{
+    -fx-background-color: green;
+    -fx-text-fill: white;
+}

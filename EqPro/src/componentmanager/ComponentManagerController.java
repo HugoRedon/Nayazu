@@ -1,16 +1,9 @@
 package componentmanager;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import eqpro.UserProperties;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -18,14 +11,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import termo.component.Component;
-import termo.cp.DIPPR_107_Equation;
 
 /**
  * FXML Controller class
@@ -54,168 +45,126 @@ public class ComponentManagerController implements Initializable {
     
    @FXML      private TextField A_dippr1007;
   @FXML      private TextField B_dippr1007;
-  @FXML     private TextField C__dippr1007;
-   @FXML      private TextField D__dippr1007;
-  @FXML      private TextField E__dippr1007;
+  @FXML     private TextField C_dippr1007;
+   @FXML      private TextField D_dippr1007;
+  @FXML      private TextField E_dippr1007;
+  
+  @FXML private TextField enthalpyIG;
+  @FXML private TextField entropyIG;
+  
   
   @FXML private ListView componentsListView;
 
-  @FXML private Label errorLabel;
-  
-    private ObservableList<Component> components = FXCollections.observableArrayList();
-    private SimpleStringProperty componentsFileName = new SimpleStringProperty();
+  @FXML private Label errorLabel;  
   
 //    @FXML
 //    private ImageView cpImgView;
-
+    
+    
+   ComponentManagerControllerModelView manager ;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        componentsListView.setItems(components);
-        
-        componentsFileName.setValue("");
+         manager = UserProperties.getComponentManager();
+        if(manager ==null){
+             createAndBindManagerProperties();
+        }
         componentsListView.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 if(mouseEvent.getButton().equals(MouseButton.PRIMARY)){
                     if(mouseEvent.getClickCount() == 2){
-                        doubleClickOnComponent();
+                        manager.showSelectedComponent();
                     }
                 }
             }
         });
     }    
-    @FXML
-     protected void createComponent(ActionEvent event){
-        Component c = new Component();
-        
-        try{
-            c.setName(name.getText());
-            c.setCasNumber(casNumber.getText());
-            
-            if(name.getText().equals("") || casNumber.getText().equals("")){
-                errorLabel.setText( "Ingresa un nombre y numero Cas válido") ;
-                return;
-            }
-//            for(Component component: components){
-//                if(casNumber.getText().equals(component.getCasNumber())){
-//                    errorLabel.setText("Este componente ya existe");
-//                    return;
-//                }
-//             
-//            }
-
-            c.setCriticalTemperature(Double.valueOf(criticalTemperature.getText()));
-            c.setCriticalPressure(Double.valueOf(criticalPressure.getText()));
-            c.setAcentricFactor(Double.valueOf(acentricFactor.getText()));
-            c.setL_Twu(Double.valueOf(L_Twu.getText()));
-            c.setM_Twu(Double.valueOf(M_Twu.getText()));
-            c.setN_Twu(Double.valueOf(N_Twu.getText()));
-            c.setA_Mathias_Copeman(Double.valueOf(A_Mathias_Copeman.getText()));
-            c.setB_Mathias_Copeman(Double.valueOf(B_Mathias_Copeman.getText()));
-            c.setC_Mathias_Copeman(Double.valueOf(C_Mathias_Copeman.getText()));
-            c.setR_UNIQUAC(Double.valueOf(r_UNIQUAC.getText()));
-            c.setPrsvKappa(Double.valueOf(prsvKappa.getText()));
-
-            c.setCp(getCpEquation());
-        
-        
-            components.add(c);
-        }catch(java.lang.NumberFormatException e){
-            errorLabel.setText("Ingresaste letras en un campo numérico");
-        }
-    }
-    
-    private DIPPR_107_Equation getCpEquation(){
-        DIPPR_107_Equation cp = new DIPPR_107_Equation();
-        
-        cp.setA(Double.valueOf(A_dippr1007.getText()));
-        cp.setB(Double.valueOf(B_dippr1007.getText()));
-        cp.setC(Double.valueOf(C__dippr1007.getText()));
-        cp.setD(Double.valueOf(D__dippr1007.getText()));
-        cp.setE(Double.valueOf(E__dippr1007.getText()));
-        
-        return cp;
-    }
-    @FXML
-    protected void saveObjects(ActionEvent event)   {
-        
-          try {
-                FileOutputStream fout = new FileOutputStream("c:\\components.eq");
-            try (ObjectOutputStream oos = new ObjectOutputStream(fout)) {
-                oos.writeObject(components.toArray());
-            }
-            } catch (Exception ex) {
-                Logger.getLogger(ComponentManagerController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-           
-    }
     
     
-    @FXML
-    protected void loadObjects(ActionEvent event){
-               try {
-                   components.clear();
-                FileInputStream fout = new FileInputStream("c:\\components.eq");
-            try (ObjectInputStream oos = new ObjectInputStream(fout)) {
-                 
-                Object[] arrayComp ;
-                arrayComp = (Object[]) oos.readObject();
-                for(Object ob : arrayComp){
-                    Component c = (Component)ob;
-                    components.add(c);
-                }
-                if(arrayComp.length !=0){
-                    showComponent((Component)arrayComp[0]);
-                }
-            }
-            } catch (IOException | ClassNotFoundException ex) {
-                Logger.getLogger(ComponentManagerController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+    @FXML protected void createComponent(ActionEvent event){
+        manager.addNewComponent();
     }
- 
-    protected void doubleClickOnComponent(){
-        Component component = (Component)componentsListView.getSelectionModel().getSelectedItem();
-        showComponent(component);
-        
+    @FXML protected void saveObjects(ActionEvent event)   {
+        manager.saveObjects();     
     }
-    protected void showComponent(Component component){
-        
-        
-        name.setText(String.valueOf(component.getName()));
-        casNumber.setText(String.valueOf(component.getCasNumber()));
-        
-        criticalTemperature.setText(String.valueOf(component.getCriticalTemperature()));
-        criticalPressure.setText(String.valueOf(component.getCriticalPressure()));
-        acentricFactor.setText(String.valueOf(component.getAcentricFactor()));
-        prsvKappa.setText(String.valueOf(component.getPrsvKappa()));
-        L_Twu.setText(String.valueOf(component.getL_Twu()));
-        M_Twu.setText(String.valueOf(component.getM_Twu()));
-        N_Twu.setText(String.valueOf(component.getN_Twu()));
-        A_Mathias_Copeman.setText(String.valueOf(component.getA_Mathias_Copeman()));
-        B_Mathias_Copeman.setText(String.valueOf(component.getB_Mathias_Copeman()));
-        C_Mathias_Copeman.setText(String.valueOf(component.getC_Mathias_Copeman()));
-        r_UNIQUAC.setText(String.valueOf(component.getR_UNIQUAC()));
-        q_UNIQUAC.setText(String.valueOf(component.getQ_UNIQUAC()));
-        
-        DIPPR_107_Equation cpEquation = (DIPPR_107_Equation)component.getCpIdealGasEquation();
-        
-        A_dippr1007.setText(String.valueOf(cpEquation.getA()));
-        B_dippr1007.setText(String.valueOf(cpEquation.getB()));
-        C__dippr1007.setText(String.valueOf(cpEquation.getC()));
-        D__dippr1007.setText(String.valueOf(cpEquation.getD()));
-        E__dippr1007.setText(String.valueOf(cpEquation.getE()));
-
+    @FXML protected void loadObjects(ActionEvent event){
+              manager.loadObjects();
     }
+   
     @FXML protected void regresar(ActionEvent event) throws IOException{
-        
         Parent root = FXMLLoader.load(getClass().getResource(eqpro.EqPro.WelcomeFXML));
         eqpro.EqPro.loadFxml(root);
+    }
+
+    private void createAndBindManagerProperties() {
+        
+             manager = new ComponentManagerControllerModelView();
+            UserProperties.setComponentManager(manager);    
+            manager.setSelectedComponentProperty(componentsListView.getSelectionModel().selectedItemProperty());
+            
+            
+            
+            manager.getNameProperty().bindBidirectional(name.textProperty());
+           manager.getCasNumberProperty().bindBidirectional(casNumber.textProperty());
+           manager.getCriticalTemperatureProperty().bindBidirectional(criticalTemperature.textProperty());
+           manager.getCriticalPressureProperty().bindBidirectional(criticalPressure.textProperty());
+           manager.getAcentricFactorProperty().bindBidirectional(acentricFactor.textProperty());
+           manager.getL_TwuProperty().bindBidirectional(L_Twu.textProperty());
+           manager.getM_TwuProperty().bindBidirectional(M_Twu.textProperty());
+           manager.getN_TwuProperty().bindBidirectional(N_Twu.textProperty());
+           
+           manager.getA_Mathias_CopemanProperty().bindBidirectional(A_Mathias_Copeman.textProperty());
+           manager.getB_Mathias_CopemanProperty().bindBidirectional(B_Mathias_Copeman.textProperty());
+           
+            
+         
+            manager.getC_Mathias_CopemanProperty().bindBidirectional(C_Mathias_Copeman.textProperty());
+            manager.getR_UNIQUACProperty().bindBidirectional(r_UNIQUAC.textProperty());
+            manager.getQ_UNIQUACProperty().bindBidirectional(q_UNIQUAC.textProperty());
+            
+            manager.getPrsvKappaProperty().bindBidirectional(prsvKappa.textProperty());
+            
+            manager.getA_dippr1007Property().bindBidirectional(A_dippr1007.textProperty());
+            manager.getB_dippr1007Property().bindBidirectional(B_dippr1007.textProperty());
+            manager.getC_dippr1007Property().bindBidirectional(C_dippr1007.textProperty());
+            manager.getD_dippr1007Property().bindBidirectional(D_dippr1007.textProperty());
+            manager.getE_dippr1007Property().bindBidirectional(E_dippr1007.textProperty());
+            
+            manager.getEnthalpyIG().bindBidirectional(enthalpyIG.textProperty());
+            manager.getEntropyIG().bindBidirectional(entropyIG.textProperty());
+         
+            componentsListView.setItems(manager.getComponents());
+            
+    }
+    @FXML protected void justNumbersAllowed(KeyEvent keyEvent){
+            TextField focusedField = (TextField)keyEvent.getSource();
+            
+            ObservableList<String> classes = focusedField.getStyleClass();
+            classes.clear();
+            
+            String keyCharacter = keyEvent.getCharacter();
+           String fieldText = focusedField.getText();
+           
+           fieldText = (fieldText == null )? "":fieldText;
+           fieldText = (keyCharacter.matches("\\r"))? fieldText.substring(0, fieldText.length()-2):fieldText;
+           
+           keyCharacter = (keyCharacter.matches("\\W"))? "": keyCharacter;
+           
+           String resultText = fieldText + keyCharacter;
+           
+           resultText = (resultText.equals("")   || resultText.equals(".") || resultText.equals("-") || resultText.equals("e"))? "0":resultText;
+           
+           try{
+               Double.valueOf(resultText);
+               classes.add("good");
+               
+           }catch(Exception e){
+               classes.add("error");
+            }
         
     }
-    
 
 }

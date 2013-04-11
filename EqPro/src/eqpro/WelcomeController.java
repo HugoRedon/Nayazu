@@ -9,7 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.text.Text;
+import javafx.scene.image.ImageView;
 
 /**
  *
@@ -18,6 +18,12 @@ import javafx.scene.text.Text;
 public class WelcomeController implements Initializable {
     
 
+    @FXML ImageView componentsImage;
+    @FXML ImageView packageImage;
+    @FXML ImageView simulationImage;
+    
+
+    
 @FXML
 protected void openComponentManager(ActionEvent event)throws Exception{
     Parent root = FXMLLoader.load(getClass().getResource(EqPro.componentManagerFXML));
@@ -33,5 +39,6 @@ protected void openTermoPackageManager(ActionEvent event) throws IOException{
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+          componentsImage.visibleProperty().bindBidirectional(UserProperties.getComponentListAsigned());
     }    
 }

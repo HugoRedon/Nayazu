@@ -5,15 +5,49 @@
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="345.0" prefWidth="421.0" xmlns:fx="http://javafx.com/fxml" fx:controller="eqpro.WelcomeController">
+<AnchorPane id="AnchorPane" prefHeight="345.0" prefWidth="421.0" styleClass="panelEqPro" xmlns:fx="http://javafx.com/fxml" fx:controller="eqpro.WelcomeController">
   <children>
-    <Text id="" fx:id="welcomeText" layoutX="129.0" layoutY="87.0" scaleX="1.1609158336020637" scaleY="1.1994459833795015" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Bienvenido" />
-    <Hyperlink id="crateComponents" layoutX="136.0" layoutY="137.0" onAction="#openComponentManager" text="Ingresar componentes" />
-    <Hyperlink layoutX="99.0" layoutY="190.0" onAction="#openTermoPackageManager" text="Crear un paquete termodinámico" />
-    <Hyperlink layoutX="113.0" layoutY="252.0" text="Entrar al ambiente de simulación" />
+    <Text id="" fx:id="welcomeText" layoutX="159.0" layoutY="73.0" scaleX="1.1609158336020637" scaleY="1.1994459833795015" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="EqPro" />
+    <GridPane layoutX="33.0" layoutY="121.0" prefHeight="164.0" prefWidth="356.0">
+      <children>
+        <Hyperlink id="crateComponents" onAction="#openComponentManager" styleClass="subtitle" text="Ingresar componentes" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Hyperlink onAction="#openTermoPackageManager" styleClass="subtitle" text="Crear un paquete termodinámico" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Hyperlink styleClass="subtitle" text="Entrar al ambiente de simulación" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <ImageView fx:id="componentsImage" fitHeight="29.015625" fitWidth="38.68749795204023" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="0">
+          <image>
+            <Image url="@logo.jpg" />
+          </image>
+        </ImageView>
+        <ImageView fx:id="packageImage" fitHeight="29.015625" fitWidth="38.68749795204023" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+          <image>
+            <Image url="@logo.jpg" />
+          </image>
+        </ImageView>
+        <ImageView fx:id="simulationImage" fitHeight="29.015625" fitWidth="38.68749795204023" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+          <image>
+            <Image url="@logo.jpg" />
+          </image>
+        </ImageView>
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="286.0" minWidth="10.0" prefWidth="286.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="97.0" minWidth="0.0" prefWidth="0.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+    <ImageView fitHeight="50.40625" fitWidth="50.40625" layoutX="81.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@logo.jpg" />
+      </image>
+    </ImageView>
   </children>
   <stylesheets>
     <URL value="@welcomeStyles.css" />
