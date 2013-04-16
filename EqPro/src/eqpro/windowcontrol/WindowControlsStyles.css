@@ -1,0 +1,7 @@
+.image-view:hover{
+    -fx-scale-y: 1.5;
+        -fx-scale-x: 1.5;
+}
+.transparent{
+    -fx-background-color: transparent;
+}

@@ -7,47 +7,65 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="345.0" prefWidth="421.0" styleClass="panelEqPro" xmlns:fx="http://javafx.com/fxml" fx:controller="eqpro.WelcomeController">
+<AnchorPane id="AnchorPane" prefHeight="345.0" prefWidth="421.0" xmlns:fx="http://javafx.com/fxml" fx:controller="eqpro.WelcomeController">
   <children>
-    <Text id="" fx:id="welcomeText" layoutX="159.0" layoutY="73.0" scaleX="1.1609158336020637" scaleY="1.1994459833795015" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="EqPro" />
-    <GridPane layoutX="96.0" layoutY="160.0" prefWidth="256.0">
+    <Pane prefHeight="276.59375" prefWidth="421.0" styleClass="content-panel" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="68.0">
       <children>
-        <Hyperlink id="crateComponents" onAction="#openComponentManager" styleClass="lettersEqPro" text="Ingresar componentes" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-        <Hyperlink onAction="#openTermoPackageManager" styleClass="lettersEqPro" text="Crear un paquete termodinámico" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-        <Hyperlink styleClass="lettersEqPro" text="Entrar al ambiente de simulación" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-        <ImageView fx:id="componentsImage" fitHeight="29.015625" fitWidth="38.68749795204023" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="0">
-          <image>
-            <Image url="@logo.jpg" />
-          </image>
-        </ImageView>
-        <ImageView fx:id="packageImage" fitHeight="29.015625" fitWidth="38.68749795204023" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
-          <image>
-            <Image url="@logo.jpg" />
-          </image>
-        </ImageView>
-        <ImageView fx:id="simulationImage" fitHeight="29.015625" fitWidth="38.68749795204023" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
-          <image>
-            <Image url="@logo.jpg" />
-          </image>
-        </ImageView>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="277.0" layoutX="0.0" layoutY="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="421.0" />
+        <GridPane layoutX="33.0" layoutY="26.0" prefHeight="164.0" prefWidth="356.0">
+          <children>
+            <Hyperlink id="crateComponents" onAction="#openComponentManager" styleClass="subtitle" text="Ingresar componentes" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <Hyperlink onAction="#openTermoPackageManager" styleClass="subtitle" text="Crear un paquete termodinámico" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <Hyperlink styleClass="subtitle" text="Entrar al ambiente de simulación" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <ImageView fx:id="componentsImage" fitHeight="29.015625" fitWidth="38.68749795204023" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="0">
+              <image>
+                <Image url="@images/logo.jpg" />
+              </image>
+            </ImageView>
+            <ImageView fx:id="packageImage" fitHeight="29.015625" fitWidth="38.68749795204023" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <image>
+                <Image url="@images/logo.jpg" />
+              </image>
+            </ImageView>
+            <ImageView fx:id="simulationImage" fitHeight="29.015625" fitWidth="38.68749795204023" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+              <image>
+                <Image url="@images/logo.jpg" />
+              </image>
+            </ImageView>
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="334.0" minWidth="10.0" prefWidth="291.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="97.0" minWidth="0.0" prefWidth="65.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9f9f9f" height="7.0" layoutX="0.0" layoutY="0.0" stroke="#bfbfbf" strokeType="INSIDE" width="421.0000305175781" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="5.0" layoutX="0.0" layoutY="4.0" stroke="$x1" strokeType="INSIDE" width="421.0000305175781">
+          <fill>
+            <Color blue="0.875" green="0.875" red="0.875" fx:id="x1" />
+          </fill>
+        </Rectangle>
       </children>
-      <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="189.0" minWidth="10.0" prefWidth="189.0" />
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="97.0" minWidth="10.0" prefWidth="11.0" />
-      </columnConstraints>
-      <rowConstraints>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      </rowConstraints>
-    </GridPane>
-    <ImageView fitHeight="50.40625" fitWidth="50.40625" layoutX="81.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-        <Image url="@logo.jpg" />
-      </image>
-    </ImageView>
+    </Pane>
+    <AnchorPane minHeight="68.0" prefHeight="68.0" prefWidth="421.0" styleClass="panelEqPro" AnchorPane.bottomAnchor="277.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <ImageView fitHeight="50.40625" fitWidth="50.40625" layoutX="14.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+          <image>
+            <Image url="@images/logo.jpg" />
+          </image>
+        </ImageView>
+        <Text id="" fx:id="welcomeText" layoutX="83.0" layoutY="47.0" scaleX="1.1609158336020637" scaleY="1.1994459833795015" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="EQ PRO" />
+        <fx:include source="windowcontrol/WindowControls.fxml" prefHeight="37.49761962890625" prefWidth="101.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="7.0" />
+      </children>
+    </AnchorPane>
   </children>
   <stylesheets>
     <URL value="@welcomeStyles.css" />

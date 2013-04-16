@@ -1,12 +1,17 @@
 package termopackagemanager;
 
+import eqpro.EqPro;
+import eqpro.UserProperties;
+import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleButton;
@@ -41,6 +46,14 @@ public class TermoPackageManagerController implements Initializable {
     
     
     HashMap<String,Cubic> eos ;
+    
+    @FXML protected void next() throws IOException{
+        
+        EqPro.startAlphaExpressionForm();
+    }
+    @FXML protected void back()throws Exception{
+        EqPro.startWelcomeForm();
+    }
         
    
     /**
@@ -118,11 +131,6 @@ public class TermoPackageManagerController implements Initializable {
                 
             }
         });
-        
-//        
-//        eosList.getItems().addAll(tst,pr,rks,vanDW);
-//        
-//        alphaList.getItems().addAll(soave,pengRob,generalTwu,mathias,twu,sv);
-//       
+            
     }    
 }

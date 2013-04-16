@@ -1,11 +1,16 @@
-
 package eqpro;
 
+import java.io.IOException;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -13,27 +18,97 @@ import javafx.stage.Stage;
  */
 public class EqPro extends Application {
     private static Stage stage ;
+    
+    public static void minimize(){
+        stage.setIconified(true);
+        //stage.setFullScreen(false);
+    }
+    public static void maximize(){
+        stage.setFullScreen(true);
+    }
+    public static void close(){
+        stage.close();
+    }
+
+    public static void startAlphaExpressionForm()throws IOException {
+        startAForm(ALPHA_EXPRESSION_FXML);
+    }
 
 
-    
-    
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource(EqPro.WelcomeFXML));
-        
+      stage.initStyle(StageStyle.UNDECORATED);
         EqPro.stage = stage;
-        loadFxml(root);
+        
+       
+      
+        startWelcomeForm();
         EqPro.stage.show();
-    }
-    public static void  loadFxml(Parent parent){
-       Scene scene = new Scene(parent);
-        stage.setScene(scene);
+        stage.centerOnScreen();
+        initialX= stage.getX();
+        initialY =stage.getY();
+        
     }
 
     
-    public final static String componentManagerFXML = "/componentmanager/ComponentManager.fxml";
-    public final static String termoPackageFXML = "/termopackagemanager/TermoPackageManager.fxml";
+    public static void startWelcomeForm() throws IOException{
+        startAForm(WelcomeFXML);
+    }
+    public static void startComponentListManager() throws IOException {
+            startAForm( COMPONENT_LIST_MANAGER_FORM);
+    }
+    public static void startComponentManager( ) throws IOException{
+        startAForm( COMPONENT_FORM);
+    }
+     public static void startTermoPackageManager() throws IOException {
+        startAForm(TERMO_PACKAGE_FORM);
+    }
+     static double  initialX =0;
+     static double initialY = 0;
+     
+    
+     
+    public static void startAForm( String theFormString)throws IOException{
+    
+             final  Parent node  = FXMLLoader.load( EqPro.class.getResource(theFormString));
+             AnchorPane pane = FXMLLoader.load(EqPro.class.getResource("/eqpro/WindowControls.fxml"));
+             node.lookup(theFormString);
+             
+             
+            
+             node.setOnMousePressed(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent me) {
+                    if (me.getButton() != MouseButton.MIDDLE) {
+                        initialX = me.getSceneX();
+                        initialY = me.getSceneY();
+                        
+                    }
+                }
+            });
+
+            node.setOnMouseDragged(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent me) {
+                    if (me.getButton() != MouseButton.MIDDLE) {
+                        node.getScene().getWindow().setX(me.getScreenX() - initialX);
+                        node.getScene().getWindow().setY(me.getScreenY() - initialY);
+                    }
+                }
+            });
+            
+            Scene scene = new Scene(node);
+            
+            stage.setScene(scene);
+          //  stage.centerOnScreen();
+    }
+   
+    public final static String COMPONENT_FORM = "/componentmanager/component/ComponentForm.fxml";
+    public final static String COMPONENT_LIST_MANAGER_FORM = "/componentmanager/componentlist/ComponentListForm.fxml";
+    
+    public final static String TERMO_PACKAGE_FORM = "/termopackagemanager/TermoPackageManager.fxml";
     public final static String WelcomeFXML = "/eqpro/Welcome.fxml";
+    public final static String ALPHA_EXPRESSION_FXML= "/termopackagemanager/alphaexpression/AlphaExpressionManager.fxml";
     /**
      * The main() method is ignored in correctly deployed JavaFX application.
      * main() serves only as fallback in case the application can not be

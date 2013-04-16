@@ -12,21 +12,50 @@ root {
 }
 .title{
     -fx-font-size: 32px;
-   -fx-font-family: "Arial Black";
-   -fx-fill: #818181;
+   -fx-font-family: "Arial";
+   -fx-fill: white;
    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
 }
 .subtitle{
     -fx-font-size: 15px;
    -fx-font-family: "Arial Black";
-   -fx-fill: white;
+   -fx-fill: gray;
    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
-   -fx-text-fill: white;
+  
 }
-.label{
-   -fx-text-fill: white;
-   -fx-text-alignment: center;
-}
+
 .panelEqPro{
-    -fx-background-color: #212121;
+    -fx-background-color: linear-gradient( to bottom, #191919, #232323);
+    
 }
+.whitePanel{
+    -fx-background-color: white;
+}
+.error-label{
+    -fx-text-fill: red;
+    -font-size:10;
+    
+}
+.content-panel{
+    -fx-stroke-width: 5;
+    -fx-stroke: black;
+}
+.toggle-button{
+    -fx-background-color: white;
+   
+}
+.toggle-button:selected{
+    -fx-text-fill: black;
+     -fx-border-color:  blue;
+     -fx-border-radius: 10;
+    -fx-border-width:  2;
+}
+.error{
+    -fx-background-color: red;
+    -fx-text-fill: white;
+}
+.good{
+    -fx-background-color: green;
+    -fx-text-fill: white;
+}
+

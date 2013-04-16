@@ -26,19 +26,19 @@ public class WelcomeController implements Initializable {
     
 @FXML
 protected void openComponentManager(ActionEvent event)throws Exception{
-    Parent root = FXMLLoader.load(getClass().getResource(EqPro.componentManagerFXML));
-    EqPro.loadFxml(root);
+    EqPro.startComponentListManager();
 }
 @FXML
 protected void openTermoPackageManager(ActionEvent event) throws IOException{
-    Parent root = FXMLLoader.load(getClass().getResource(EqPro.termoPackageFXML));
-    EqPro.loadFxml(root);
+    EqPro.startTermoPackageManager();
 }
 
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-          componentsImage.visibleProperty().bindBidirectional(UserProperties.getComponentListAsigned());
+//          componentsImage.visibleProperty().bindBidirectional(UserProperties.getComponentListAsigned());
+        
+        //componentsImage.setVisible((boolean)UserProperties.getProperties().get(UserProperties.ARE_COMPONENTS_ASIGNED));
     }    
 }
