@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="143.00009999999747" xmlns:fx="http://javafx.com/fxml" fx:controller="eqpro.WindowControlsController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="143.00009999999747" xmlns:fx="http://javafx.com/fxml" fx:controller="eqpro.windowcontrol.WindowControlsController">
   <children>
     <GridPane prefHeight="35.0" prefWidth="127.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
@@ -16,19 +16,13 @@
             <Image url="file:/C:/Users/Chilpayate/Dropbox/Nayazu/EqPro/src/eqpro/images/minus-5495718426.png" />
           </image>
         </ImageView>
-        <ImageView fitHeight="15.0" fitWidth="15.0" onMouseClicked="#maximize" pickOnBounds="true" preserveRatio="true" styleClass="image-view" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
-          <image>
-            <Image url="file:/C:/Users/Chilpayate/Dropbox/Nayazu/EqPro/src/eqpro/images/tray.png" />
-          </image>
-        </ImageView>
-        <ImageView fitHeight="15.0" fitWidth="15.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true" styleClass="image-view" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
+        <ImageView fitHeight="15.0" fitWidth="15.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true" styleClass="image-view" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
           <image>
             <Image url="file:/C:/Users/Chilpayate/Dropbox/Nayazu/EqPro/src/eqpro/images/delete-5491213566.png" />
           </image>
         </ImageView>
       </children>
       <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
       </columnConstraints>

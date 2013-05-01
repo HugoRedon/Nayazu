@@ -20,9 +20,7 @@ public class WindowControlsController implements Initializable{
     @FXML protected void minimize(MouseEvent event){
         EqPro.minimize();
     }
-    @FXML  protected void maximize(MouseEvent event){
-        EqPro.maximize();
-    }
+
     @FXML protected void close(MouseEvent event){
         EqPro.close();
     }

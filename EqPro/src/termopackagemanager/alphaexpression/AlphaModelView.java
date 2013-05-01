@@ -17,10 +17,11 @@ import termo.substance.PureSubstance;
  *
  * @author Hugo Redon Rivera
  */
-public class AlphaModelView {
+public final class AlphaModelView {
     private static ObservableList<Alpha> existentAlphas = FXCollections.observableArrayList();
     private Alpha selectedAlpha;
     private Component selectedComponent;
+    
     
     private ObservableList<PureSubstance> pureSubstances = FXCollections.observableArrayList();
     
@@ -37,6 +38,7 @@ public class AlphaModelView {
     public static ObservableList<Alpha> getExistentAlphas() {return existentAlphas; }
     public static void setExistentAlphas(ObservableList<Alpha> aExistentAlphas) {existentAlphas = aExistentAlphas; }
  
+
     public PureSubstance createPureSubstance(Alpha alpha,Component component){
         PureSubstance substance = new PureSubstance();
         
@@ -47,7 +49,7 @@ public class AlphaModelView {
     
    
     
-    
+        
     {
             Method[] methods = AlphaFactory.class.getDeclaredMethods();
             Method.setAccessible(methods, true);

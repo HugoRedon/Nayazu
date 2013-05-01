@@ -33,7 +33,7 @@
             <Image url="@../../eqpro/images/arrow_left-5485012550.png" />
           </image>
         </ImageView>
-        <Hyperlink text="regresar" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <Hyperlink onAction="#back" text="regresar" GridPane.columnIndex="1" GridPane.rowIndex="0" />
       </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="99.0" minWidth="10.0" prefWidth="40.0" />
@@ -45,7 +45,7 @@
     </GridPane>
     <GridPane layoutX="500.0" layoutY="415.0" prefWidth="163.0">
       <children>
-        <Hyperlink id="okAction" styleClass="label" text="Regla de mezclado" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Hyperlink id="okAction" onAction="#next" styleClass="label" text="Regla de mezclado" GridPane.columnIndex="0" GridPane.rowIndex="0" />
         <ImageView id="okImage" fitHeight="27.75" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="0">
           <image>
             <Image url="@../../eqpro/images/arrow_right.png" />
@@ -82,12 +82,7 @@
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       </rowConstraints>
     </GridPane>
-    <TableView fx:id="substancesTable" layoutX="43.0" layoutY="128.0" prefHeight="200.0" prefWidth="200.0">
-      <columns>
-        <TableColumn prefWidth="75.0" text="Column X" />
-        <TableColumn prefWidth="75.0" text="Column X" />
-      </columns>
-    </TableView>
+    <TableView fx:id="substancesTable" layoutX="43.0" layoutY="128.0" prefHeight="200.0" prefWidth="200.0" />
   </children>
   <stylesheets>
     <URL value="@../../eqpro/Styles.css" />

@@ -28,6 +28,8 @@ public class ComponentListModelView {
     private ObservableList<Component> componentsObservableList = FXCollections.observableArrayList();
     private ObservableValue<Component> selectedComponentObservableValue ;
     private SimpleStringProperty listFilenameProperty = new SimpleStringProperty("");
+    
+    
 
     public boolean addComponentToList(Component newComponent){
          if(!isComponentNameAndCasNumberAlreadyInList(newComponent)){
@@ -214,6 +216,15 @@ public class ComponentListModelView {
         eqpro.EqPro.startComponentManager();
         
        
+    }
+
+    public boolean isMixture() {
+        if(componentsObservableList.size() > 1){
+            return true;
+        } else {
+            return false;
+        }
+        
     }
         
 }

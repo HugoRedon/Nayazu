@@ -34,6 +34,10 @@ public class EqPro extends Application {
         startAForm(ALPHA_EXPRESSION_FXML);
     }
 
+    public static void startMixingRuleForm() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -102,7 +106,7 @@ public class EqPro extends Application {
             stage.setScene(scene);
           //  stage.centerOnScreen();
     }
-   
+   public final static String MIXING_RULE_FORM = "/termopackagemanager/mixingrule/MixingRuleForm.fxml";
     public final static String COMPONENT_FORM = "/componentmanager/component/ComponentForm.fxml";
     public final static String COMPONENT_LIST_MANAGER_FORM = "/componentmanager/componentlist/ComponentListForm.fxml";
     
