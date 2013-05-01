@@ -2,59 +2,52 @@ package termopackagemanager;
 
 import eqpro.EqPro;
 import eqpro.UserProperties;
+import eqpro.numerictextfieldcontroller.NumericTextFieldController;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
+import javafx.beans.property.BooleanProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import termo.eos.Cubic;
 import termo.eos.EquationOfStateFactory;
-import termo.eos.alpha.Alpha;
-import termo.eos.alpha.AlphaFactory;
 
 /**
  * FXML Controller class
  *
  * @author Chilpayate
  */
-public class TermoPackageManagerController implements Initializable {
-
+public class TermoPackageManagerController extends NumericTextFieldController implements Initializable {
     
-    @FXML ToggleButton tstButton;
-    @FXML ToggleButton prButton;
-    @FXML ToggleButton rksButton;
-    @FXML ToggleButton vdwButton;
     @FXML ToggleButton customEosToggle;
-
-    
     
     @FXML ToggleGroup group;
     
+    @FXML TextField nameField;
     @FXML TextField uField;
     @FXML TextField wField;
     @FXML TextField omega_aField;
     @FXML TextField omega_bField;
     
-    
+    private CubicModelView manager;
     HashMap<String,Cubic> eos ;
     
-    @FXML protected void next() throws IOException{
-        
-        EqPro.startAlphaExpressionForm();
-    }
-    @FXML protected void back()throws Exception{
-        EqPro.startWelcomeForm();
-    }
-        
+    @FXML  private Hyperlink okAction;
+    @FXML  private ImageView okImage;
+    
+    @FXML private GridPane gridPane;
+    
    
     /**
      * Initializes the controller class.
@@ -62,75 +55,105 @@ public class TermoPackageManagerController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-//        termoPackageCombo.getItems().clear();
-        final Cubic  tst = EquationOfStateFactory.twoSimTassone();
-        final Cubic pr = EquationOfStateFactory.pengRobinsonBase();
-        final Cubic rks = EquationOfStateFactory.redlichKwongSoaveBase();
-        final Cubic vanDW = EquationOfStateFactory.vanDerWaals();
-        
-        Alpha soave = AlphaFactory.getSoaveExpression();
-        Alpha pengRob = AlphaFactory.getPengAndRobinsonExpression();
-        Alpha generalTwu = AlphaFactory.getGeneralTwuEquation();
-        Alpha mathias = AlphaFactory.getMathiasExpression();
-        Alpha twu = AlphaFactory.getTwuExpression();
-        Alpha sv = AlphaFactory.getStryjekAndVeraExpression();
-        
-        
-        
-        tstButton.setText(tst.getName());
-        prButton.setText(pr.getName());
-        rksButton.setText(rks.getName());
-        vdwButton.setText(vanDW.getName());
-        
-        tstButton.setUserData(tst);
-        prButton.setUserData(pr);
-         rksButton.setUserData(rks);
-        vdwButton.setUserData(vanDW);
-        
-        eos = new HashMap(){
-            {
-                put(tst.getName(),tst);
-                put(pr.getName(),pr);
-                put(rks.getName(),rks);
-                put(vanDW.getName(),vanDW);
-            }
-        
-            
-    };
-        
+          manager = UserProperties.getCubicModelView();
+        //bind 
+        bindWithModelView();
+        try{
+            addingCubicEOSToButtons();
+        }catch(Exception e){
+            System.out.println("Esta mal" + e.getMessage());
+        }
+   
+
+       
         group.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
 
             @Override
             public void changed(ObservableValue<? extends Toggle> ov, Toggle t, Toggle t1) {
+                Cubic cubic;
                 
-                if(t1 == customEosToggle){
-                    uField.setText("0.0");
-                    omega_aField.setText("0.0");
-                    omega_bField.setText("0.0");
-                    wField.setText("0.0");
-                    
-                    uField.setEditable(true);
-                    omega_aField.setEditable(true);
-                    omega_bField.setEditable(true);
-                    wField.setEditable(true);
-                            
+                if(t1 == null){
+                   manager.showEmpty();
+                    manager.getSelectedProperty().set(false);
+                    manager.getEditableProperty().set(false);
+                    return;
+                }else if(t1 == customEosToggle){
+                    cubic = new Cubic();   
+                    cubic.setName("Nueva ecuación");
+                    manager.getEditableProperty().set(true);
                 }else{
-                    uField.setEditable(false);
-                    omega_aField.setEditable(false);
-                    omega_bField.setEditable(false);
-                    wField.setEditable(false);
-
-                     Cubic cubic = (Cubic)t1.getUserData();
-
-                     uField.setText(String.valueOf(cubic.getU()));
-                     omega_aField.setText(String.valueOf(cubic.getOmega_a()));
-                     omega_bField.setText(String.valueOf(cubic.getOmega_b()));
-                     wField.setText(String.valueOf(cubic.getW()));
+                    cubic = (Cubic)t1.getUserData();
+                    manager.getEditableProperty().set(false);
                 }
-              
-                
+                                        
+                manager.getSelectedProperty().set(true);
+                manager.setSelectedCubic(cubic);
+                 
             }
         });
+        
+        if(manager.getSelectedProperty().get()){
+            for(Toggle toggle : group.getToggles()){
+                Cubic cubic =(Cubic)toggle.getUserData();
+                if(manager.getSelectedCubic().equals(cubic)){
+                    toggle.setSelected(true);
+                }
+            }
+        }
             
     }    
+    
+    @FXML protected void next() throws IOException{         
+        EqPro.startAlphaExpressionForm();
+    }
+
+    
+    @FXML protected void back()throws Exception{
+        EqPro.startWelcomeForm();
+    }
+   
+  
+    private void bindWithModelView() {
+        nameField.textProperty().bindBidirectional(manager.getName());
+        uField.textProperty().bindBidirectional(manager.getU());
+        wField.textProperty().bindBidirectional(manager.getW());
+        omega_aField.textProperty().bindBidirectional(manager.getOmega_a());
+        omega_bField.textProperty().bindBidirectional(manager.getOmega_b());
+        
+        bindTextFieldsEditableProperty(manager.getEditableProperty());
+        
+        okAction.visibleProperty().bind(containsErrorProperty.not().and(manager.getSelectedProperty()));
+        okImage.visibleProperty().bind(okAction.visibleProperty());
+    }
+    
+    private void bindTextFieldsEditableProperty(ObservableValue<? extends Boolean> isEditable){
+        nameField.editableProperty().bind(isEditable);
+        uField.editableProperty().bind(isEditable);
+        wField.editableProperty().bind(isEditable);
+        omega_aField.editableProperty().bind(isEditable);
+        omega_bField.editableProperty().bind(isEditable);
+    }
+    
+    
+
+    private void addingCubicEOSToButtons() throws Exception {
+        //could be used
+        
+        Method[] methods =EquationOfStateFactory.class.getDeclaredMethods();
+        Method.setAccessible(methods, true);
+        
+        for(Method method : methods){
+            Class type = method.getReturnType();
+            if(type.equals(Cubic.class)){
+                Cubic cubic = (Cubic)method.invoke(null, null);
+                ToggleButton toggle = new ToggleButton(cubic.getName());
+                toggle.setUserData(cubic);
+                int size =  gridPane.getChildren().size();
+                gridPane.add(toggle, 0, size );
+                group.getToggles().add(toggle);
+            }
+        }
+        
+      
+    }
 }

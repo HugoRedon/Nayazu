@@ -71,7 +71,7 @@ public class EqPro extends Application {
     public static void startAForm( String theFormString)throws IOException{
     
              final  Parent node  = FXMLLoader.load( EqPro.class.getResource(theFormString));
-             AnchorPane pane = FXMLLoader.load(EqPro.class.getResource("/eqpro/WindowControls.fxml"));
+             AnchorPane pane = FXMLLoader.load(EqPro.class.getResource("/eqpro/windowcontrol/WindowControls.fxml"));
              node.lookup(theFormString);
              
              

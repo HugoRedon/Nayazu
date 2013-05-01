@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package termopackagemanager.alphaexpression;
+package termopackagemanager.mixingrule;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,7 +13,7 @@ import javafx.fxml.Initializable;
  *
  * @author Chilpayate
  */
-public class CommonsAlphaFormController implements Initializable {
+public class MixingRuleFormController implements Initializable {
 
     /**
      * Initializes the controller class.

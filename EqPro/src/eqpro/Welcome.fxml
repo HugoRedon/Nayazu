@@ -63,7 +63,7 @@
           </image>
         </ImageView>
         <Text id="" fx:id="welcomeText" layoutX="83.0" layoutY="47.0" scaleX="1.1609158336020637" scaleY="1.1994459833795015" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="EQ PRO" />
-        <fx:include source="windowcontrol/WindowControls.fxml" prefHeight="37.49761962890625" prefWidth="101.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="7.0" />
+        <fx:include source="windowcontrol/WindowControls.fxml" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       </children>
     </AnchorPane>
   </children>

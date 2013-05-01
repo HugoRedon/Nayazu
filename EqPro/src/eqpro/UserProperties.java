@@ -1,10 +1,10 @@
 package eqpro;
 
-import com.sun.org.apache.xpath.internal.compiler.Keywords;
 import componentmanager.component.ComponentModelView;
 import componentmanager.componentlist.ComponentListModelView;
 import java.util.HashMap;
 import termopackagemanager.CubicModelView;
+import termopackagemanager.alphaexpression.AlphaModelView;
 
 /**
  *
@@ -15,41 +15,38 @@ public final class UserProperties {
 
     private static HashMap properties = new HashMap();
     
-    public final static String COMPONENT_MODEL_VIEW = "ComponentModelView";
-    public final static String COMPONENT_LIST_MODEL_VIEW = "ComponentListModelView";
-    public final static String CUBIC_MODEL_VIEW = "CubicModelView";
-    
-    public static ComponentListModelView getComponentListModelView(){
-         ComponentListModelView manager = (ComponentListModelView)properties.get(UserProperties.COMPONENT_LIST_MODEL_VIEW);
-        if(manager ==null){
-             manager = new ComponentListModelView();
-             properties.put(COMPONENT_LIST_MODEL_VIEW, manager);
-        }
-        return manager;
+    public static ComponentListModelView getComponentListModelView(){    
+        return (ComponentListModelView)getProperty(ComponentListModelView.class);
     }
     public static ComponentModelView getComponentModelView(){
-        ComponentModelView manager =  ( ComponentModelView)properties.get(UserProperties.COMPONENT_MODEL_VIEW);
-        if(manager == null){
-            manager = new ComponentModelView();
-            properties.put(COMPONENT_MODEL_VIEW, manager);
-        }
-        return manager;
+        return (ComponentModelView)getProperty(ComponentModelView.class);
     }
     public static CubicModelView getCubicModelView(){
-        CubicModelView manager = (CubicModelView)properties.get(UserProperties.CUBIC_MODEL_VIEW);
-        if(manager ==null){
-            manager = new CubicModelView();
-            properties.put(CUBIC_MODEL_VIEW,manager);
-        }
-        return manager;
+          return (CubicModelView)getProperty(CubicModelView.class);
+    }
+    public static AlphaModelView getAlphaModelView() {
+         return (AlphaModelView)getProperty(AlphaModelView.class);
     }
     
     
     
-
- 
-    
-
-
-
+    private static Object getProperty( Class clastype){
+        String key = clastype.getName();
+        
+        Object obj = properties.get(key);
+        if(obj ==null){
+            try{
+                
+                obj  = clastype.newInstance();
+                properties.put(key, obj);
+                
+            }catch(InstantiationException e){
+                System.out.println("Error al intentar instanciar clase :"  + key + " mensaje: " + e.getMessage());
+            }catch(IllegalAccessException e){
+                System.out.println("No tienes permiso para  instanciar la clase :"  + key + " mensaje: " + e.getMessage());
+            }
+            
+        }
+        return properties.get(key);
+    }
 }

@@ -208,6 +208,5 @@
   </children>
   <stylesheets>
     <URL value="@../../eqpro/Styles.css" />
-    <URL value="@componentStyles.css" />
   </stylesheets>
 </AnchorPane>
