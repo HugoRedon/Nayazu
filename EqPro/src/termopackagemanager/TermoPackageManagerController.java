@@ -145,7 +145,7 @@ public class TermoPackageManagerController extends NumericTextFieldController im
         for(Method method : methods){
             Class type = method.getReturnType();
             if(type.equals(Cubic.class)){
-                Cubic cubic = (Cubic)method.invoke(null, null);
+                Cubic cubic = (Cubic)method.invoke(null,  null);
                 ToggleButton toggle = new ToggleButton(cubic.getName());
                 toggle.setUserData(cubic);
                 int size =  gridPane.getChildren().size();

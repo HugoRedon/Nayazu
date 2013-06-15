@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.PTComparerController">
+  <children>
+    <Pane fx:id="chartPane" layoutX="275.0" layoutY="51.0" prefHeight="270.0" prefWidth="292.0" />
+    <TextField fx:id="volumeTextField" layoutX="157.0" layoutY="115.0" prefWidth="90.0" />
+    <TextField fx:id="minTempTextField" layoutX="157.0" layoutY="154.0" prefWidth="90.0" />
+    <TextField fx:id="maxTempTextField" layoutX="157.0" layoutY="192.0" prefWidth="90.0" />
+    <Text layoutX="38.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Volumen [L/mol]" />
+    <Text layoutX="13.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Min Temperatura [K]" />
+    <Text layoutX="10.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max Temperatura [K]" />
+    <Button layoutX="116.0" layoutY="240.0" mnemonicParsing="false" onAction="#addIsocorich" text="Agregar Isocora" />
+    <Button layoutX="169.0" layoutY="332.0" mnemonicParsing="false" onAction="#cleanChart" text="Limpiar gráfica" />
+  </children>
+  <stylesheets>
+    <URL value="@css/StylesEOS.css" />
+  </stylesheets>
+</AnchorPane>

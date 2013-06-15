@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?scenebuilder-stylesheet css/PropertiesStyles.css?>
+
+<AnchorPane id="AnchorPane" minHeight="35.0" prefHeight="35.0" prefWidth="586.0" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.PropertiesBarController">
+  <children>
+    <FlowPane fx:id="pane" alignment="CENTER" columnHalignment="CENTER" hgap="10.0" prefHeight="35.0" prefWidth="586.0" styleClass="notReady" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <Text id="eosText" fx:id="packageText" fill="WHITE" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.3" text="EOS">
+          <font>
+            <Font size="18.0" />
+          </font>
+        </Text>
+        <Text fx:id="mixingRuleText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+        <Text id="messageToShow" fx:id="messageText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      </children>
+    </FlowPane>
+  </children>
+  <stylesheets>
+    <URL value="@css/PropertiesStyles.css" />
+  </stylesheets>
+</AnchorPane>

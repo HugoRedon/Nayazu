@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" minWidth="534.0" prefHeight="400.0" prefWidth="534.0" xmlns:fx="http://javafx.com/fxml" fx:controller="componentmanager.componentlistoflist.ComponentListOfListFormController">
+  <children>
+    <AnchorPane minHeight="76.0" minWidth="484.0" prefHeight="83.0" prefWidth="534.0" styleClass="panelEqPro" AnchorPane.bottomAnchor="317.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <ImageView fitHeight="54.0" fitWidth="72.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+          <image>
+            <Image url="@../../eqpro/images/logo.jpg" />
+          </image>
+        </ImageView>
+        <Text layoutX="86.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Listas de componentes" />
+        <fx:include source="../../eqpro/windowcontrol/WindowControls.fxml" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0" />
+      </children>
+    </AnchorPane>
+    <AnchorPane layoutX="0.0" layoutY="83.0" minHeight="235.0" minWidth="534.0" prefHeight="309.0" prefWidth="534.0">
+      <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="316.0000305175781" layoutX="0.0" layoutY="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.6" width="534.0" />
+        <ListView id="componentsListView" fx:id="listComponentListView" layoutX="24.0" layoutY="19.0" onMouseClicked="#modifyComponent" prefHeight="271.0" prefWidth="200.0" style="&#10;" />
+        <Label id="fileName" layoutX="278.0" layoutY="25.0" prefHeight="25.0" prefWidth="191.0" text="C:\\" />
+        <GridPane layoutX="281.0" layoutY="61.0" prefWidth="191.0">
+          <children>
+            <Hyperlink id="deleteLink" onAction="#deleteComponent" text="Eliminar" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <ImageView id="deleteImage" fitHeight="25.0" fitWidth="33.33333333333333" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="0" GridPane.rowIndex="6">
+              <image>
+                <Image url="@../../eqpro/images/delete-5491213566.png" />
+              </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="33.33333333333333" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="3">
+              <image>
+                <Image url="@../../eqpro/images/plus-5492813637.png" />
+              </image>
+            </ImageView>
+            <Hyperlink onAction="#createComponentList" text="Crear" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ImageView fitHeight="25.0" fitWidth="33.33333333333333" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="0">
+              <image>
+                <Image url="@../../eqpro/images/folder.png" />
+              </image>
+            </ImageView>
+            <Hyperlink onAction="#addComponentListFromFile" text="Agregar desde archivo" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="6">
+              <image>
+                <Image url="@../../eqpro/images/checkmark-5490014857.png" />
+              </image>
+            </ImageView>
+            <Hyperlink onAction="#done" text="Hecho" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <ImageView fitHeight="25.0" fitWidth="33.33333333333333" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="1">
+              <image>
+                <Image url="@../../eqpro/images/delete-5491213566.png" />
+              </image>
+            </ImageView>
+            <Hyperlink onAction="#deleteComponentList" text="Eliminar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ImageView fitHeight="25.0" fitWidth="33.33333333333333" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="4">
+              <image>
+                <Image url="@../../eqpro/images/pencil.png" />
+              </image>
+            </ImageView>
+            <Hyperlink onAction="#editComponentList" text="Editar" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="78.0" minWidth="10.0" prefWidth="50.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="141.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9f9f9f" height="7.0" layoutX="0.0" layoutY="0.0" stroke="#bfbfbf" strokeType="INSIDE" width="534.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="5.0" layoutX="0.0" layoutY="3.0" stroke="$x1" strokeType="INSIDE" width="534.0">
+          <fill>
+            <Color blue="0.875" green="0.875" red="0.875" fx:id="x1" />
+          </fill>
+        </Rectangle>
+      </children>
+    </AnchorPane>
+  </children>
+  <stylesheets>
+    <URL value="@../../eqpro/Styles.css" />
+  </stylesheets>
+</AnchorPane>

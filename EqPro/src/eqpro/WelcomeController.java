@@ -26,6 +26,7 @@ public class WelcomeController implements Initializable {
     
 @FXML
 protected void openComponentManager(ActionEvent event)throws Exception{
+    
     EqPro.startComponentListManager();
 }
 @FXML

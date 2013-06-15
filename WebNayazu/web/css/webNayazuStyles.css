@@ -1,0 +1,136 @@
+/* 
+    Document   : webNayazuStyles
+    Created on : 06-mar-2013, 0:15:29
+    Author     : Chilpayate
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+ 
+}
+.containsCode{
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+
+.result{
+    font: larger;
+}
+
+/*
+  .syntaxhighlighter { 
+     overflow-y: hidden !important; 
+     overflow-x: auto !important; 
+  }
+now in shCoreDjango line 55
+*/
+  .syntaxhighlighter .customClass {
+   color: #f07502 !important;
+}
+
+
+.tutorialIndex li {
+        overflow:hidden;
+        position:relative;
+        padding:25px 0px 0px 0;
+}
+.tutorialIndex li ul li{
+    padding:0 0 0 0;
+    margin-left: 15px;
+}
+
+.tutorialIndex li:last-child {
+        padding-bottom:0;
+}
+.tutorialIndex a{
+    text-decoration: none;
+}
+
+.thin{
+    width:250px;
+}
+
+        .tutorialIndex li figure {
+                width:210px;
+                height:19px;
+                background:#ff0000  ;
+                position:absolute;
+                left:0;
+                top:0;
+                text-align:center;
+                border:3px solid #ebebeb;
+                border-radius:4px;
+                -moz-border-radius:4px;
+                -webkit-border-radius:4px;
+                font-size:14px;
+                color:#fff;
+                /*text-transform:uppercase;*/
+        }
+   
+
+        .tutorialIndex li:nth-of-type(5n+2) figure {
+                background: #0184cd ;
+        }
+        .tutorialIndex li:nth-of-type(5n+3) figure {
+                background:#7cbc19;
+        }
+        .tutorialIndex li:nth-of-type(5n+4) figure {
+                background:#f07502;
+        }
+
+        .tutorialIndex li:nth-of-type(5n+5) figure {
+                background:#433b8f;
+        }
+
+.indent{
+    margin-left:  50px;
+    display:block;
+    margin-bottom: 15px;
+}
+
+ .selected {
+     font-size: 110%;
+  color: #ffbc00;
+ 
+}
+#bird{
+    
+    height: 280px;
+    width: auto;
+}
+.indentParagraph{
+    text-indent: 25px;
+}
+#greenWorld{
+    width: 120px;
+    height: auto;
+}
+
+.tutorials article {
+    width: 676px;
+}
+  #compProp table, #compProp td,#compProp th{
+    border:1px solid #242424;
+    text-align: center;
+    padding:5px 15px;
+    
+}
+#compProp  {
+    
+    margin: 20px;
+}
+
+#compProp th{
+    background-color:#242424;
+    color:white;
+}
+
+#content h3{
+    margin-top:  6px ;
+}
+

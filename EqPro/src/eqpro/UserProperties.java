@@ -1,7 +1,7 @@
 package eqpro;
 
 import componentmanager.component.ComponentModelView;
-import componentmanager.componentlist.ComponentListModelView;
+import componentmanager.components.ComponentsModelView;
 import java.util.HashMap;
 import termopackagemanager.CubicModelView;
 import termopackagemanager.alphaexpression.AlphaModelView;
@@ -15,8 +15,8 @@ public final class UserProperties {
 
     private static HashMap properties = new HashMap();
     
-    public static ComponentListModelView getComponentListModelView(){    
-        return (ComponentListModelView)getProperty(ComponentListModelView.class);
+    public static ComponentsModelView getComponentListModelView(){    
+        return (ComponentsModelView)getProperty(ComponentsModelView.class);
     }
     public static ComponentModelView getComponentModelView(){
         return (ComponentModelView)getProperty(ComponentModelView.class);

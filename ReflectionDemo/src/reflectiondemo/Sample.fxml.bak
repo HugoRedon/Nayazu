@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="320.0" xmlns:fx="http://javafx.com/fxml" fx:controller="reflectiondemo.SampleController">
+  <children>
+    <Label fx:id="label" layoutX="112.0" layoutY="35.0" minHeight="16.0" minWidth="69.0" />
+    <TextField id="aTextField" fx:id="aText" layoutX="33.0" layoutY="128.0" prefWidth="200.0" text="sometext" />
+    <TextField fx:id="aNumber" layoutX="33.0" layoutY="157.0" prefWidth="200.0" />
+    <Button layoutX="250.0" layoutY="33.0" mnemonicParsing="false" onAction="#doubleParse" text="Button" />
+  </children>
+</AnchorPane>

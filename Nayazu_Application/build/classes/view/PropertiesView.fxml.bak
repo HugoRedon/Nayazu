@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Accordion id="Accordion" maxWidth="350.0" minWidth="146.0" prefHeight="525.0" prefWidth="271.0" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.PropertiesController">
+  <panes>
+    <TitledPane id="x1" fx:id="eosTitledPane" prefHeight="498.0" prefWidth="226.0" text="Paquete Termodinámico">
+      <content>
+        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+          <children>
+            <TreeView fx:id="packageTreeView" onMouseClicked="#selectedPackage" prefHeight="439.0" prefWidth="164.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+          </children>
+        </AnchorPane>
+      </content>
+    </TitledPane>
+    <TitledPane id="x2" fx:id="componentsTitledPane" contentDisplay="CENTER" text="Componentes">
+      <content>
+        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+          <children>
+            <VBox id="VBox" alignment="TOP_CENTER" prefHeight="439.0" prefWidth="164.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <children>
+                <ListView fx:id="listViewOfComponents" prefHeight="376.0" prefWidth="266.0">
+                  <VBox.margin>
+                    <Insets />
+                  </VBox.margin>
+                </ListView>
+                <HBox id="HBox" alignment="CENTER" spacing="5.0">
+                  <children>
+                    <Button mnemonicParsing="false" onAction="#removeComponent" text="Eliminar" />
+                    <Button mnemonicParsing="false" onAction="#chooseComponent" text="Agregar" />
+                  </children>
+                </HBox>
+                <TableView fx:id="fractionsTableView" editable="true" prefHeight="200.0" prefWidth="200.0">
+                  <columns>
+                    <TableColumn editable="false" prefWidth="75.0" text="Componente" fx:id="componentTableColumn" />
+                    <TableColumn prefWidth="75.0" text="Fracción mol" fx:id="fractionTableColumn" />
+                  </columns>
+                </TableView>
+              </children>
+            </VBox>
+          </children>
+        </AnchorPane>
+      </content>
+    </TitledPane>
+    <TitledPane fx:id="mixingRulesTitledPane" animated="false" text="Regla de mezclado">
+      <content>
+        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+          <children>
+            <ListView fx:id="mixingRuleListView" onMouseClicked="#selectMixingRule" prefHeight="439.0" prefWidth="266.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+          </children>
+        </AnchorPane>
+      </content>
+    </TitledPane>
+  </panes>
+  <stylesheets>
+    <URL value="@css/StylesEOS.css" />
+  </stylesheets>
+</Accordion>

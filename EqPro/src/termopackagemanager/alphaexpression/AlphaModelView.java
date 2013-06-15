@@ -6,6 +6,10 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableStringValue;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import termo.component.Component;
@@ -17,15 +21,12 @@ import termo.substance.PureSubstance;
  *
  * @author Hugo Redon Rivera
  */
-public final class AlphaModelView {
+public final class AlphaModelView  implements ChangeListener{
     private static ObservableList<Alpha> existentAlphas = FXCollections.observableArrayList();
-    private Alpha selectedAlpha;
-    private Component selectedComponent;
-    
-    
-    private ObservableList<PureSubstance> pureSubstances = FXCollections.observableArrayList();
-    
+    private ObservableList<ObjectProperty> selectedAlphas = FXCollections.observableArrayList();
+    private ObservableValue shownAlpha ;
     private ObservableList<Component> components;
+    private ObservableList<PureSubstance> pureSubstanceList = FXCollections.observableArrayList();
     
     public AlphaModelView() {
         components  = UserProperties.getComponentListModelView().getComponentsObservableList();
@@ -33,6 +34,8 @@ public final class AlphaModelView {
             Alpha defaultAlpha = AlphaFactory.getSoaveExpression();
            pureSubstanceList.add(createPureSubstance(defaultAlpha, c));
         }
+        
+        
     }
 
     public static ObservableList<Alpha> getExistentAlphas() {return existentAlphas; }
@@ -49,7 +52,7 @@ public final class AlphaModelView {
     
    
     
-        
+      
     {
             Method[] methods = AlphaFactory.class.getDeclaredMethods();
             Method.setAccessible(methods, true);
@@ -63,7 +66,7 @@ public final class AlphaModelView {
         }
     }
 
-    private ObservableList<PureSubstance> pureSubstanceList = FXCollections.observableArrayList();
+
     
 
     public ObservableList<PureSubstance> getPureSubstanceList() {
@@ -73,6 +76,32 @@ public final class AlphaModelView {
     public void setPureSubstanceList(ObservableList<PureSubstance> pureSubstanceList) {
         this.pureSubstanceList = pureSubstanceList;
     }
-    
-    
+    public void addSelectedAlpha(ObjectProperty selectedAlpha){
+        selectedAlpha.addListener(this);
+        selectedAlphas.add(selectedAlpha);
+        
+        //setShownAlpha(selectedAlpha);
+        
+    }
+    public ObservableList<ObjectProperty> getSelectedAlphas(){
+        return this.selectedAlphas;
+    }
+
+    @Override
+    public void changed(ObservableValue ov, Object t, Object t1) {
+       Alpha  newShowAlpha = (Alpha) t1;
+       //shownAlpha = new ObservableStringValue(newShowAlpha);
+          System.out.println("Cambio de alpha a: "  + newShowAlpha.toString());
+        
+    }
+
+    public ObservableValue getShownAlpha() {
+        return shownAlpha;
+    }
+
+    public void setShownAlpha(ObservableValue shownAlpha) {
+        this.shownAlpha = shownAlpha;
+    }
 }
+
+

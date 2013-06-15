@@ -1,5 +1,6 @@
 package eqpro;
 
+import componentmanager.components.ComponentsController;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -8,7 +9,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -35,8 +35,15 @@ public class EqPro extends Application {
     }
 
     public static void startMixingRuleForm() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       //To change body of generated methods, choose Tools | Templates.
     }
+    public static void startForm(Class controllerClass)throws Exception{
+        startAForm(controllerClass.getResource("Welcome.fxml").getPath());
+        
+        
+    }
+
+
 
 
     @Override
@@ -45,8 +52,8 @@ public class EqPro extends Application {
         EqPro.stage = stage;
         
        
-      
-        startWelcomeForm();
+      startForm(WelcomeController.class);
+        //startWelcomeForm();
         EqPro.stage.show();
         stage.centerOnScreen();
         initialX= stage.getX();
@@ -75,7 +82,6 @@ public class EqPro extends Application {
     public static void startAForm( String theFormString)throws IOException{
     
              final  Parent node  = FXMLLoader.load( EqPro.class.getResource(theFormString));
-             AnchorPane pane = FXMLLoader.load(EqPro.class.getResource("/eqpro/windowcontrol/WindowControls.fxml"));
              node.lookup(theFormString);
              
              

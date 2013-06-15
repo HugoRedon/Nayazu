@@ -82,7 +82,12 @@
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       </rowConstraints>
     </GridPane>
-    <TableView fx:id="substancesTable" layoutX="29.0" layoutY="81.0" prefHeight="304.0" prefWidth="284.5384521484375" />
+    <TableView fx:id="substancesTable" editable="true" layoutX="29.0" layoutY="81.0" prefHeight="304.0" prefWidth="284.5384521484375">
+      <columns>
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="117.0" text="Componente" fx:id="componentColumn" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="162.0" text="Expresion de alfa" fx:id="alphaColumn" />
+      </columns>
+    </TableView>
   </children>
   <stylesheets>
     <URL value="@../../eqpro/Styles.css" />

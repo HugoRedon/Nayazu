@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="700.0" prefWidth="850.0" xmlns:fx="http://javafx.com/fxml">
+  <stylesheets>
+    <URL value="@css/StylesEOS.css" />
+  </stylesheets>
+  <fx:define>
+    <fx:include fx:id="PVComparer" source="PVComparerView.fxml" />
+    <fx:include fx:id="PTComparer" source="PTComparerView.fxml" />
+    <fx:include fx:id="ZComparer" source="ZComparerView.fxml" />
+    <fx:include fx:id="PXComparer" source="PXComparerView.fxml" prefHeight="517.0" prefWidth="541.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+    <fx:include fx:id="PhaseEnvelope" source="PhaseEnvelopeView.fxml" />
+  </fx:define>
+  <SplitPane dividerPositions="0.1332378223495702" focusTraversable="true" orientation="VERTICAL" prefHeight="596.0000999999975" prefWidth="786.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <items>
+      <AnchorPane maxHeight="100.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="&#10;" />
+      <SplitPane dividerPositions="0.3546099290780142" focusTraversable="true" prefHeight="485.0" prefWidth="551.0">
+        <items>
+          <AnchorPane maxWidth="300.0" minHeight="0.0" minWidth="0.0" prefHeight="496.0" prefWidth="193.0">
+            <children>
+              <fx:include fx:id="Properties" source="PropertiesView.fxml" maxWidth="360.0" minHeight="238.0" prefHeight="497.0" prefWidth="297.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            </children>
+          </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <children>
+              <VBox id="VBox" prefHeight="491.0" prefWidth="589.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <children>
+                  <AnchorPane id="AnchorPane" prefWidth="615.0">
+                    <children>
+                      <fx:include fx:id="PropertiesBar" source="PropertiesBarView.fxml" maxHeight="35.0" prefHeight="35.0" prefWidth="586.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                    </children>
+                  </AnchorPane>
+                  <TabPane prefHeight="598.0" prefWidth="489.0" VBox.vgrow="ALWAYS">
+                    <tabs>
+                      <Tab closable="false" text="P-V">
+                        <content>
+                          <ScrollPane id="ScrollPane" content="$PVComparer" fitToHeight="true" fitToWidth="true" prefViewportHeight="216.0" prefViewportWidth="279.0" />
+                        </content>
+                      </Tab>
+                      <Tab closable="false" text="P-T">
+                        <content>
+                          <ScrollPane id="ScrollPane" content="$PTComparer" fitToHeight="true" prefViewportHeight="216.0" prefViewportWidth="267.0" />
+                        </content>
+                      </Tab>
+                      <Tab closable="false" text="P - X">
+                        <content>
+                          <ScrollPane id="ScrollPane" fitToHeight="true" fitToWidth="true" pannable="true" prefViewportHeight="519.0" prefViewportWidth="543.0">
+                            <content>
+                              <AnchorPane id="AnchorPane" prefHeight="517.0" prefWidth="541.0">
+                                <children>
+                                  <fx:reference source="PXComparer" />
+                                </children>
+                              </AnchorPane>
+                            </content>
+                          </ScrollPane>
+                        </content>
+                      </Tab>
+                      <Tab closable="false" text="Z, V, fugacidad">
+                        <content>
+                          <ScrollPane id="ScrollPane" content="$ZComparer" fitToHeight="true" fitToWidth="true" prefViewportHeight="219.0" prefViewportWidth="243.0" />
+                        </content>
+                      </Tab>
+                      <Tab closable="false" text="Envolvente de fases">
+                        <content>
+                          <ScrollPane id="ScrollPane" content="$PhaseEnvelope" fitToHeight="true" fitToWidth="true" prefViewportHeight="519.0" prefViewportWidth="543.0" />
+                        </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
+                </children>
+              </VBox>
+            </children>
+          </AnchorPane>
+        </items>
+      </SplitPane>
+    </items>
+  </SplitPane>
+</AnchorPane>

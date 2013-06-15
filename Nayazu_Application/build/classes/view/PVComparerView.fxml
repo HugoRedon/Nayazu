@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="pane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0000999999975" prefWidth="783.999800000005" stylesheets="view/css/StylesEOS.css" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.PVComparerController">
+  <TextField fx:id="temperatureTextField" prefWidth="85.134765625" AnchorPane.leftAnchor="190.0" AnchorPane.topAnchor="20.0" />
+  <TextField fx:id="minVolTextField" prefWidth="85.13486562499747" AnchorPane.leftAnchor="190.0" AnchorPane.topAnchor="54.0" />
+  <TextField fx:id="maxVolTextField" prefWidth="85.134765625" AnchorPane.leftAnchor="191.0" AnchorPane.topAnchor="84.0" />
+  <Label layoutX="79.0" layoutY="26.0" text="Temperatura[K]" />
+  <Label layoutX="16.0" layoutY="60.0" text="Volumen mínimo [L/mol]" />
+  <Label layoutX="14.0" layoutY="90.0" text="Volumen máximo [L/mol]" />
+  <Button fx:id="isothermButton" layoutX="309.0" layoutY="42.0" onAction="#addIsotherm" text="Dibuja isoterma" />
+  <Button layoutX="313.0" layoutY="91.0" onAction="#cleanChart" text="Limpiar grafica" />
+  <Pane fx:id="chartPane" layoutX="14.0" layoutY="132.0" prefHeight="349.0" prefWidth="449.0" />
+  <ListView fx:id="isothermsListView" layoutX="505.0" layoutY="242.0" prefHeight="217.0" prefWidth="199.0" />
+</AnchorPane>

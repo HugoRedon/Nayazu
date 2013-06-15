@@ -1,6 +1,6 @@
 package componentmanager.component;
 
-import componentmanager.componentlist.ComponentListModelView;
+import componentmanager.components.ComponentsModelView;
 import eqpro.UserProperties;
 import javafx.beans.property.SimpleStringProperty;
 import termo.component.Component;
@@ -75,7 +75,7 @@ public void showComponent( Component componentToShow){
 }
     
 protected boolean ok()throws Exception{
-         ComponentListModelView listManager = UserProperties.getComponentListModelView();
+         ComponentsModelView listManager = UserProperties.getComponentListModelView();
         Component component= createNewComponent();
         
         if(isComponentBeingModified()){
