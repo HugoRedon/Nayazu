@@ -27,66 +27,14 @@
     <AnchorPane layoutY="83.0" minHeight="235.0" minWidth="534.0" prefHeight="309.0" prefWidth="534.0">
       <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="316.0000305175781" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.6" width="534.0" />
-        <ListView id="componentsListView" fx:id="listComponentListView" editable="true" layoutX="24.0" layoutY="19.0" prefHeight="271.0" prefWidth="200.0" style="&#10;" />
-        <Label id="fileName" layoutX="278.0" layoutY="25.0" prefHeight="25.0" prefWidth="191.0" text="C:\\" />
-        <GridPane layoutX="281.0" layoutY="61.0" prefWidth="191.0">
-          <children>
-            <ImageView id="deleteImage" fitHeight="25.0" fitWidth="33.33333333333333" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="0" GridPane.rowIndex="6">
-              <image>
-                <Image url="@../../eqpro/images/delete-5491213566.png" preserveRatio="false" smooth="false" />
-              </image>
-            </ImageView>
-            <ImageView fitHeight="25.0" fitWidth="33.33333333333333" onMouseClicked="#createComponentList" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="3">
-              <image>
-                <Image url="@../../eqpro/images/plus-5492813637.png" preserveRatio="false" smooth="false" />
-              </image>
-            </ImageView>
-            <Hyperlink onAction="#createComponentList" text="Crear" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <ImageView fitHeight="25.0" fitWidth="33.33333333333333" onMouseClicked="#addComponentListFromFile" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="0">
-              <image>
-                <Image url="@../../eqpro/images/folder.png" preserveRatio="false" smooth="false" />
-              </image>
-            </ImageView>
-            <Hyperlink onAction="#addComponentListFromFile" text="Agregar desde archivo" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-            <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#done" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="6">
-              <image>
-                <Image url="@../../eqpro/images/checkmark-5490014857.png" preserveRatio="false" smooth="false" />
-              </image>
-            </ImageView>
-            <Hyperlink onAction="#done" text="Hecho" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <ImageView fitHeight="25.0" fitWidth="33.33333333333333" onMouseClicked="#deleteComponentList" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="1">
-              <image>
-                <Image url="@../../eqpro/images/delete-5491213566.png" preserveRatio="false" smooth="false" />
-              </image>
-            </ImageView>
-            <Hyperlink onAction="#deleteComponentList" text="Eliminar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <ImageView fitHeight="25.0" fitWidth="33.33333333333333" onMouseClicked="#editComponentList" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="4">
-              <image>
-                <Image url="@../../eqpro/images/pencil.png" preserveRatio="false" smooth="false" />
-              </image>
-            </ImageView>
-            <Hyperlink onAction="#editComponentList" text="Editar" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-          </children>
-          <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="78.0" minWidth="10.0" prefWidth="50.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="141.0" />
-          </columnConstraints>
-          <rowConstraints>
-            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          </rowConstraints>
-        </GridPane>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9f9f9f" height="7.0" stroke="#bfbfbf" strokeType="INSIDE" width="534.0" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" height="5.0" layoutY="3.0" stroke="$x1" strokeType="INSIDE" width="534.0">
           <fill>
             <Color blue="0.875" green="0.875" red="0.875" fx:id="x1" />
           </fill>
         </Rectangle>
+        <Hyperlink layoutX="216.0" layoutY="83.0" onAction="#createComponentList" text="Crear lista" />
+        <Hyperlink layoutX="217.0" layoutY="177.0" onAction="#addComponentListFromFile" text="Agregar desde archivo" />
       </children>
     </AnchorPane>
   </children>

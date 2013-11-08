@@ -33,16 +33,17 @@ import termo.cp.DIPPR_107_Equation;
  */
 public class ComponentsController implements Initializable {
 
-    private EQProComponentList componentList;
+    private EQProComponentList componentList = new EQProComponentList();
     private  ReadOnlyObjectProperty<Component> selectedComponent;
     private SimpleBooleanProperty isSelected = new SimpleBooleanProperty(false);
     
-    @FXML  ListView componentsListView;
+    @FXML  ListView componentsListView ;
     @FXML private Label fileName;
     @FXML private Hyperlink deleteLink;
     @FXML private ImageView deleteImage;
     @FXML private ImageView editImage;
     @FXML private Hyperlink editLink;
+    @FXML private Hyperlink importHyperLink;	
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -137,7 +138,9 @@ public class ComponentsController implements Initializable {
      @FXML protected void saveAs(ActionEvent event)throws Exception{
          saveAs();
      }
-     
+     @FXML protected void importComponent(ActionEvent event) throws Exception{
+	 EqPro.startDIPPRImport();
+     }
     protected void save(String fileName)throws Exception{
               
               
@@ -171,6 +174,8 @@ public class ComponentsController implements Initializable {
         protected File  getLoadFile(){
                 return  getChooser().showOpenDialog(null);
         }
+	
+	
           
 //     @FXML protected void loadObjects(ActionEvent event){
 //

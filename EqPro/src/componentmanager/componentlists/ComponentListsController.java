@@ -51,16 +51,5 @@ public class ComponentListsController implements Initializable {
     @FXML protected void createComponentList(ActionEvent event) throws IOException{
         eqpro.EqPro.startComponentsForm();
     }
-    @FXML protected void editComponentList(ActionEvent event){
-        
-    }
-    
-    @FXML  protected void deleteComponentList(ActionEvent event){
-        
-    }
-    
-    @FXML protected void done(){
-        
-    }
-    
+   
 }

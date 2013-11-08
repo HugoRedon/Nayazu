@@ -42,11 +42,14 @@ public class EqPro extends Application {
     }
 
     public static void startComponentsForm() throws IOException {
-	startAForm("/componentmanager/componentlists/ComponentsForm.fxml");
+	startAForm("/componentmanager/components/ComponentsForm.fxml");
     }
 
-  
+     public final static String MIXING_RULE_FORM = "/termopackagemanager/mixingrule/MixingRuleForm.fxml";
 
+     public static void startDIPPRImport() throws Exception{
+	 startAForm("/dipprreader/DIPPRImport.fxml");
+     }
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -110,7 +113,7 @@ public class EqPro extends Application {
             stage.setScene(scene);
           //  stage.centerOnScreen();
     }
-   public final static String MIXING_RULE_FORM = "/termopackagemanager/mixingrule/MixingRuleForm.fxml";
+
     public final static String COMPONENT_FORM = "/componentmanager/component/ComponentForm.fxml";
     public final static String COMPONENT_LIST_MANAGER_FORM = "/componentmanager/componentlists/ComponentListsForm.fxml";
     

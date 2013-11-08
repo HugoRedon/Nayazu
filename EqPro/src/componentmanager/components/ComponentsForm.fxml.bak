@@ -61,13 +61,13 @@
                 <Image url="@../../eqpro/images/delete-5491213566.png" preserveRatio="false" smooth="false" />
               </image>
             </ImageView>
-            <ImageView fx:id="editImage" fitHeight="25.0" fitWidth="33.33333333333333" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <ImageView fitHeight="25.0" fitWidth="33.33333333333333" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="1">
               <image>
                 <Image url="@../../eqpro/images/pencil.png" preserveRatio="false" smooth="false" />
               </image>
             </ImageView>
-            <Hyperlink fx:id="editLink" onAction="#editComponent" text="Editar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Hyperlink fx:id="deleteLink" onAction="#deleteComponent" text="Eliminar" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Hyperlink onAction="#editComponent" text="Editar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Hyperlink onAction="#deleteComponent" text="Eliminar" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Hyperlink onAction="#saveObjects" text="Guardar" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Hyperlink onAction="#saveAs" text="Guardar como..." GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Label text="Hecho" GridPane.columnIndex="1" GridPane.rowIndex="7" />
