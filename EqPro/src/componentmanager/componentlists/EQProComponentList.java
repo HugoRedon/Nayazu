@@ -22,6 +22,9 @@ public class EQProComponentList {
     public SimpleStringProperty getName() {
         return name;
     }
+    public void setName(String name){
+        this.name.set(name);
+    }
 
     public void setName(SimpleStringProperty name) {
         this.name = name;

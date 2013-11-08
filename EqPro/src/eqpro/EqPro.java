@@ -1,6 +1,5 @@
 package eqpro;
 
-import componentmanager.components.ComponentsController;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -37,13 +36,16 @@ public class EqPro extends Application {
     public static void startMixingRuleForm() {
        //To change body of generated methods, choose Tools | Templates.
     }
-    public static void startForm(Class controllerClass)throws Exception{
-        startAForm(controllerClass.getResource("Welcome.fxml").getPath());
-        
-        
+    public static void startForm(String viewString)throws Exception{
+        startAForm(Class.class.getResource(viewString).toString());
+        //startAForm( .getResource(viewString).getPath());
     }
 
+    public static void startComponentsForm() throws IOException {
+	startAForm("/componentmanager/componentlists/ComponentsForm.fxml");
+    }
 
+  
 
 
     @Override
@@ -52,8 +54,8 @@ public class EqPro extends Application {
         EqPro.stage = stage;
         
        
-      startForm(WelcomeController.class);
-        //startWelcomeForm();
+//      startForm(WelcomeController.class);
+        startWelcomeForm();
         EqPro.stage.show();
         stage.centerOnScreen();
         initialX= stage.getX();
@@ -81,18 +83,14 @@ public class EqPro extends Application {
      
     public static void startAForm( String theFormString)throws IOException{
     
-             final  Parent node  = FXMLLoader.load( EqPro.class.getResource(theFormString));
-             node.lookup(theFormString);
-             
-             
-            
+             final Parent node  = FXMLLoader.load( EqPro.class.getResource(theFormString));
+//             node.lookup(theFormString);
              node.setOnMousePressed(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent me) {
                     if (me.getButton() != MouseButton.MIDDLE) {
                         initialX = me.getSceneX();
                         initialY = me.getSceneY();
-                        
                     }
                 }
             });
@@ -114,7 +112,7 @@ public class EqPro extends Application {
     }
    public final static String MIXING_RULE_FORM = "/termopackagemanager/mixingrule/MixingRuleForm.fxml";
     public final static String COMPONENT_FORM = "/componentmanager/component/ComponentForm.fxml";
-    public final static String COMPONENT_LIST_MANAGER_FORM = "/componentmanager/componentlist/ComponentListForm.fxml";
+    public final static String COMPONENT_LIST_MANAGER_FORM = "/componentmanager/componentlists/ComponentListsForm.fxml";
     
     public final static String TERMO_PACKAGE_FORM = "/termopackagemanager/TermoPackageManager.fxml";
     public final static String WelcomeFXML = "/eqpro/Welcome.fxml";

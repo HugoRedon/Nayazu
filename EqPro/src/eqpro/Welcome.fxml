@@ -15,7 +15,7 @@
   <children>
     <Pane prefHeight="276.59375" prefWidth="421.0" styleClass="content-panel" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="68.0">
       <children>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="277.0" layoutX="0.0" layoutY="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="421.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="277.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="421.0" />
         <GridPane layoutX="33.0" layoutY="26.0" prefHeight="164.0" prefWidth="356.0">
           <children>
             <Hyperlink id="crateComponents" onAction="#openComponentManager" styleClass="subtitle" text="Ingresar componentes" GridPane.columnIndex="0" GridPane.rowIndex="0" />
@@ -23,17 +23,17 @@
             <Hyperlink styleClass="subtitle" text="Entrar al ambiente de simulación" GridPane.columnIndex="0" GridPane.rowIndex="2" />
             <ImageView fx:id="componentsImage" fitHeight="29.015625" fitWidth="38.68749795204023" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="0">
               <image>
-                <Image url="@images/logo.jpg" />
+                <Image url="@images/logo.jpg" preserveRatio="false" smooth="false" />
               </image>
             </ImageView>
             <ImageView fx:id="packageImage" fitHeight="29.015625" fitWidth="38.68749795204023" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
               <image>
-                <Image url="@images/logo.jpg" />
+                <Image url="@images/logo.jpg" preserveRatio="false" smooth="false" />
               </image>
             </ImageView>
             <ImageView fx:id="simulationImage" fitHeight="29.015625" fitWidth="38.68749795204023" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
               <image>
-                <Image url="@images/logo.jpg" />
+                <Image url="@images/logo.jpg" preserveRatio="false" smooth="false" />
               </image>
             </ImageView>
           </children>
@@ -47,8 +47,8 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           </rowConstraints>
         </GridPane>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9f9f9f" height="7.0" layoutX="0.0" layoutY="0.0" stroke="#bfbfbf" strokeType="INSIDE" width="421.0000305175781" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" height="5.0" layoutX="0.0" layoutY="4.0" stroke="$x1" strokeType="INSIDE" width="421.0000305175781">
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9f9f9f" height="7.0" stroke="#bfbfbf" strokeType="INSIDE" width="421.0000305175781" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="5.0" layoutY="4.0" stroke="$x1" strokeType="INSIDE" width="421.0000305175781">
           <fill>
             <Color blue="0.875" green="0.875" red="0.875" fx:id="x1" />
           </fill>
@@ -59,7 +59,7 @@
       <children>
         <ImageView fitHeight="50.40625" fitWidth="50.40625" layoutX="14.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
           <image>
-            <Image url="@images/logo.jpg" />
+            <Image url="@images/logo.jpg" preserveRatio="false" smooth="false" />
           </image>
         </ImageView>
         <Text id="" fx:id="welcomeText" layoutX="83.0" layoutY="47.0" scaleX="1.1609158336020637" scaleY="1.1994459833795015" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="EQ PRO" />

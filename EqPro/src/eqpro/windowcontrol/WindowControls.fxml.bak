@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="143.00009999999747" xmlns:fx="http://javafx.com/fxml" fx:controller="eqpro.windowcontrol.WindowControlsController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.99950000001263" prefWidth="65.00009999999747" xmlns:fx="http://javafx.com/fxml" fx:controller="eqpro.windowcontrol.WindowControlsController">
   <children>
     <GridPane prefHeight="35.0" prefWidth="127.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>

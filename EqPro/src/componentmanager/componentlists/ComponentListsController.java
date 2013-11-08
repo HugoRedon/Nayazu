@@ -5,6 +5,7 @@ import java.beans.XMLDecoder;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -26,7 +27,7 @@ public class ComponentListsController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+
         
     }    
     @FXML  protected void addComponentListFromFile(ActionEvent event )throws Exception{
@@ -47,8 +48,8 @@ public class ComponentListsController implements Initializable {
         }
     }
 
-    @FXML protected void createComponentList(ActionEvent event){
-        
+    @FXML protected void createComponentList(ActionEvent event) throws IOException{
+        eqpro.EqPro.startComponentsForm();
     }
     @FXML protected void editComponentList(ActionEvent event){
         

@@ -27,7 +27,7 @@
     <AnchorPane layoutY="83.0" minHeight="235.0" minWidth="534.0" prefHeight="309.0" prefWidth="534.0">
       <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="316.0000305175781" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.6" width="534.0" />
-        <ListView id="componentsListView" fx:id="listComponentListView" editable="true" layoutX="24.0" layoutY="19.0" prefHeight="271.0" prefWidth="200.0" style="&#10;" />
+        <ListView id="componentsListView" fx:id="listComponentListView" layoutX="24.0" layoutY="19.0" prefHeight="271.0" prefWidth="200.0" style="&#10;" />
         <Label id="fileName" layoutX="278.0" layoutY="25.0" prefHeight="25.0" prefWidth="191.0" text="C:\\" />
         <GridPane layoutX="281.0" layoutY="61.0" prefWidth="191.0">
           <children>
