@@ -58,7 +58,7 @@ public class JavaLogin {
 	int responseCode = conn.getResponseCode();
 	System.out.println("\nSending 'POST' request to URL : " + url);
 	System.out.println("Post parameters : " + postParams);
-	System.out.println("Response Code : " + responseCode);
+	//System.out.println("Response Code : " + responseCode);
 //        try{
 //            InputStream inputStream = conn.getInputStream();
 //        }catch(IOException ex){
@@ -100,7 +100,7 @@ public class JavaLogin {
 	}
 	int responseCode = conn.getResponseCode();
 	System.out.println("\nSending 'GET' request to URL : " + url);
-	System.out.println("Response Code : " + responseCode);
+	//System.out.println("Response Code : " + responseCode);
       StringBuffer response;
       try (BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
           String inputLine;
@@ -164,7 +164,7 @@ public class JavaLogin {
 	this.cookies = cookies;
   }
 
-    String getSearchFormParams(String html, 
+   public String getSearchFormParams(String html, 
             String componentName, String exact) throws UnsupportedEncodingException {
  
 	System.out.println("Extracting form's data...");
