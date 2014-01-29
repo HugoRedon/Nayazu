@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" fx:controller="application.ComponentSelectionController">
+  <children>
+    <TextField layoutX="174.0" layoutY="39.0" prefWidth="90.0" />
+    <Text layoutX="36.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número de componente" />
+    <ListView fx:id="availableComponentsLV" layoutX="36.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
+    <ListView layoutX="245.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
+    <Button layoutX="331.0" layoutY="333.0" mnemonicParsing="false" text="Aceptar" />
+    <Button layoutX="420.0" layoutY="333.0" mnemonicParsing="false" text="Cancelar" />
+    <Button layoutX="331.0" layoutY="42.0" mnemonicParsing="false" text="Buscar" />
+  </children>
+</AnchorPane>

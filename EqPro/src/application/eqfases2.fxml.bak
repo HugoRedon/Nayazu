@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" fx:controller="application.Eqfases2Controller">
+  <children>
+    <MenuBar>
+      <menus>
+        <Menu mnemonicParsing="false" text="Archivo">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Leer archivo" />
+            <MenuItem mnemonicParsing="false" text="Guardar" />
+            <MenuItem mnemonicParsing="false" text="Guardar como" />
+            <MenuItem mnemonicParsing="false" text="Directorio" />
+            <MenuItem mnemonicParsing="false" text="DOS Shell" />
+            <MenuItem mnemonicParsing="false" text="Terminar programa" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Sistema">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Unidades" />
+            <MenuItem mnemonicParsing="false" text="Estado de referencia" />
+            <MenuItem mnemonicParsing="false" text="Método de convergencia" />
+            <MenuItem mnemonicParsing="false" text="Seleccionar compuestos" />
+            <MenuItem mnemonicParsing="false" text="Definir composición" />
+            <MenuItem mnemonicParsing="false" text="Ecuacion de estado" />
+            <MenuItem mnemonicParsing="false" text="Tipo de cálculo" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Diagramas">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Seleccionar archivos" />
+            <MenuItem mnemonicParsing="false" text="Graficar" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Otros">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Banco de datos" />
+            <MenuItem mnemonicParsing="false" text="Color" />
+            <MenuItem mnemonicParsing="false" text="Acerca de" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+  </children>
+</AnchorPane>
