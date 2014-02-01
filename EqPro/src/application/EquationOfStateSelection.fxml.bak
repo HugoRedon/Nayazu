@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="437.0" xmlns:fx="http://javafx.com/fxml" fx:controller="application.EquationOfStateSelectionController">
+  <children>
+    <VBox layoutX="66.0" layoutY="45.0" prefHeight="50.0" prefWidth="215.0">
+      <children>
+        <RadioButton fx:id="rksmRB" mnemonicParsing="false" text="Redlich-Kwong-Soave-Mathias">
+          <toggleGroup>
+            <ToggleGroup fx:id="equationTG" />
+          </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="prsvRB" mnemonicParsing="false" text="Peng-Robinson-Stryjek-Vera" toggleGroup="$equationTG" />
+      </children>
+    </VBox>
+    <VBox layoutX="70.0" layoutY="159.0" prefHeight="200.0" prefWidth="208.0">
+      <children>
+        <RadioButton fx:id="vdw1RB" mnemonicParsing="false" text="Van der Waals, 1 parámetro">
+          <toggleGroup>
+            <ToggleGroup fx:id="mixingRuleTG" />
+          </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="vdw2RB" mnemonicParsing="false" text="Van der Waals, 2 parámetros" toggleGroup="$mixingRuleTG" />
+        <RadioButton fx:id="mkpRB" mnemonicParsing="false" text="Mathias-Klostz-Prausnitz" toggleGroup="$mixingRuleTG" />
+      </children>
+    </VBox>
+    <Button layoutX="356.0" layoutY="138.0" mnemonicParsing="false" text="Aceptar" />
+    <Button layoutX="356.0" layoutY="173.0" mnemonicParsing="false" text="Cancelar" />
+    <Text layoutX="98.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ecuación" />
+    <Text layoutX="95.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Regla de mezclado" />
+  </children>
+</AnchorPane>

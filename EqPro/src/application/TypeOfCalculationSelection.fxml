@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" fx:controller="application.TypeOfCalculationSelectionController">
+  <children>
+    <VBox layoutX="200.0" layoutY="157.0" prefHeight="111.0" prefWidth="200.0">
+      <children>
+        <RadioButton mnemonicParsing="false" text="Equilibrio líquido-vapor">
+          <toggleGroup>
+            <ToggleGroup fx:id="group" />
+          </toggleGroup>
+        </RadioButton>
+        <RadioButton mnemonicParsing="false" text="Equilibrio líquido-líquido" toggleGroup="$group" />
+        <RadioButton fx:id="onePhasePropertiesRB" mnemonicParsing="false" selected="true" text="Propiedades de una fase" toggleGroup="$group" />
+        <RadioButton mnemonicParsing="false" text="Parámetro polar de Mathias" toggleGroup="$group" />
+        <RadioButton mnemonicParsing="false" text="Envolvente presión-temperatura" toggleGroup="$group" />
+        <RadioButton mnemonicParsing="false" text="Diagrama binario y-x" toggleGroup="$group" />
+      </children>
+    </VBox>
+    <Button layoutX="162.0" layoutY="304.0" mnemonicParsing="false" onAction="#done" text="Aceptar" />
+    <Button layoutX="262.0" layoutY="304.0" mnemonicParsing="false" text="Cancelar" />
+    <Text layoutX="162.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo de cálculo" />
+  </children>
+</AnchorPane>

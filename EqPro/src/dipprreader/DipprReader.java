@@ -3,6 +3,7 @@ package dipprreader;
 
 import java.net.CookieHandler;
 import java.net.CookieManager;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -41,12 +42,13 @@ public final class DipprReader{
         
     }
     
-     ArrayList<String> searchUrlComponentByName(String componentName,String exactness/*exact contains */) throws Exception {
-	 //HashMap<String,String> componentsFound = new HashMap();
-	 ArrayList<String> componentsFound = new ArrayList();
-	String searchByNamePage = siteMessenger.GetPageContent(dipprLoginUrl + "?Mode=Search&Method=Name");
-        String searchParams = siteMessenger.getSearchFormParams(searchByNamePage, componentName, exactness);
-       String result =  siteMessenger.sendPost(dipprLoginUrl, searchParams);
+     HashMap<String,String> searchUrlComponentByName(String componentName,String exactness/*exact contains */) throws Exception {
+	 HashMap<String,String> componentsFound = new HashMap();
+	 //ArrayList<String> componentsFound = new ArrayList();
+	//String searchByNamePage = siteMessenger.GetPageContent(dipprLoginUrl + "?Mode=Search&Method=Name");
+//        String searchParams = siteMessenger.getSearchFormParams(searchByNamePage, componentName, exactness);
+//       String result =  siteMessenger.sendPost(dipprLoginUrl, searchParams);
+	String result = siteMessenger.GetPageContent(dipprLoginUrl + "?Mode=Search&Method=Name&NC=1&C1="+URLEncoder.encode(componentName, "UTF-8")+"&Exactness="+URLEncoder.encode(exactness, "UTF-8")+"&submit1=Enviar");
        Document doc = Jsoup.parse(result);
        Element olElements = doc.getElementsByTag("ol").first();
        
@@ -56,8 +58,8 @@ public final class DipprReader{
 	    
 	    String name = el.text();
 	   
-	    //componentsFound.put(name, searchUrl);	 
-	    componentsFound.add(searchUrl);
+	    componentsFound.put(name, searchUrl);	 
+	    //componentsFound.add(searchUrl);
        }
 	 
 	 return componentsFound;
@@ -81,10 +83,12 @@ public final class DipprReader{
     }
     
     public Component getComponent(String componentName) throws Exception{
-	ArrayList<String> urlList =searchUrlComponentByName(componentName,"exact");
-	String url = urlList.get(0);
+	HashMap<String,String> urlList =searchUrlComponentByName(componentName,"exact");
+	String name =(String) urlList.keySet().toArray()[0];
+	String url = urlList.get(name);
 	String componentId = url.substring(url.lastIndexOf("=")+1);
-		
+	
+	
 	Double mw = getPropertyValue(componentId, "MW", "Molecular Weight");
 	Double tc = getPropertyValue(componentId, "TC", "Critical Temperature");
 	Double pc = getPropertyValue(componentId, "PC", "Critical Pressure");
@@ -95,6 +99,7 @@ public final class DipprReader{
 	
 	
 	Component com = new Component();
+	com.setName(name);
 	com.setCriticalTemperature(tc);
 	com.setMolecularWeight(mw);
 	com.setCriticalPressure(pc);

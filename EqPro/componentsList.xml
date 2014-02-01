@@ -1,0 +1,1290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.7.0_25" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.0115478</double>
+    </void>
+    <void property="criticalPressure">
+     <double>4599000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>190.564</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.0986</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-7.452E7</double>
+    </void>
+    <void property="name">
+     <string>methane (CH4)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.099493</double>
+    </void>
+    <void property="criticalPressure">
+     <double>4872000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>305.32</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.1455</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-8.382E7</double>
+    </void>
+    <void property="name">
+     <string>ethane (C2H6)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.152291</double>
+    </void>
+    <void property="criticalPressure">
+     <double>4248000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>369.83</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.2</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-1.0468E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>44.09562</double>
+    </void>
+    <void property="name">
+     <string>propane (C3H8)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.183521</double>
+    </void>
+    <void property="criticalPressure">
+     <double>3640000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>407.8</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.259</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-1.3499E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>58.1222</double>
+    </void>
+    <void property="name">
+     <string>isobutane (C4H10)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.200164</double>
+    </void>
+    <void property="criticalPressure">
+     <double>3796000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>425.12</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.255</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-1.2579E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>58.1222</double>
+    </void>
+    <void property="name">
+     <string>n-butane (C4H10)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.251506</double>
+    </void>
+    <void property="criticalPressure">
+     <double>3370000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>469.7</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.313</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-1.4676E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>72.14878</double>
+    </void>
+    <void property="name">
+     <string>n-pentane (C5H12)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.301261</double>
+    </void>
+    <void property="criticalPressure">
+     <double>3025000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>507.6</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.371</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-1.6694E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>86.17536</double>
+    </void>
+    <void property="name">
+     <string>n-hexane (C6H14)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.349469</double>
+    </void>
+    <void property="criticalPressure">
+     <double>2740000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>540.2</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.428</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-1.8765E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>100.20194</double>
+    </void>
+    <void property="name">
+     <string>n-heptane (C7H16)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.399552</double>
+    </void>
+    <void property="criticalPressure">
+     <double>2490000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>568.7</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.486</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-2.0875E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>114.22852</double>
+    </void>
+    <void property="name">
+     <string>n-octane (C8H18)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.44346</double>
+    </void>
+    <void property="criticalPressure">
+     <double>2290000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>594.6</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.551</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-2.2874E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>128.2551</double>
+    </void>
+    <void property="name">
+     <string>n-nonane (C9H20)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.492328</double>
+    </void>
+    <void property="criticalPressure">
+     <double>2110000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>617.7</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.617</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-2.4946E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>142.28168</double>
+    </void>
+    <void property="name">
+     <string>n-decane (C10H22)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.208054</double>
+    </void>
+    <void property="criticalPressure">
+     <double>4080000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>553.8</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.308</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-1.233E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>84.15948</double>
+    </void>
+    <void property="name">
+     <string>cyclohexane (C6H12)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.0862484</double>
+    </void>
+    <void property="criticalPressure">
+     <double>5041000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>282.34</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.131</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>5.251E7</double>
+    </void>
+    <void property="molecularWeight">
+     <double>28.05316</double>
+    </void>
+    <void property="name">
+     <string>ethylene (C2H4)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.137588</double>
+    </void>
+    <void property="criticalPressure">
+     <double>4600000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>364.85</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.185</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>2.023E7</double>
+    </void>
+    <void property="molecularWeight">
+     <double>42.07974</double>
+    </void>
+    <void property="name">
+     <string>propylene (C3H6)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.184495</double>
+    </void>
+    <void property="criticalPressure">
+     <double>4020000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>419.5</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.241</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-500000.0</double>
+    </void>
+    <void property="molecularWeight">
+     <double>56.10632</double>
+    </void>
+    <void property="name">
+     <string>1-butene (C4H8)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.201877</double>
+    </void>
+    <void property="criticalPressure">
+     <double>4210000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>435.5</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.234</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-7400000.0</double>
+    </void>
+    <void property="molecularWeight">
+     <double>56.10632</double>
+    </void>
+    <void property="name">
+     <string>cis-2-butene (C4H8)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.217592</double>
+    </void>
+    <void property="criticalPressure">
+     <double>4100000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>428.6</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.238</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-1.1E7</double>
+    </void>
+    <void property="molecularWeight">
+     <double>56.10632</double>
+    </void>
+    <void property="name">
+     <string>trans-2-butene (C4H8)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.191185</double>
+    </void>
+    <void property="criticalPressure">
+     <double>6138000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>308.3</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.112</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>2.282E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>26.03728</double>
+    </void>
+    <void property="name">
+     <string>acetylene (C2H2)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.2103</double>
+    </void>
+    <void property="criticalPressure">
+     <double>4895000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>562.05</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.256</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>8.288E7</double>
+    </void>
+    <void property="molecularWeight">
+     <double>78.11184</double>
+    </void>
+    <void property="name">
+     <string>benzene (C6H6)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.264012</double>
+    </void>
+    <void property="criticalPressure">
+     <double>4108000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>591.75</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.316</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>5.017E7</double>
+    </void>
+    <void property="molecularWeight">
+     <double>92.13842</double>
+    </void>
+    <void property="name">
+     <string>toluene (C7H8)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.30347</double>
+    </void>
+    <void property="criticalPressure">
+     <double>3609000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>617.15</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.374</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>2.992E7</double>
+    </void>
+    <void property="molecularWeight">
+     <double>106.165</double>
+    </void>
+    <void property="name">
+     <string>ethylbenzene (C8H10)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.31013</double>
+    </void>
+    <void property="criticalPressure">
+     <double>3732000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>630.3</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.37</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>1.908E7</double>
+    </void>
+    <void property="molecularWeight">
+     <double>106.165</double>
+    </void>
+    <void property="name">
+     <string>o-xylene (C8H10)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.326485</double>
+    </void>
+    <void property="criticalPressure">
+     <double>3541000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>617.0</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.375</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>1.732E7</double>
+    </void>
+    <void property="molecularWeight">
+     <double>106.165</double>
+    </void>
+    <void property="name">
+     <string>m-xylene (C8H10)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.321839</double>
+    </void>
+    <void property="criticalPressure">
+     <double>3511000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>616.2</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.378</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>1.803E7</double>
+    </void>
+    <void property="molecularWeight">
+     <double>106.165</double>
+    </void>
+    <void property="name">
+     <string>p-xylene (C8H10)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.327406</double>
+    </void>
+    <void property="criticalPressure">
+     <double>3209000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>631.0</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.434</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>4000000.0</double>
+    </void>
+    <void property="molecularWeight">
+     <double>120.19158</double>
+    </void>
+    <void property="name">
+     <string>cumene (C9H12)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.297097</double>
+    </void>
+    <void property="criticalPressure">
+     <double>3840000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>636.0</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.352</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>1.474E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>104.14912</double>
+    </void>
+    <void property="name">
+     <string>styrene (C8H8)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.302034</double>
+    </void>
+    <void property="criticalPressure">
+     <double>4050000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>748.4</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.407</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>1.5058E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>128.17052</double>
+    </void>
+    <void property="name">
+     <string>naphthalene (C10H8)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.0221798</double>
+    </void>
+    <void property="criticalPressure">
+     <double>5043000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>154.58</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.0734</double>
+    </void>
+    <void property="molecularWeight">
+     <double>31.9988</double>
+    </void>
+    <void property="name">
+     <string>oxygen (O2)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.0481621</double>
+    </void>
+    <void property="criticalPressure">
+     <double>3499000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>132.92</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.0944</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-1.1053E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>28.0101</double>
+    </void>
+    <void property="name">
+     <string>carbon monoxide (CO)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.223621</double>
+    </void>
+    <void property="criticalPressure">
+     <double>7383000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>304.21</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.094</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-3.9351E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>44.0095</double>
+    </void>
+    <void property="name">
+     <string>carbon dioxide (CO2)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.245381</double>
+    </void>
+    <void property="criticalPressure">
+     <double>7884100.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>430.75</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.122</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-2.9684E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>64.0638</double>
+    </void>
+    <void property="name">
+     <string>sulfur dioxide (O2S)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.582944</double>
+    </void>
+    <void property="criticalPressure">
+     <double>6480000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>180.15</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.058</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>9.025E7</double>
+    </void>
+    <void property="molecularWeight">
+     <double>30.0061</double>
+    </void>
+    <void property="name">
+     <string>nitric oxide (NO)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.167887</double>
+    </void>
+    <void property="criticalPressure">
+     <double>6590000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>420.0</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.0851</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-1.386E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>30.02598</double>
+    </void>
+    <void property="name">
+     <string>formaldehyde (CH2O)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.262493</double>
+    </void>
+    <void property="criticalPressure">
+     <double>5570000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>466.0</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.154</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-1.71E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>44.05256</double>
+    </void>
+    <void property="name">
+     <string>acetylaldehyde (C2H4O)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.323369</double>
+    </void>
+    <void property="criticalPressure">
+     <double>4150000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>535.5</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.267</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-2.39E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>72.10572</double>
+    </void>
+    <void property="name">
+     <string>methyl ethyl ketone (C4H8O)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.565831</double>
+    </void>
+    <void property="criticalPressure">
+     <double>8084000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>512.5</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.117</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-2.0094E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>32.04186</double>
+    </void>
+    <void property="name">
+     <string>methanol (CH4O)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.643558</double>
+    </void>
+    <void property="criticalPressure">
+     <double>6137000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>514.0</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.168</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-2.3495E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>46.06844</double>
+    </void>
+    <void property="name">
+     <string>ethanol (C2H6O)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.6209</double>
+    </void>
+    <void property="criticalPressure">
+     <double>5169000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>536.8</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.219</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-2.546E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>60.09502</double>
+    </void>
+    <void property="name">
+     <string>1-propanol (C3H8O)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.58828</double>
+    </void>
+    <void property="criticalPressure">
+     <double>4414000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>563.1</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.273</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-2.751E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>74.1216</double>
+    </void>
+    <void property="name">
+     <string>1-butanol (C4H10O)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.466521</double>
+    </void>
+    <void property="criticalPressure">
+     <double>5786000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>591.95</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.177</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-4.328E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>60.052</double>
+    </void>
+    <void property="name">
+     <string>acetic acid (C2H4O2)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.331255</double>
+    </void>
+    <void property="criticalPressure">
+     <double>4750000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>506.55</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.228</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-4.119E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>74.07854</double>
+    </void>
+    <void property="name">
+     <string>methyl acetate (C3H6O2)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.366409</double>
+    </void>
+    <void property="criticalPressure">
+     <double>3880000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>523.3</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.286</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-4.445E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>88.10512</double>
+    </void>
+    <void property="name">
+     <string>ethyl acetate (C4H8O2)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.281065</double>
+    </void>
+    <void property="criticalPressure">
+     <double>3640000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>466.7</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.28</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-2.521E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>74.1216</double>
+    </void>
+    <void property="name">
+     <string>diethyl ether (C4H10O)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.192552</double>
+    </void>
+    <void property="criticalPressure">
+     <double>4560000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>556.35</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.276</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-9.581E7</double>
+    </void>
+    <void property="molecularWeight">
+     <double>153.8227</double>
+    </void>
+    <void property="name">
+     <string>carbon tetrachloride (CCl4)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.221902</double>
+    </void>
+    <void property="criticalPressure">
+     <double>5472000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>536.4</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.239</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-1.029E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>119.37764</double>
+    </void>
+    <void property="name">
+     <string>chloroform (CHCl3)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.281417</double>
+    </void>
+    <void property="criticalPressure">
+     <double>7460000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>430.05</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.154</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-2.297E7</double>
+    </void>
+    <void property="molecularWeight">
+     <double>31.0571</double>
+    </void>
+    <void property="name">
+     <string>methylamine (CH5N)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.284788</double>
+    </void>
+    <void property="criticalPressure">
+     <double>5620000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>456.15</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.207</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-4.715E7</double>
+    </void>
+    <void property="molecularWeight">
+     <double>45.08368</double>
+    </void>
+    <void property="name">
+     <string>ethylamine (C2H7N)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="criticalPressure">
+     <double>6400000.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>924.0</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.177</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-7.352E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>98.07848</double>
+    </void>
+    <void property="name">
+     <string>sulfuric acid (H2O4S)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.252608</double>
+    </void>
+    <void property="criticalPressure">
+     <double>1.128E7</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>405.65</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.07247</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-4.5898E7</double>
+    </void>
+    <void property="molecularWeight">
+     <double>17.03052</double>
+    </void>
+    <void property="name">
+     <string>ammonia (H3N)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="criticalPressure">
+     <double>2.5E7</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>2820.0</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.2</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-1.9776E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>39.99711</double>
+    </void>
+    <void property="name">
+     <string>sodium hydroxide (HNaO)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.344861</double>
+    </void>
+    <void property="criticalPressure">
+     <double>2.2064E7</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>647.096</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.0559472</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-2.41818E8</double>
+    </void>
+    <void property="molecularWeight">
+     <double>18.01528</double>
+    </void>
+    <void property="name">
+     <string>water (H2O)</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="termo.component.Component">
+    <void property="acentricFactor">
+     <double>0.0941677</double>
+    </void>
+    <void property="criticalPressure">
+     <double>8962910.0</double>
+    </void>
+    <void property="criticalTemperature">
+     <double>373.53</double>
+    </void>
+    <void property="criticalVolume">
+     <double>0.0985</double>
+    </void>
+    <void property="enthalpyofFormationofIdealgasat298_15Kand101325Pa">
+     <double>-2.063E7</double>
+    </void>
+    <void property="molecularWeight">
+     <double>34.08088</double>
+    </void>
+    <void property="name">
+     <string>hydrogen sulfide (H2S)</string>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

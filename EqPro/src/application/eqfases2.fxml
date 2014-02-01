@@ -26,9 +26,9 @@
             <MenuItem mnemonicParsing="false" text="Estado de referencia" />
             <MenuItem mnemonicParsing="false" text="Método de convergencia" />
             <MenuItem mnemonicParsing="false" onAction="#runComponentSelection" text="Seleccionar compuestos" />
-            <MenuItem mnemonicParsing="false" text="Definir composición" />
-            <MenuItem mnemonicParsing="false" text="Ecuacion de estado" />
-            <MenuItem mnemonicParsing="false" text="Tipo de cálculo" />
+            <MenuItem mnemonicParsing="false" onAction="#runCompositionSelection" text="Definir composición" />
+            <MenuItem mnemonicParsing="false" onAction="#runEquationOfStateSelection" text="Ecuacion de estado" />
+            <MenuItem mnemonicParsing="false" onAction="#runTypeOfCalculationSelection" text="Tipo de cálculo" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Diagramas">
