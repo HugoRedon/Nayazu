@@ -28,8 +28,12 @@
           </rowConstraints>
         </GridPane>
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fase" />
-        <RadioButton mnemonicParsing="false" text="Líquida" />
-        <RadioButton mnemonicParsing="false" text="Vapor" />
+        <RadioButton mnemonicParsing="false" text="Líquida">
+          <toggleGroup>
+            <ToggleGroup fx:id="phaseGroup" />
+          </toggleGroup>
+        </RadioButton>
+        <RadioButton mnemonicParsing="false" text="Vapor" toggleGroup="$phaseGroup" />
       </children>
     </VBox>
     <Button layoutX="97.0" layoutY="184.0" mnemonicParsing="false" text="Aceptar" />

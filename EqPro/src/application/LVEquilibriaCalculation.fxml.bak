@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" fx:controller="application.LVEquilibriaCalculationController">
+  <children>
+    <VBox layoutX="54.0" layoutY="77.0" prefHeight="200.0" prefWidth="100.0">
+      <children>
+        <RadioButton mnemonicParsing="false" text="T burbuja">
+          <toggleGroup>
+            <ToggleGroup fx:id="calcuationGroup" />
+          </toggleGroup>
+        </RadioButton>
+        <RadioButton mnemonicParsing="false" text="T rocío" toggleGroup="$calcuationGroup" />
+        <RadioButton mnemonicParsing="false" text="P burbuja" toggleGroup="$calcuationGroup" />
+        <RadioButton mnemonicParsing="false" text="P rocío" toggleGroup="$calcuationGroup" />
+        <RadioButton mnemonicParsing="false" text="Flash T V/F" toggleGroup="$calcuationGroup" />
+        <RadioButton mnemonicParsing="false" text="Flash P V/F" toggleGroup="$calcuationGroup" />
+        <RadioButton mnemonicParsing="false" text="Flash T P" toggleGroup="$calcuationGroup" />
+        <RadioButton mnemonicParsing="false" text="Flash P H" toggleGroup="$calcuationGroup" />
+        <RadioButton mnemonicParsing="false" text="Flash P S" toggleGroup="$calcuationGroup" />
+        <RadioButton mnemonicParsing="false" text="Flash T S" toggleGroup="$calcuationGroup" />
+      </children>
+    </VBox>
+    <VBox layoutX="193.0" layoutY="49.0" prefHeight="200.0" prefWidth="100.0">
+      <children>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Presión" />
+        <TextField prefWidth="200.0" />
+      </children>
+    </VBox>
+    <Button layoutX="110.0" layoutY="304.0" mnemonicParsing="false" text="Aceptar" />
+    <Button layoutX="212.0" layoutY="304.0" mnemonicParsing="false" text="Cancelar" />
+  </children>
+</AnchorPane>

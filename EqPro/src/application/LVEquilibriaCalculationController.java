@@ -10,8 +10,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import termo.phase.Phase;
 import termo.substance.Substance;
 
 /**
@@ -22,11 +22,12 @@ import termo.substance.Substance;
  * @author
  * Hugo
  */
-public class OnePhasePropertiesController implements Initializable {
+public class LVEquilibriaCalculationController implements Initializable {
 
-    @FXML RadioButton liquidRB;
-    @FXML RadioButton vaporRB;
-    @FXML ToggleGroup phaseGroup;
+    @FXML ToggleGroup calculationGroup ;
+    @FXML RadioButton bubbleTempRB;
+    @FXML TextField pressureTF;
+    
     /**
      * Initializes
      * the
@@ -35,18 +36,16 @@ public class OnePhasePropertiesController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-	liquidRB.setUserData(Phase.LIQUID);
-	vaporRB.setUserData(Phase.VAPOR);
-		
-    }  
-    
+	
+	
+	
+    }    
     @FXML protected void calculate(ActionEvent event){
-	Phase phase = (Phase)phaseGroup.getSelectedToggle().getUserData();
-//	Substance substance = application.Eqfases2Copy.getSubstance();
-//	
-//	
-//	substance.calculateEnthalpy(temperature, pressure, volume);
+	System.out.println("calculando temperatura de burbuja");
+	Double pressure = Double.valueOf(pressureTF.getText());
+	Substance substance = Eqfases2Copy.getSubstance();
 	
-	
+	double bubbletemperature = substance.bubbleTemperature(pressure).getTemperature();
+	System.out.println(bubbletemperature);
     }
 }
