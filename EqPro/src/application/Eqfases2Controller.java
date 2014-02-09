@@ -86,10 +86,10 @@ class EQStage {
     }
      
    
-     public void initOwner(Stage owner){
-	 
-	 stage.initOwner(owner);
-     }
+//     public void initOwner(Stage owner){
+//	 
+//	 stage.initOwner(owner);
+//     }
 
     /**
      * @return the fxml

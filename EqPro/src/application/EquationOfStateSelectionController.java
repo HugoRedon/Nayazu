@@ -3,12 +3,13 @@ package application;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
-import javax.swing.ButtonGroup;
+import termo.eos.EquationOfStateFactory;
+import termo.eos.alpha.AlphaFactory;
 
 /**
  * FXML
@@ -42,4 +43,12 @@ public class EquationOfStateSelectionController implements Initializable {
 	
 	
     }    
+    
+    @FXML protected void done(ActionEvent event){
+	System.out.println("ecuacion de estado y alpha seleccionados");
+	if(equationTG.getSelectedToggle().equals(prsvRB)){
+	    Eqfases2Copy.setEos(EquationOfStateFactory.pengRobinsonBase());
+	    Eqfases2Copy.setAlpha(AlphaFactory.getStryjekAndVeraExpression());
+	}
+    }
 }

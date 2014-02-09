@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package application;
 
 import java.io.IOException;
@@ -122,6 +118,20 @@ public class Eqfases2Copy extends Application implements ListChangeListener<Comp
     public static void setMixingRule(MixingRule aMixingRule) {
 	mixingRule = aMixingRule;
     }
+
+    /**
+     * @return the onePhasePropertiesResult
+     */
+    public static OnePhasePropertiesResult getOnePhasePropertiesResult() {
+	return onePhasePropertiesResult;
+    }
+
+    /**
+     * @param aOnePhasePropertiesResult the onePhasePropertiesResult to set
+     */
+    public static void setOnePhasePropertiesResult(OnePhasePropertiesResult aOnePhasePropertiesResult) {
+	onePhasePropertiesResult = aOnePhasePropertiesResult;
+    }
     
       @Override
     public void onChanged(ListChangeListener.Change<? extends Component> change) {
@@ -159,7 +169,7 @@ public class Eqfases2Copy extends Application implements ListChangeListener<Comp
     
     
  
-
+    private static OnePhasePropertiesResult onePhasePropertiesResult;
 
     /**
      * The

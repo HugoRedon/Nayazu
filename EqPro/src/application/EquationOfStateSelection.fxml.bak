@@ -11,7 +11,7 @@
   <children>
     <VBox layoutX="66.0" layoutY="45.0" prefHeight="50.0" prefWidth="215.0">
       <children>
-        <RadioButton fx:id="rksmRB" mnemonicParsing="false" text="Redlich-Kwong-Soave-Mathias">
+        <RadioButton fx:id="rksmRB" mnemonicParsing="false" selected="true" text="Redlich-Kwong-Soave-Mathias">
           <toggleGroup>
             <ToggleGroup fx:id="equationTG" />
           </toggleGroup>
@@ -21,7 +21,7 @@
     </VBox>
     <VBox layoutX="70.0" layoutY="159.0" prefHeight="200.0" prefWidth="208.0">
       <children>
-        <RadioButton fx:id="vdw1RB" mnemonicParsing="false" text="Van der Waals, 1 parámetro">
+        <RadioButton fx:id="vdw1RB" mnemonicParsing="false" selected="true" text="Van der Waals, 1 parámetro">
           <toggleGroup>
             <ToggleGroup fx:id="mixingRuleTG" />
           </toggleGroup>

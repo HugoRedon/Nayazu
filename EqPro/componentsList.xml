@@ -34,6 +34,9 @@
     <void property="criticalTemperature">
      <double>305.32</double>
     </void>
+	<void property="prsvKappa">
+     <double>0.02669</double>
+    </void>
     <void property="criticalVolume">
      <double>0.1455</double>
     </void>

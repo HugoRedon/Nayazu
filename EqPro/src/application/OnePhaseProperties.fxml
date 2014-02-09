@@ -13,8 +13,8 @@
       <children>
         <GridPane>
           <children>
-            <TextField prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-            <TextField prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="temperatureTF" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <TextField fx:id="pressureTF" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Temperatura" GridPane.columnIndex="0" GridPane.rowIndex="0" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Presión" GridPane.columnIndex="0" GridPane.rowIndex="1" />
           </children>
@@ -28,15 +28,15 @@
           </rowConstraints>
         </GridPane>
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fase" />
-        <RadioButton mnemonicParsing="false" text="Líquida">
+        <RadioButton fx:id="liquidRB" mnemonicParsing="false" text="Líquida">
           <toggleGroup>
             <ToggleGroup fx:id="phaseGroup" />
           </toggleGroup>
         </RadioButton>
-        <RadioButton mnemonicParsing="false" text="Vapor" toggleGroup="$phaseGroup" />
+        <RadioButton fx:id="vaporRB" mnemonicParsing="false" text="Vapor" toggleGroup="$phaseGroup" />
       </children>
     </VBox>
-    <Button layoutX="97.0" layoutY="184.0" mnemonicParsing="false" text="Aceptar" />
+    <Button layoutX="97.0" layoutY="184.0" mnemonicParsing="false" onAction="#calculate" text="Aceptar" />
     <Button layoutX="212.0" layoutY="184.0" mnemonicParsing="false" text="Cancelar" />
   </children>
 </AnchorPane>
