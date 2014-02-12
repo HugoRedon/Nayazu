@@ -30,7 +30,7 @@ import termo.component.Component;
  * @author
  * Hugo
  */
-public class ComponentSelectionController implements Initializable {
+public class ComponentSelectionController  extends EQController implements Initializable {
     @FXML protected ListView<Component> availableComponentsLV;
     @FXML protected ListView<Component> selectedComponentsLV;
     DipprReader reader ;
@@ -149,27 +149,27 @@ public class ComponentSelectionController implements Initializable {
 	
 	close(event);
     }
-    @FXML protected void done(ActionEvent event){
-//	ArrayList<Component> components = new ArrayList();
-//		
-//	for (Component comp : selectedComponentsLV.getItems()){
-//	    components.add(comp);
-//	}
-//	Eqfases2Copy.setComponents(components);
+//    @FXML protected void done(ActionEvent event){
+////	ArrayList<Component> components = new ArrayList();
+////		
+////	for (Component comp : selectedComponentsLV.getItems()){
+////	    components.add(comp);
+////	}
+////	Eqfases2Copy.setComponents(components);
+////	
+////	
+//	//close
+//	System.out.println("componentes agregados");
 //	
-//	
-	//close
-	System.out.println("componentes agregados");
+//	close(event);
+//    }
+
+    @Override
+    public void done() {
 	
-	close(event);
     }
     
-    public void close(ActionEvent event){
-	Node node = (Node)event.getSource();
-	Stage stage =(Stage) node.getScene().getWindow();
-	//stage.getOnCloseRequest().handle(null); 
-	stage.close();
-    }
+
   
     
 }

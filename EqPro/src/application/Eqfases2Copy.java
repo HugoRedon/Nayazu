@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -14,9 +15,11 @@ import termo.component.Component;
 import termo.eos.Cubic;
 import termo.eos.alpha.Alpha;
 import termo.eos.mixingRule.MixingRule;
+import termo.equilibrium.EquilibriaSolution;
 import termo.substance.MixtureSubstance;
 import termo.substance.PureSubstance;
 import termo.substance.Substance;
+import termo.substance.SubstanceType;
 
 /**
  *
@@ -28,6 +31,10 @@ public class Eqfases2Copy extends Application implements ListChangeListener<Comp
     private static Cubic eos ;
     private static Alpha alpha;
     private static MixingRule mixingRule;
+    private static SubstanceType type; 
+    
+    
+    
     
     public static  void setInerWindow(Stage stage){
 	stage.initOwner(primaryStage);
@@ -52,25 +59,33 @@ public class Eqfases2Copy extends Application implements ListChangeListener<Comp
 	Eqfases2Copy.compositionItems = aCompositionItems;
     }
 
+    private static ArrayList<EquilibriaSolution> diagramData;
+    
     public static Substance getSubstance() {
+
+	
+	ArrayList<Component> compos = new ArrayList();
+	
+	for (Component component : components){
+	    compos.add(component);
+	}
+	
 	Substance substance = null ;
 	if(components.size() == 1 ){
-	    PureSubstance pureSubstance = new PureSubstance();
-	    pureSubstance.setAlpha(getAlpha());
-	    pureSubstance.setComponent(components.get(0));
+	    PureSubstance pureSubstance = new PureSubstance(
+		    eos,
+		    alpha,
+		    components.get(0));
 	    substance = pureSubstance;
 	}else if(components.size() > 1){
-	    MixtureSubstance mixture = new MixtureSubstance();
+	    MixtureSubstance mixture = new MixtureSubstance(
+		    eos, 
+		    alpha, 
+		    mixingRule, 
+		    compos);
 	    
-	    mixture.setMixingRule(mixingRule);
-	    mixture.setBinaryParameters(null);
-	    mixture.setMolarFractions(null);
-	    mixture.setPureSubstances(null);
-	    
+
 	    substance = mixture ;
-	}
-	if(substance != null){
-	    substance.setCubicEquationOfState(eos);
 	}
 	
 	return substance;
@@ -131,6 +146,17 @@ public class Eqfases2Copy extends Application implements ListChangeListener<Comp
      */
     public static void setOnePhasePropertiesResult(OnePhasePropertiesResult aOnePhasePropertiesResult) {
 	onePhasePropertiesResult = aOnePhasePropertiesResult;
+    }
+
+    static void setDiagramData(ArrayList<EquilibriaSolution> aDiagramData) {
+	diagramData = aDiagramData;
+    }
+
+    /**
+     * @return the diagramData
+     */
+    public static ArrayList<EquilibriaSolution> getDiagramData() {
+	return diagramData;
     }
     
       @Override

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="459.0" prefWidth="675.0" xmlns:fx="http://javafx.com/fxml" fx:controller="application.BinaryDiagramResultController">
+  <children>
+    <MenuButton layoutX="66.0" layoutY="14.0" mnemonicParsing="false" text="Menu">
+      <items>
+        <MenuItem mnemonicParsing="false" text="Seleccionar diagrama">
+          <graphic>
+            <MenuButton mnemonicParsing="false" text="MenuButton">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#diagramTypeXY" text="Diagrama y-x" />
+                <MenuItem mnemonicParsing="false" onAction="#diagramaTypeTXY" text="Diagrma T-x,y" />
+              </items>
+            </MenuButton>
+          </graphic>
+        </MenuItem>
+        <MenuItem mnemonicParsing="false" text="Datos del sistema" />
+        <MenuItem mnemonicParsing="false" text="Modificar rangos" />
+        <MenuItem mnemonicParsing="false" text="Atributos del gráfico" />
+        <MenuItem mnemonicParsing="false" text="Datos experimentales" />
+      </items>
+    </MenuButton>
+    <LineChart fx:id="diagram" layoutX="66.0" layoutY="45.0">
+      <xAxis>
+        <NumberAxis forceZeroInRange="false" side="BOTTOM" />
+      </xAxis>
+      <yAxis>
+        <NumberAxis side="LEFT" />
+      </yAxis>
+    </LineChart>
+  </children>
+</AnchorPane>

@@ -8,7 +8,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import termo.substance.Substance;
+import termo.substance.HeterogeneousMixtureSubstance;
+import termo.substance.HomogeneousSubstance;
 
 /**
  * FXML
@@ -39,7 +40,7 @@ public class LVEquilibriaCalculationController implements Initializable {
     @FXML protected void calculate(ActionEvent event){
 	System.out.println("calculando temperatura de burbuja");
 	Double pressure = Double.valueOf(pressureTF.getText());
-	Substance substance = Eqfases2Copy.getSubstance();
+	HeterogeneousMixtureSubstance substance =(HeterogeneousMixtureSubstance) Eqfases2Copy.getSubstance();
 	
 	double bubbletemperature = substance.bubbleTemperature(pressure).getTemperature();
 	System.out.println(bubbletemperature);

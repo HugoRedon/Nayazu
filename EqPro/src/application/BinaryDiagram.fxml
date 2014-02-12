@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="248.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" fx:controller="application.BinaryDiagramController">
+  <children>
+    <VBox layoutX="56.0" layoutY="28.0" prefHeight="200.0" prefWidth="189.0">
+      <children>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Especificación" />
+        <RadioButton fx:id="pressureRB" mnemonicParsing="false" selected="true" text="Presión">
+          <toggleGroup>
+            <ToggleGroup fx:id="specificationTG" />
+          </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="tempRB" mnemonicParsing="false" text="Temperatura" toggleGroup="$specificationTG" />
+        <HBox prefHeight="100.0" prefWidth="200.0">
+          <children>
+            <Label prefWidth="43.0" text="Valor" />
+            <TextField fx:id="valueTF" prefWidth="132.0" text="101325" />
+          </children>
+        </HBox>
+      </children>
+    </VBox>
+    <Button layoutX="337.0" layoutY="67.0" mnemonicParsing="false" onAction="#done" text="Aceptar" />
+    <Button layoutX="337.0" layoutY="110.0" mnemonicParsing="false" text="Cancelar" />
+  </children>
+</AnchorPane>

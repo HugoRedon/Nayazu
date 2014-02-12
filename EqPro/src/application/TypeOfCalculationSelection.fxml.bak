@@ -17,7 +17,7 @@
           </toggleGroup>
         </RadioButton>
         <RadioButton mnemonicParsing="false" text="Equilibrio líquido-líquido" toggleGroup="$group" />
-        <RadioButton fx:id="onePhasePropertiesRB" mnemonicParsing="false" text="Propiedades de una fase" toggleGroup="$group" />
+        <RadioButton fx:id="onePhasePropertiesRB" mnemonicParsing="false" selected="true" text="Propiedades de una fase" toggleGroup="$group" />
         <RadioButton mnemonicParsing="false" text="Parámetro polar de Mathias" toggleGroup="$group" />
         <RadioButton mnemonicParsing="false" text="Envolvente presión-temperatura" toggleGroup="$group" />
         <RadioButton mnemonicParsing="false" text="Diagrama binario y-x" toggleGroup="$group" />

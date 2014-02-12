@@ -11,12 +11,12 @@
   <children>
     <VBox layoutX="66.0" layoutY="45.0" prefHeight="50.0" prefWidth="215.0">
       <children>
-        <RadioButton fx:id="rksmRB" mnemonicParsing="false" selected="true" text="Redlich-Kwong-Soave-Mathias">
+        <RadioButton fx:id="rksmRB" mnemonicParsing="false" text="Redlich-Kwong-Soave-Mathias">
           <toggleGroup>
             <ToggleGroup fx:id="equationTG" />
           </toggleGroup>
         </RadioButton>
-        <RadioButton fx:id="prsvRB" mnemonicParsing="false" text="Peng-Robinson-Stryjek-Vera" toggleGroup="$equationTG" />
+        <RadioButton fx:id="prsvRB" mnemonicParsing="false" selected="true" text="Peng-Robinson-Stryjek-Vera" toggleGroup="$equationTG" />
       </children>
     </VBox>
     <VBox layoutX="70.0" layoutY="159.0" prefHeight="200.0" prefWidth="208.0">

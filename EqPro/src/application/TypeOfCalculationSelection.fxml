@@ -20,7 +20,7 @@
         <RadioButton fx:id="onePhasePropertiesRB" mnemonicParsing="false" selected="true" text="Propiedades de una fase" toggleGroup="$group" />
         <RadioButton mnemonicParsing="false" text="Parámetro polar de Mathias" toggleGroup="$group" />
         <RadioButton mnemonicParsing="false" text="Envolvente presión-temperatura" toggleGroup="$group" />
-        <RadioButton mnemonicParsing="false" text="Diagrama binario y-x" toggleGroup="$group" />
+        <RadioButton fx:id="binaryDiagramRB" mnemonicParsing="false" text="Diagrama binario y-x" toggleGroup="$group" />
       </children>
     </VBox>
     <Button layoutX="162.0" layoutY="304.0" mnemonicParsing="false" onAction="#done" text="Aceptar" />

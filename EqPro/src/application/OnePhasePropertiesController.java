@@ -51,13 +51,14 @@ public class OnePhasePropertiesController implements Initializable {
     @FXML protected void calculate(ActionEvent event){
 	Phase phase = (Phase)phaseGroup.getSelectedToggle().getUserData();
 	PureSubstance substance = (PureSubstance)application.Eqfases2Copy.getSubstance();
+	substance.setPhase(phase);
 	
 	double temperature = Double.valueOf(temperatureTF.getText());
 	double pressure = Double.valueOf(pressureTF.getText());
 	
-	double fug = substance.calculateFugacity(temperature, pressure, phase);
-	double vol = substance.calculateMolarVolume(temperature,pressure,phase);
-	double compresibility = substance.calculateCompresibilityFactor(temperature, pressure, phase);
+	double fug = substance.calculateFugacity(temperature, pressure);
+	double vol = substance.calculateMolarVolume(temperature,pressure);
+	double compresibility = substance.calculateCompresibilityFactor(temperature, pressure);
 	
 	
 	
