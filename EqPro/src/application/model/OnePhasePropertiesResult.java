@@ -1,5 +1,5 @@
 
-package application;
+package application.model;
 
 import termo.phase.Phase;
 

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="248.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" fx:controller="application.BinaryDiagramController">
+<AnchorPane id="AnchorPane" prefHeight="248.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" fx:controller="application.controller.BinaryDiagramController">
   <children>
     <VBox layoutX="56.0" layoutY="28.0" prefHeight="200.0" prefWidth="189.0">
       <children>

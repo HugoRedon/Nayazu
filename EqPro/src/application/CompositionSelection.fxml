@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" fx:controller="application.CompositionSelectionController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" fx:controller="application.controller.CompositionSelectionController">
   <children>
     <TableView id="compositions" fx:id="compositionsTV" editable="true" layoutX="177.0" layoutY="65.0" prefHeight="210.0" prefWidth="240.0">
       <columns>

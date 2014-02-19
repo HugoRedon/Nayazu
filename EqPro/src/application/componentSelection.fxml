@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" fx:controller="application.ComponentSelectionController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" fx:controller="application.controller.ComponentSelectionController">
   <children>
     <TextField layoutX="174.0" layoutY="39.0" prefWidth="90.0" />
     <Text layoutX="36.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número de componente" />

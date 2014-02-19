@@ -1,6 +1,9 @@
 
-package application;
+package application.controller;
 
+import application.model.EQStage;
+import application.model.Eqfases2Copy;
+import application.model.OnePhasePropertiesResult;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -50,7 +53,7 @@ public class OnePhasePropertiesController implements Initializable {
     
     @FXML protected void calculate(ActionEvent event){
 	Phase phase = (Phase)phaseGroup.getSelectedToggle().getUserData();
-	PureSubstance substance = (PureSubstance)application.Eqfases2Copy.getSubstance();
+	PureSubstance substance = (PureSubstance)application.model.Eqfases2Copy.getSubstance();
 	substance.setPhase(phase);
 	
 	double temperature = Double.valueOf(temperatureTF.getText());

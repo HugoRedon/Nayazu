@@ -1,5 +1,7 @@
-package application;
+package application.controller;
 
+import application.model.Eqfases2Copy;
+import application.model.OnePhasePropertiesResult;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;

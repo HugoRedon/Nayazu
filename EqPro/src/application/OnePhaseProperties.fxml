@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="241.0" prefWidth="374.0" xmlns:fx="http://javafx.com/fxml" fx:controller="application.OnePhasePropertiesController">
+<AnchorPane id="AnchorPane" prefHeight="241.0" prefWidth="374.0" xmlns:fx="http://javafx.com/fxml" fx:controller="application.controller.OnePhasePropertiesController">
   <children>
     <VBox layoutX="40.0" layoutY="30.0" prefHeight="136.0" prefWidth="214.0">
       <children>

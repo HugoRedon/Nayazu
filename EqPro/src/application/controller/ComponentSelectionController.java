@@ -1,6 +1,8 @@
 
-package application;
+package application.controller;
 
+import application.model.Eqfases2Copy;
+import application.controller.EQController;
 import dipprreader.DipprReader;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;

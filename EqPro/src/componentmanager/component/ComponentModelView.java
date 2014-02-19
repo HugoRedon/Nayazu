@@ -118,7 +118,7 @@ protected boolean ok()throws Exception{
         return c;
     }
     private DIPPR_107_Equation getCpEquation(){
-        DIPPR_107_Equation cp = new DIPPR_107_Equation();
+        DIPPR_107_Equation cp = new DIPPR_107_Equation(null);
         
         cp.setA(Double.valueOf(A_dippr1007.get()));
         cp.setB(Double.valueOf(B_dippr1007.get()));

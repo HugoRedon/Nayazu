@@ -1,6 +1,8 @@
 
-package application;
+package application.controller;
 
+import application.model.EQStage;
+import application.model.Eqfases2Copy;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -91,7 +93,7 @@ public class BinaryDiagramController  implements Initializable {
     @FXML public void done() {
 	Eqfases2Copy.setDiagramData(diagramData());
 	
-	EQStage result = new EQStage("BinaryDiagramResult.fxml");
+	EQStage result = new EQStage("/application/BinaryDiagramResult.fxml");
 	
 	result.run();
     }

@@ -1,6 +1,7 @@
 
-package application;
+package application.controller;
 
+import application.model.EQStage;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -24,8 +25,8 @@ public class TypeOfCalculationSelectionController implements Initializable {
     @FXML RadioButton onePhasePropertiesRB;	
     @FXML RadioButton binaryDiagramRB;
     
-    private EQStage onePhaeProperties = new EQStage("OnePhaseProperties.fxml");
-    private EQStage binaryDiagram = new EQStage("BinaryDiagram.fxml");
+    private EQStage onePhaeProperties = new EQStage("/application/OnePhaseProperties.fxml");
+    private EQStage binaryDiagram = new EQStage("/application/BinaryDiagram.fxml");
     
     @FXML private ToggleGroup group;
     /**

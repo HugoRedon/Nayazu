@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="459.0" prefWidth="675.0" xmlns:fx="http://javafx.com/fxml" fx:controller="application.BinaryDiagramResultController">
+<AnchorPane id="AnchorPane" prefHeight="459.0" prefWidth="675.0" xmlns:fx="http://javafx.com/fxml" fx:controller="application.controller.BinaryDiagramResultController">
   <children>
     <MenuButton layoutX="66.0" layoutY="14.0" mnemonicParsing="false" text="Menu">
       <items>

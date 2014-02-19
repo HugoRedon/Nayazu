@@ -1,4 +1,4 @@
-package application;
+package application.model;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -148,7 +148,7 @@ public class Eqfases2Copy extends Application implements ListChangeListener<Comp
 	onePhasePropertiesResult = aOnePhasePropertiesResult;
     }
 
-    static void setDiagramData(ArrayList<EquilibriaSolution> aDiagramData) {
+    public static void setDiagramData(ArrayList<EquilibriaSolution> aDiagramData) {
 	diagramData = aDiagramData;
     }
 
@@ -187,7 +187,7 @@ public class Eqfases2Copy extends Application implements ListChangeListener<Comp
 	
 	components.addListener(this);
 	Eqfases2Copy.primaryStage = primaryStage;
-	Parent p = FXMLLoader.load(getClass().getResource("eqfases2.fxml"));
+	Parent p = FXMLLoader.load(getClass().getResource("/application/eqfases2.fxml"));
 	Scene scene = new Scene(p);
 	primaryStage.setScene(scene);
 	primaryStage.show();

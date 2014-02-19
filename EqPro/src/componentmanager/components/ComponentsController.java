@@ -100,7 +100,7 @@ public class ComponentsController implements Initializable {
         Component newComponent = new Component();
         newComponent.setName("Componente Nuevo");
         newComponent.setCasNumber("Número Cas");
-        newComponent.setCp(new DIPPR_107_Equation());
+        newComponent.setCp(new DIPPR_107_Equation(null));
             
         componentModelView.showComponent(newComponent);
         eqpro.EqPro.startComponentManager();

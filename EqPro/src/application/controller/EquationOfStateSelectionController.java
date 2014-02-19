@@ -1,6 +1,8 @@
 
-package application;
+package application.controller;
 
+import application.model.Eqfases2Copy;
+import application.controller.EQController;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;

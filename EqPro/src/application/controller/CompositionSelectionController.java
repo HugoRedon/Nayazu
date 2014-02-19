@@ -1,6 +1,7 @@
 
-package application;
+package application.controller;
 
+import application.model.CompositionTableItem;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -49,7 +50,7 @@ public class CompositionSelectionController implements Initializable {
 	componentNameTC.setCellValueFactory(new PropertyValueFactory("componentName"));
 	molFractionTC.setCellValueFactory(new PropertyValueFactory<CompositionTableItem,String>("molFractionValue"));
 	
-	compositionsTV.setItems( application.Eqfases2Copy.getCompositionItems());
+	compositionsTV.setItems( application.model.Eqfases2Copy.getCompositionItems());
 	
     }    
     
