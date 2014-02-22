@@ -12,11 +12,9 @@
     <TableView id="compositions" fx:id="compositionsTV" editable="true" layoutX="177.0" layoutY="65.0" prefHeight="210.0" prefWidth="240.0">
       <columns>
         <TableColumn prefWidth="120.0" text="Componente" fx:id="componentNameTC" />
-        <TableColumn prefWidth="120.0" text="Fracción Molar" fx:id="molFractionTC" />
+        <TableColumn prefWidth="120.0" text="Fracción Molar" fx:id="molFractionTC"  onEditCommit="#onEditComposition" />
       </columns>
     </TableView>
-    <Button layoutX="459.0" layoutY="325.0" mnemonicParsing="false" text="Aceptar" />
-    <Button layoutX="385.0" layoutY="325.0" mnemonicParsing="false" text="Cancelar" />
     <TextField fx:id="totalMolFractionTF" layoutX="283.0" layoutY="284.0" prefWidth="102.0" />
     <Text layoutX="192.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Moles totales" />
   </children>

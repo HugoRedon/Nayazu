@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" fx:controller="application.controller.LVEController">
+  <children>
+    <VBox layoutX="74.0" layoutY="88.0" prefHeight="200.0" prefWidth="100.0">
+      <children>
+        <RadioButton fx:id="bubbleTRB" mnemonicParsing="false" text="T burbuja">
+          <toggleGroup>
+            <ToggleGroup fx:id="c" />
+          </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="dewTRB" mnemonicParsing="false" text="T rocío" toggleGroup="$c" />
+        <RadioButton fx:id="bubblePRB" mnemonicParsing="false" text="P burbuja" toggleGroup="$c" />
+        <RadioButton fx:id="dewPRB" mnemonicParsing="false" text="P rocío" toggleGroup="$c" />
+        <RadioButton fx:id="flashTVFRB" mnemonicParsing="false" text="Flash T V/F" toggleGroup="$c" />
+        <RadioButton fx:id="flashPVFRB" mnemonicParsing="false" text="Flash P V/F" toggleGroup="$c" />
+        <RadioButton fx:id="flashTPRB" mnemonicParsing="false" text="Flash T P" toggleGroup="$c" />
+        <RadioButton fx:id="flashPHRB" mnemonicParsing="false" text="Flash P H" toggleGroup="$c" />
+        <RadioButton fx:id="flashPSRB" mnemonicParsing="false" text="Flash P S" toggleGroup="$c" />
+        <RadioButton fx:id="flashTSRB" mnemonicParsing="false" text="Flash T S" toggleGroup="$c" />
+      </children>
+    </VBox>
+    <Text layoutX="82.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cálculo" />
+    <TextField fx:id="pressureTF" layoutX="270.0" layoutY="101.0" prefWidth="200.0" />
+    <TextField fx:id="valueTF" layoutX="270.0" layoutY="168.0" prefWidth="200.0" />
+    <Text layoutX="289.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Presion" />
+    <Text layoutX="289.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="valor" />
+    <CheckBox layoutX="121.0" layoutY="300.0" mnemonicParsing="false" text="Inicialización automática" />
+    <Button layoutX="353.0" layoutY="278.0" mnemonicParsing="false" text="Aceptar" />
+  </children>
+</AnchorPane>

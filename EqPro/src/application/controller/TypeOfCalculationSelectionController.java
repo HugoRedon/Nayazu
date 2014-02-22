@@ -22,13 +22,24 @@ import javafx.stage.Stage;
  */
 public class TypeOfCalculationSelectionController implements Initializable {
     @FXML Parent root;
+    
     @FXML RadioButton onePhasePropertiesRB;	
     @FXML RadioButton binaryDiagramRB;
-    
-    private EQStage onePhaeProperties = new EQStage("/application/OnePhaseProperties.fxml");
-    private EQStage binaryDiagram = new EQStage("/application/BinaryDiagram.fxml");
+    @FXML RadioButton LVERB;
+    @FXML RadioButton LLERB;
+    @FXML RadioButton polarMathiasRB;
+    @FXML RadioButton phaseEnvelopeRB;
     
     @FXML private ToggleGroup group;
+    
+    private EQStage LVE = new EQStage("/application/LVE.fxml");
+    private EQStage LLE = new EQStage("/application/LLE.fxml");
+    private EQStage onePhaseProperties = new EQStage("/application/OnePhaseProperties.fxml");
+    private EQStage polarMathias  = new EQStage("/application/polarMathias.fxml");
+    private EQStage phaseEnvelope = new EQStage("/application/phaseEnvelope.fxml");	
+    private EQStage binaryDiagram = new EQStage("/application/BinaryDiagram.fxml");
+    
+    
     /**
      * Initializes
      * the
@@ -37,10 +48,13 @@ public class TypeOfCalculationSelectionController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-	// TODO
-	onePhasePropertiesRB.setUserData(onePhaeProperties);
-	binaryDiagramRB.setUserData(binaryDiagram);
 	
+	onePhasePropertiesRB.setUserData(onePhaseProperties);
+	binaryDiagramRB.setUserData(binaryDiagram);
+	LVERB.setUserData(LVE);
+	LLERB.setUserData(LLE);
+	polarMathiasRB.setUserData(polarMathias);
+	phaseEnvelopeRB.setUserData(phaseEnvelope);
     }    
     
     

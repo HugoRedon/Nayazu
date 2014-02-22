@@ -9,6 +9,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -51,7 +52,6 @@ public class CompositionSelectionController implements Initializable {
 	molFractionTC.setCellValueFactory(new PropertyValueFactory<CompositionTableItem,String>("molFractionValue"));
 	
 	compositionsTV.setItems( application.model.Eqfases2Copy.getCompositionItems());
-	
     }    
     
   
