@@ -18,7 +18,7 @@ import termo.eos.mixingRule.MixingRule;
 import termo.equilibrium.EquilibriaSolution;
 import termo.substance.MixtureSubstance;
 import termo.substance.PureSubstance;
-import termo.substance.HeterogenousSubstance;
+import termo.substance.HeterogeneousSubstance;
 import termo.substance.SubstanceType;
 
 /**
@@ -73,7 +73,7 @@ public class Eqfases2Copy extends Application implements ListChangeListener<Comp
 
     private static ArrayList<EquilibriaSolution> diagramData;
     
-    public static HeterogenousSubstance getSubstance() {
+    public static HeterogeneousSubstance getSubstance() {
 
 	
 //	ArrayList<Component> compos = new ArrayList();
@@ -82,7 +82,7 @@ public class Eqfases2Copy extends Application implements ListChangeListener<Comp
 //	    compos.add(component);
 //	}
 //	
-//	HeterogenousSubstance substance = null ;
+//	HeterogeneousSubstance substance = null ;
 //	if(components.size() == 1 ){
 //	    PureSubstance pureSubstance = new PureSubstance(
 //		    eos,

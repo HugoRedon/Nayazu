@@ -4,25 +4,19 @@
  */
 package application.controller;
 
-import application.model.CompositionTableItem;
 import static application.model.VLEType.*;
-import static application.model.MixingRuleType.*;
 import application.model.Eqfases2Copy;
-import application.model.EquationOfState;
-import application.model.MixingRuleType;
 import application.model.ThermoPackage;
 import application.model.VLEType;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -31,24 +25,25 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import termo.activityModel.NRTLActivityModel;
-import termo.activityModel.WilsonActivityModel;
-import termo.binaryParameter.InteractionParameter;
 import termo.component.Component;
-import termo.eos.Cubic;
-import termo.eos.EquationOfStateFactory;
-import termo.eos.alpha.Alpha;
-import termo.eos.alpha.AlphaFactory;
-import termo.eos.mixingRule.HuronVidalMixingRule;
-import termo.eos.mixingRule.MathiasKlotzPrausnitzMixingRule;
-import termo.eos.mixingRule.MixingRule;
-import termo.eos.mixingRule.VDWMixingRule;
-import termo.eos.mixingRule.WongSandlerMixingRule;
 import termo.equilibrium.EquilibriaSolution;
-import termo.equilibrium.MixtureEquilibriaPhaseSolution;
 import termo.substance.HeterogeneousMixtureSubstance;
 import termo.substance.HeterogeneousPureSubstance;
-import termo.substance.HeterogenousSubstance;
+import termo.substance.HeterogeneousSubstance;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * FXML
@@ -102,164 +97,62 @@ public class LVEController implements Initializable {
     } 
     
     @FXML protected void calculate(ActionEvent event){
-//	VLEType calculation = (VLEType)c.getSelectedToggle().getUserData();
-//	calculation.setTemperatureOrPressure(Double.valueOf(pressureTF.getText()));
-//	calculation.setSeconValue(Double.valueOf(valueTF.getText()));
-	
-	
-	
-	
-	
 	ThermoPackage pa = Eqfases2Copy.getThermoPackage();
-	
-	MixingRuleType mrType = pa.getMixingRule();
-	ObservableList<Component> obsListComponents = Eqfases2Copy.getComponents();
-	
-	
-	
-	Cubic eos;
-	Alpha alpha;
-	MixingRule mixingRule = null;
-	
-	boolean isSymmetric = false;
-	
-	
-	
-	if(pa.getEquationOfState().equals(EquationOfState.PengRobinsonStryjekVera)){
-	    eos = EquationOfStateFactory.pengRobinsonBase();
-	    alpha = AlphaFactory.getStryjekAndVeraExpression();
-	}else {//rksm
-	    eos = EquationOfStateFactory.redlichKwongSoaveBase();
-	    alpha = AlphaFactory.getMathiasExpression();
-	}
-	
-	
-	if(mrType.equals(VanDerWaals1)){
-	    mixingRule = new VDWMixingRule();//symetric params 
-	}else if(mrType == VanDerWaals2){
-	    isSymmetric = true;
-	    mixingRule = new VDWMixingRule();
-	    //todo non symetric parameters??
-	}else if(mrType == PanagiotopoulosReid){
-	    
-	}else if(mrType ==SandovalWilczecVeraVera ){
-	    
-	}else if(mrType == MathiasKlotzPrausnitz){
-	    mixingRule = new MathiasKlotzPrausnitzMixingRule();
-	}else if(mrType == HuronVidalWilson){
-	    WilsonActivityModel w = new WilsonActivityModel();
-	    mixingRule = new HuronVidalMixingRule(w, eos);
-	}else if(mrType == HuronVidalNRTL){
-	    NRTLActivityModel n = new NRTLActivityModel();
-	    mixingRule = new HuronVidalMixingRule(n, eos);
-	}else if(mrType == WongSandlerWilson){
-	    WilsonActivityModel w = new WilsonActivityModel();
-	    mixingRule = new WongSandlerMixingRule(w, eos);
-	}else if(mrType == WongSandlerNRTL){
-	    NRTLActivityModel n = new NRTLActivityModel();
-	    mixingRule = new WongSandlerMixingRule(n, eos);
-	}
-	
-	HeterogenousSubstance hs ;
-	
-	
+	HeterogeneousSubstance hs = pa.getHeterogeneousSubstance();
+	ObservableList<Component > obsListComponents = Eqfases2Copy.getComponents();
+	boolean isMixture = obsListComponents.size() > 1? true:false;
 	double pressure =Double.valueOf( pressureTF.getText());
-	
-	boolean isMixture = obsListComponents.size() > 1;
-	
-	if(isMixture){
-	    ArrayList<Component> components = new ArrayList<>();
-	    HashMap<Component,Double > fractions = new HashMap();
-	    for(CompositionTableItem i:Eqfases2Copy.getCompositionItems()){
-		fractions.put(i.getComponent(), Double.valueOf(i.getMolFractionValue()));
-	    }
-	    for(Component com: obsListComponents){
-		components.add(com);
-	    }
-	InteractionParameter k = new InteractionParameter( isSymmetric) ;
-	    
-	    HeterogeneousMixtureSubstance mix =new HeterogeneousMixtureSubstance(eos, alpha, mixingRule, components, k);
-	    mix.setzFractions(fractions);
-		hs = mix;
-		
-		
-	}else{//one component : PUresubstance
-	    Component component = obsListComponents.get(0);
-	    hs = new HeterogeneousPureSubstance(eos, alpha, component);
-	}
-	
-	
 	VLEType type = (VLEType)c.getSelectedToggle().getUserData();
 
+	showResult(isMixture,type,hs,pressure,pa);
+	
+	
+    }
+    
+    public void showResult(
+	    boolean isMixture,
+	    VLEType type,
+	    HeterogeneousSubstance hs,
+	    double pressure,
+	    ThermoPackage pa){
+	
+	
+	
 	EquilibriaSolution sol = null;
+	ObservableList<Component > obsListComponents = Eqfases2Copy.getComponents();
 	
-	DecimalFormat format = new DecimalFormat("0.000000");
-	String z = null;
-	String zL = null;
-	String zV = null;
-	
-	
-	String H = null;
-	String HL = null;
-	String HV= null;
-	
-	String S = null;
-	String SL = null;
-	String SV = null;
-	
-	String G = null;
-	String GL = null;
-	String GV = null;
-	
-	String vol = null;
-	String volL = null;
-	String volV = null;
+
 	
 	if(type.equals(BubbleT)){
 	    sol = hs.bubbleTemperature(pressure);
 	    
-	    z= format.format(hs.getLiquid().calculateCompresibilityFactor(sol.getTemperature(), pressure));
-	    H=format.format(hs.getLiquid().calculateEnthalpy(sol.getTemperature(), pressure));
-	    S = format.format(hs.getLiquid().calculateEntropy(sol.getTemperature(), pressure));
-	    G = format.format(hs.getLiquid().calculateGibbs(sol.getTemperature(),pressure));
-	    vol = format.format(hs.getLiquid().calculateMolarVolume(sol.getTemperature(), pressure));
 	    
-	    zL = z;
-	    HL= H;
-	    SL = S;
-	    GL = G;
-	    volL = vol;
-	    
+	    Result r = new Result(sol, pa, hs,obsListComponents);
+	    showWindow(r);
 	   
-	    
-	     zV= format.format(hs.getLiquid().calculateCompresibilityFactor(sol.getTemperature(), pressure));
-	    HV=format.format(hs.getVapor().calculateEnthalpy(sol.getTemperature(), pressure));
-	    SV = format.format(hs.getVapor().calculateEntropy(sol.getTemperature(), pressure));
-	    GV = format.format(hs.getVapor().calculateGibbs(sol.getTemperature(),pressure));
-	    volV = format.format(hs.getVapor().calculateMolarVolume(sol.getTemperature(), pressure));
-	    
-	    
 	    
 	}
 	
+	
+	
+	
+    }
+    
+    
+    private void showWindow(Result r){
 	Stage stage = new Stage();
-	
-	//Parent parent = FXMLLoader.load(getClass().getResource("/application.LVEResult.fxml"))
-	
 	VBox v = new VBox(15);
 	v.setFillWidth(true);
-	
-	
+	v.setPadding(new Insets(10, 10, 10, 10));	
 	GridPane grid = new GridPane( );
 	grid.setHgap(15);
 	
-	
 	addRow(grid, 0, "Equilibrio de fases");
-	addRow(grid, 1, "Ecuación de estado",pa.getEquationOfState().toString());
-	addRow(grid, 2, "Regla de mezclado",pa.getMixingRule().toString());
+	addRow(grid, 1, "Ecuación de estado",r.getEquationOfState());
+	addRow(grid, 2, "Regla de mezclado",r.getMixingRule());
 	
 	addRow(grid,3, "Estado de referencia","T = 298.15 K , P = 1 ATM");
-	addRow(grid,4,"Iteraciones requeridas",sol.getIterations().toString() );
+	addRow(grid,4,"Iteraciones requeridas",r.getIterations());
 	
 	GridPane grid2 = new GridPane();
 	grid2.setHgap(15);
@@ -275,20 +168,20 @@ public class LVEController implements Initializable {
 	GridPane grid3 = new GridPane();
 	grid3.setHgap(15);
 	
-	addRow(grid3,0, "Temperatura=", sol.getTemperature().toString());
-	addRow(grid3, 1, "Presión=",sol.getPressure().toString());
-	addRow(grid3, 2, "Relación V/F=",sol.getvFRelation().toString() );
+	addRow(grid3,0, "Temperatura=", r.getTemperature());
+	addRow(grid3, 1, "Presión=",r.getPressure());
+	addRow(grid3, 2, "Relación V/F=",r.getVFRelation());
 
 	GridPane grid4 = new GridPane();
 	grid4.setHgap(15);
 	
 	grid4.add(new Text("Propiedades termodinámicas"),0,0,4,1 );
 	addRow(grid4, 1, "","Total","Vapor","Líquido");
-	addRow(grid4, 2, "Z=",z,zV,zL);
-	addRow(grid4,3,"H=",H,HV,HL);
-	addRow(grid4, 4, "S=",S,SV,SL);
-	addRow(grid4, 5, "G=",G,GV,GL);
-	addRow(grid4, 6, "V=",vol,volV,volL);
+	addRow(grid4, 2, "Z=",r.getZ(),r.getZVapor(),r.getZLiquid());
+	addRow(grid4,3,"H=",r.getEnthalpy(),r.getVaporEnthalpy(),r.getLiquidEnthalpy());
+	addRow(grid4, 4, "S=",r.getEntropy(),r.getVaporEntropy(),r.getLiquidEntropy());
+	addRow(grid4, 5, "G=",r.getGibbs(),r.getVaporGibbs(),r.getLiquidGibbs());
+	addRow(grid4, 6, "V=",r.getVolume(),r.getVaporVolume(),r.getLiquidVolume());
 	
 	
 	GridPane grid5 = new GridPane();
@@ -297,21 +190,16 @@ public class LVEController implements Initializable {
 	grid5.add(new Text("Composición"), 0, 0,4,1);
 	addRow(grid5, 1, "Compuesto:","Global","Líquido","Vapor");
 	int row =2;
-	if(isMixture){
-	    HeterogeneousMixtureSubstance substanceMix = (HeterogeneousMixtureSubstance)hs;
-	    for (Component component : obsListComponents){
-		String zF =format.format( substanceMix.getzFractions().get(component));
-		String x = format.format(substanceMix.getLiquid().getReadOnlyFractions().get(component));
-		String y = format.format( substanceMix.getVapor().getReadOnlyFractions().get(component));
-		addRow(grid5, row++, component.getName(),zF,x,y);
+	if(r.isMixture()){
+	    
+	    for (Component component : r.getListComponents()){	
+		addRow(grid5, row++, component.getName(),r.getZFraction(component),r.getX(component),r.getY(component));
 		
 	    }
 	}else{
-	    HeterogeneousPureSubstance puresub = (HeterogeneousPureSubstance)hs;
 	    
-	    
-	    
-	    
+	    addRow(grid5, row, r.getListComponents().get(0).toString(),"1","1","1");
+
 	}
 	
 	GridPane grid6 = new GridPane();
@@ -321,31 +209,24 @@ public class LVEController implements Initializable {
 	addRow(grid6, 1, "Compuesto", "K Equilibrio","\u03A6 Líquido","\u03A6 Vapor");
 	 row = 2;
 	
-	if(isMixture){
-	    HeterogeneousMixtureSubstance substanceMix = (HeterogeneousMixtureSubstance)hs;
-	    
-	    for (Component component: obsListComponents){
-		String keq = format.format(substanceMix.equilibriumRelation(component, sol.getTemperature(), pressure));
-		String fugL = format.format(substanceMix.getLiquid().calculateFugacity(component, sol.getTemperature(), pressure));
-		String fugV = format.format(substanceMix.getVapor().calculateFugacity(component, sol.getTemperature(), pressure));
-		
-		addRow(grid6, row++,component.toString(),keq ,fugL,fugV);
+	if(r.isMixture()){
+	    for (Component component: r.getListComponents()){
+		addRow(grid6, row++,component.toString(),r.getEquilibriumConstant(component) ,r.getLiquidFugacity(component),r.getVaporFugacity(component));
 		
 	}
 	}else{
-	    HeterogeneousPureSubstance puresub = (HeterogeneousPureSubstance)hs;
-	    String keq = format.format(puresub.equilibriaRelation(sol.getTemperature(), pressure));
-	    String fugL = format.format(puresub.getLiquid().calculateFugacity(sol.getTemperature(), pressure));
-	    String fugV = format.format(puresub.getVapor().calculateFugacity(sol.getTemperature(), pressure));
-	    addRow(grid6, row, puresub.getComponent().toString(), fugL,fugV);
+	   Component component =r.getListComponents().get(0);
+	    addRow(grid6, row, component.toString(),r.getEquilibriumConstant(component), r.getLiquidFugacity(component),r.getVaporFugacity(component));
 	    
 	}
 	
 	GridPane grid7 = new GridPane();
 	grid7.setHgap(15);
 	
+	
+	
 	grid7.add(new Text("Valores de inicialización"), 0, 0, 4,1);
-	addRow(grid7, 1, format.format(sol.getEstimateSolution().getTemperature()));
+	addRow(grid7, 1,r.getTemperatureEstimate() );
 	
 //	GridPane grid8 = new GridPane();
 //	grid8.setHgap(15);
@@ -370,8 +251,6 @@ public class LVEController implements Initializable {
 	
 	stage.setScene(scene);
 	stage.show();
-	
-	
     }
     
     
@@ -382,29 +261,200 @@ public class LVEController implements Initializable {
 	}
 	pane.addRow(row, nodes);
     }
+
     
     
     
     
 }
-
-
-
-class EquilibriaResult{
-    private double iterations;
-
-    /**
-     * @return the iterations
-     */
-    public double getIterations() {
-	return iterations;
+class Result{
+    private Double temperature;
+    private Double pressure;
+    private ThermoPackage pa;
+    private EquilibriaSolution sol;
+    private ArrayList<Component> listComponents = new ArrayList<>();
+    private boolean mixture;
+    private HeterogeneousSubstance hs;
+    
+    public Result(
+	    EquilibriaSolution solution,
+	    ThermoPackage pa,
+	    HeterogeneousSubstance hs,
+	    ObservableList<Component> obsListComponents){
+	this.hs = hs;
+	sol = solution;
+	temperature = solution.getTemperature();
+	pressure = solution.getPressure();
+	this.pa = pa;
+	
+	listComponents.addAll(obsListComponents);
+	
+	mixture = listComponents.size() > 1?true:false;
+    }
+    
+    private DecimalFormat format = new DecimalFormat("0.00000");
+    private String format(double number){
+	return format.format(number);
+    }
+    public String getEquationOfState() {
+	return pa.getEquationOfState().toString();
     }
 
-    /**
-     * @param iterations the iterations to set
-     */
-    public void setIterations(double iterations) {
-	this.iterations = iterations;
+    public String getMixingRule() {
+	return pa.getMixingRule().toString();
     }
+    
+    String getIterations() {
+	return format(sol.getIterations());
+    }
+
+    public String getTemperature() {
+	return format(temperature);
+    }
+
+    String getPressure() {
+	return format(pressure);
+    }
+
+    String getVFRelation() {
+	return format(sol.getvFRelation());
+    }
+
+    boolean isMixture() {
+	return mixture;
+    }
+
+    public String getZ() {
+	return getZLiquid();//check vf this only works for bubble case
+    }
+
+    public String getZVapor() {
+	return format(hs.getVapor().calculateCompresibilityFactor(temperature, pressure));
+    }
+
+    String getZLiquid() {
+	return format(hs.getLiquid().calculateCompresibilityFactor(temperature, pressure));
+    }
+
+    String getEnthalpy() {
+	return getLiquidEnthalpy();
+    }
+
+    String getVaporEnthalpy() {
+	return format(hs.getVapor().calculateEnthalpy(temperature, pressure));
+    }
+
+    String getLiquidEnthalpy() {
+	return format(hs.getLiquid().calculateEnthalpy(temperature, pressure));
+    }
+
+    String getEntropy() {
+	return getLiquidEnthalpy();
+    }
+
+    String getVaporEntropy() {
+	return format(hs.getVapor().calculateEntropy(temperature, pressure));
+    }
+
+    String getLiquidEntropy() {
+	return format(hs.getLiquid().calculateEntropy(temperature, pressure));
+    }
+
+    String getGibbs() {
+	return getLiquidGibbs();
+    }
+
+    String getVaporGibbs() {
+	return format(hs.getVapor().calculateGibbs(temperature,pressure));
+    }
+
+    String getLiquidGibbs() {
+	return format.format(hs.getLiquid().calculateGibbs(temperature,pressure));
+    }
+
+    String getVolume() {
+	return getLiquidVolume();
+    }
+
+    String getVaporVolume() {
+	return format(hs.getVapor().calculateMolarVolume(sol.getTemperature(), pressure));
+    }
+
+    String getLiquidVolume() {
+	 return format.format(hs.getLiquid().calculateMolarVolume(sol.getTemperature(), pressure));
+    }
+
+    ArrayList<Component> getListComponents() {
+	return listComponents;
+    }
+
+    String getZFraction(Component component) {
+	if(isMixture()){
+	    HeterogeneousMixtureSubstance mix = (HeterogeneousMixtureSubstance)hs;
+	    return format(mix.getzFractions().get(component));
+	}else{
+	    return "1";
+	}
+	  
+    }
+
+    
+    String getX(Component component) {
+	if(isMixture()){
+	    HeterogeneousMixtureSubstance mix = (HeterogeneousMixtureSubstance)hs;
+	    return format(mix.getLiquid().getReadOnlyFractions().get(component));
+	}else{
+	    return "1";
+	}
+	
+    }
+
+    String getY(Component component) {
+	if(isMixture()){
+	    HeterogeneousMixtureSubstance mix = (HeterogeneousMixtureSubstance)hs;
+	    return format(mix.getVapor().getReadOnlyFractions().get(component));
+	}else{
+	    return "1";
+	}
+    }
+
+		
+		
+    String getEquilibriumConstant(Component component) {
+	if(isMixture()){
+	    HeterogeneousMixtureSubstance mix = (HeterogeneousMixtureSubstance)hs;
+	    return format(mix.equilibriumRelation(component, temperature, pressure));
+	}else{
+	    HeterogeneousPureSubstance puresub = (HeterogeneousPureSubstance)hs;
+	    return format(puresub.equilibriaRelation(temperature, pressure));
+	}
+    }
+
+    String getLiquidFugacity(Component component) {
+	if(isMixture()){
+	    HeterogeneousMixtureSubstance mix = (HeterogeneousMixtureSubstance)hs;
+	    return format(mix.getLiquid().calculateFugacity(component, temperature, pressure));
+	}else{
+	    HeterogeneousPureSubstance puresub = (HeterogeneousPureSubstance)hs;
+	    return format(puresub.getLiquid().calculateFugacity(temperature, pressure));
+	}
+    }
+
+    String getVaporFugacity(Component component) {
+	if(isMixture()){
+	    HeterogeneousMixtureSubstance mix = (HeterogeneousMixtureSubstance)hs;
+	    return format(mix.getVapor().calculateFugacity(component, temperature, pressure));
+	}else{
+	    HeterogeneousPureSubstance puresub = (HeterogeneousPureSubstance)hs;
+	    return format(puresub.getVapor().calculateFugacity(temperature, pressure));
+	}
+    }
+
+    String getTemperatureEstimate() {
+	return format(sol.getEstimateTemperature());
+    }
+
+    
+	
 }
 
