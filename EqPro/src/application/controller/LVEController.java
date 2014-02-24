@@ -118,19 +118,21 @@ public class LVEController implements Initializable {
 	
 	
 	
-	EquilibriaSolution sol = null;
+	//EquilibriaSolution sol = null;
 	ObservableList<Component > obsListComponents = Eqfases2Copy.getComponents();
 	
 
 	
 	if(type.equals(BubbleT)){
-	    sol = hs.bubbleTemperature(pressure);
+	    int iter = hs.bubbleTemperature(pressure);
 	    
 	    
-	    Result r = new Result(sol, pa, hs,obsListComponents);
+	    Result r = new Result(iter, pa, hs,new ArrayList<>(obsListComponents));
 	    showWindow(r);
 	   
 	    
+	}else if(type.equals(DewT)){
+	    //int iter= hs.dew
 	}
 	
 	
@@ -268,26 +270,28 @@ public class LVEController implements Initializable {
     
 }
 class Result{
-    private Double temperature;
-    private Double pressure;
+//    private Double temperature;
+//    private Double pressure;
     private ThermoPackage pa;
-    private EquilibriaSolution sol;
+//    private EquilibriaSolution sol;
     private ArrayList<Component> listComponents = new ArrayList<>();
     private boolean mixture;
     private HeterogeneousSubstance hs;
+    private int iterations;
     
     public Result(
-	    EquilibriaSolution solution,
+	    int iterations,
 	    ThermoPackage pa,
 	    HeterogeneousSubstance hs,
-	    ObservableList<Component> obsListComponents){
+	    ArrayList<Component> obsListComponents){
 	this.hs = hs;
-	sol = solution;
-	temperature = solution.getTemperature();
-	pressure = solution.getPressure();
+	this.iterations = iterations;
+//	sol = solution;
+//	temperature = solution.getTemperature();
+//	pressure = solution.getPressure();
 	this.pa = pa;
 	
-	listComponents.addAll(obsListComponents);
+	listComponents = obsListComponents;
 	
 	mixture = listComponents.size() > 1?true:false;
     }
@@ -305,15 +309,15 @@ class Result{
     }
     
     String getIterations() {
-	return format(sol.getIterations());
+	return format(iterations);
     }
 
     public String getTemperature() {
-	return format(temperature);
+	return format(hs.getTemperature());
     }
 
     String getPressure() {
-	return format(pressure);
+	return format(hs.getPressure());
     }
 
     String getVFRelation() {
@@ -329,11 +333,11 @@ class Result{
     }
 
     public String getZVapor() {
-	return format(hs.getVapor().calculateCompresibilityFactor(temperature, pressure));
+	return format(hs.getVapor().calculateCompresibilityFactor());
     }
 
     String getZLiquid() {
-	return format(hs.getLiquid().calculateCompresibilityFactor(temperature, pressure));
+	return format(hs.getLiquid().calculateCompresibilityFactor());
     }
 
     String getEnthalpy() {
@@ -341,11 +345,11 @@ class Result{
     }
 
     String getVaporEnthalpy() {
-	return format(hs.getVapor().calculateEnthalpy(temperature, pressure));
+	return format(hs.getVapor().calculateEnthalpy());
     }
 
     String getLiquidEnthalpy() {
-	return format(hs.getLiquid().calculateEnthalpy(temperature, pressure));
+	return format(hs.getLiquid().calculateEnthalpy());
     }
 
     String getEntropy() {
@@ -353,11 +357,11 @@ class Result{
     }
 
     String getVaporEntropy() {
-	return format(hs.getVapor().calculateEntropy(temperature, pressure));
+	return format(hs.getVapor().calculateEntropy());
     }
 
     String getLiquidEntropy() {
-	return format(hs.getLiquid().calculateEntropy(temperature, pressure));
+	return format(hs.getLiquid().calculateEntropy());
     }
 
     String getGibbs() {
@@ -365,11 +369,11 @@ class Result{
     }
 
     String getVaporGibbs() {
-	return format(hs.getVapor().calculateGibbs(temperature,pressure));
+	return format(hs.getVapor().calculateGibbs());
     }
 
     String getLiquidGibbs() {
-	return format.format(hs.getLiquid().calculateGibbs(temperature,pressure));
+	return format.format(hs.getLiquid().calculateGibbs());
     }
 
     String getVolume() {
@@ -377,11 +381,11 @@ class Result{
     }
 
     String getVaporVolume() {
-	return format(hs.getVapor().calculateMolarVolume(sol.getTemperature(), pressure));
+	return format(hs.getVapor().calculateMolarVolume());
     }
 
     String getLiquidVolume() {
-	 return format.format(hs.getLiquid().calculateMolarVolume(sol.getTemperature(), pressure));
+	 return format.format(hs.getLiquid().calculateMolarVolume());
     }
 
     ArrayList<Component> getListComponents() {
@@ -423,10 +427,10 @@ class Result{
     String getEquilibriumConstant(Component component) {
 	if(isMixture()){
 	    HeterogeneousMixtureSubstance mix = (HeterogeneousMixtureSubstance)hs;
-	    return format(mix.equilibriumRelation(component, temperature, pressure));
+	    return format(mix.equilibriumRelation(component));
 	}else{
 	    HeterogeneousPureSubstance puresub = (HeterogeneousPureSubstance)hs;
-	    return format(puresub.equilibriaRelation(temperature, pressure));
+	    return format(puresub.equilibriaRelation(iterations, iterations));
 	}
     }
 
