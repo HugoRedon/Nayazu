@@ -45,9 +45,12 @@ public class CubicTest {
 	Cubic instance = new Cubic();
 	instance.setU(0);
 	instance.setW(0);
+	
+	instance.set_a(a);
+	instance.set_b(b);
 
 	double expResult = 4667920.29500558;
-	double result = instance.calculatePressure(temperature, volume, a, b);
+	double result = instance.calculatePressure(temperature, volume);
 
 	assertEquals(expResult, result, 1e-5);
 	
@@ -66,8 +69,12 @@ public class CubicTest {
 	Cubic instance = new Cubic();
 	instance.setU(1);
 	instance.setW(-1);
+	
+	instance.set_a(a);
+	instance.set_b(b);
+	
 	boolean expResult = false;
-	boolean result = instance.oneRoot(pressure, temperature, a, b);
+	boolean result = instance.oneRoot(temperature, pressure);
 	assertEquals(expResult, result);
 	
     }
@@ -82,8 +89,10 @@ public class CubicTest {
 	double pressure = 100000;
 	double a = 5;
 	Cubic instance = new Cubic();
+	instance.set_a(a);
+	
 	double expResult = 8.03633e-8;
-	double result = instance.get_A(temperature, pressure, a);
+	double result = instance.get_A(temperature, pressure);
 	assertEquals(expResult, result, 1e-4);
 	
     }
@@ -98,8 +107,10 @@ public class CubicTest {
 	double pressure = 100000;
 	double b = 2;
 	Cubic instance = new Cubic();
+	instance.set_b(b);
+	
 	double expResult = 0.080181479;
-	double result = instance.get_B(temperature, pressure, b);
+	double result = instance.get_B(temperature, pressure);
 	assertEquals(expResult, result, 1e-4);
 	
     }
@@ -119,18 +130,19 @@ public class CubicTest {
 	
 
 	Cubic instance = new Cubic();
-	
+	instance.set_a(a);
+	instance.set_b(b);
 	
 	instance.setU(1);
 	instance.setW(0);
 
-	double A = instance.get_A(temperature, pressure, a);
-	double B = instance.get_B(temperature, pressure, b);
 	
 	double expResultLiquid = 0.035052;
 	double expResultVapor = 0.838578;
-	double liquidz = instance.calculateCompresibilityFactor(A, B, Phase.LIQUID);
-	double vaporz = instance.calculateCompresibilityFactor(A, B, Phase.VAPOR);
+
+	double liquidz = instance.calculateCompresibilityFactor(temperature, pressure, Phase.LIQUID);
+
+	double vaporz = instance.calculateCompresibilityFactor(temperature, pressure, Phase.VAPOR);
 	
 	assertEquals(expResultLiquid, liquidz, 1e-4);
 	assertEquals(expResultVapor, vaporz, 1e-4);
@@ -138,7 +150,7 @@ public class CubicTest {
     }
 
     /**
-     * Test of calculateVolume method, of class Cubic.
+     * Test of calculateMolarVolume method, of class Cubic.
      */
     @Test
     public void testCalculateVolume() {
@@ -148,7 +160,7 @@ public class CubicTest {
 	double z = 0.035052;
 	Cubic instance = new Cubic();
 	double expResult = 69.393414e-3;
-	double result = instance.calculateVolume(temperature, pressure, z);
+	double result = instance.calculateMolarVolume(temperature, pressure, z);
 	assertEquals(expResult, result, 1e-4);
 	
     }
@@ -173,8 +185,8 @@ public class CubicTest {
 	
 	double expLiquidResult = 0.8609433;
 	double expVaporResult = 0.8609429;
-	double liquidResult = instance.calculateFugacity(temperature, pressure, a, b, parciala, bi, Phase.LIQUID);
-	double vaporResult = instance.calculateFugacity(temperature, pressure, a, b, parciala, bi, Phase.VAPOR);
+	double liquidResult = instance.calculateFugacity(temperature, pressure, parciala, bi, Phase.LIQUID);
+	double vaporResult = instance.calculateFugacity(temperature, pressure,  parciala, bi, Phase.VAPOR);
 	
 	assertEquals(expVaporResult, vaporResult, 1e-4);
 	assertEquals(expLiquidResult, liquidResult, 1e-4);

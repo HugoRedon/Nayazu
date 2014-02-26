@@ -9,11 +9,17 @@ import termo.phase.Phase;
  */
 public  class Cubic extends EOS{
     
+     
+
+    
     private double u ;
     private double w;
   
-    private double omega_a;
-    private double omega_b;
+    protected double omega_a;
+    protected double omega_b;
+    
+    protected double a;
+    protected double b;
     
     @Override
     public String getEquation(){
@@ -28,23 +34,15 @@ public  class Cubic extends EOS{
      * @param fractions Mol fractions of the mixture
      * @return The calculated pressure with the current equation of state
      */
-    public double calculatePressure(
-            double temperature, 
-            double volume,
-            double a,
-            double b){    
+    public double calculatePressure(double temperature,double volume){    
         return ( Constants.R * temperature / (volume - b)    )
-                - ( a / (Math.pow(volume ,  2 ) +  this.getU()  *  b  *  volume  +  this.getW()  *  Math.pow( b ,  2 ) ) ) ;
+                - ( a / (Math.pow(volume,  2 ) +  this.getU()  * b  *  volume  +  this.getW()  *  Math.pow( b,  2 ) ) ) ;
     }
     
-    public boolean oneRoot(double pressure,
-            double temperature,
-            double a,
-            double b
-            ){
+    public boolean oneRoot(double temperature, double pressure){
      
-        double A = get_A(temperature, pressure, a);
-        double B = get_B(temperature, pressure, b);
+        double A = get_A(temperature, pressure);
+        double B = get_B(temperature, pressure);
              
         double alpha = cubicSolutionAlpha(B);
         double beta = cubicSolutionBeta(A, B);
@@ -84,12 +82,13 @@ public  class Cubic extends EOS{
 	return A*B + this.getW() * Math.pow(B,2) + this.getW() * Math.pow(B, 3);
     }
     
- 
     
-    public double calculateCompresibilityFactor(
-            double A,
-            double B,
-            Phase aPhase){
+    
+    public double calculateCompresibilityFactor(double temperature, double pressure,Phase phase){
+	
+	double A = get_A(temperature, pressure);
+	double B = get_B(temperature, pressure);
+	
       
         double alpha = cubicSolutionAlpha(B);//1-(this.getU() - 1 ) * B;
         double beta =cubicSolutionBeta(A, B);// A - this.getU() * B - this.getU() * Math.pow(B, 2) + this.getW() * Math.pow(B, 2);
@@ -109,7 +108,7 @@ public  class Cubic extends EOS{
                 liquidz = vaporz;
             }
             
-            if(aPhase.equals(Phase.LIQUID)){
+            if(phase.equals(Phase.LIQUID)){
                 return liquidz;
             }else{
                 return vaporz;
@@ -132,39 +131,46 @@ public  class Cubic extends EOS{
 
     }
     
-       public double get_A(double temperature, double pressure, double a){
+    public double get_A(double temperature, double pressure){
         return    a * pressure /Math.pow(Constants.R * temperature,2);
     }
-    public double get_B(double temperature, double pressure, double b){
+    public double get_B(double temperature, double pressure){
         return b * pressure / (Constants.R * temperature); 
     }
     
- public double calculateVolume(
-            double temperature, 
-            double pressure,
-            double z
-            ){
+    
+//      public double calculateCompresibilityFactor(){
+//	
+//	
+//	
+//	return  calculateCompresibilityFactor(A, B, phase);
+//    }
+    
+    public double calculateMolarVolume(double temperature, double pressure, Phase phase){
+	double z = calculateCompresibilityFactor(temperature, pressure,phase);
+	return calculateMolarVolume(temperature, pressure ,z);
+    }
+    
+ public double calculateMolarVolume(double temperature, double pressure,double z){
       return z * Constants.R * temperature / pressure;
     }
  public double calculateFugacity(
-               double temperature, 
-               double pressure,
-               double a,
-               double b,
+	    double temperature,
+	    double pressure,
                double parciala,
-               double bi,
-               Phase aPhase
+               double parcialb,
+	 Phase aPhase
                ){
            
-           double A = get_A(temperature, pressure, a);
-           double B = get_B(temperature, pressure, b);
+//           double A = get_A();
+//           double B = get_B();
            
-           double z = calculateCompresibilityFactor(A, B, aPhase);
-           double volume = calculateVolume(temperature, pressure, z);
+           double z = calculateCompresibilityFactor(temperature, pressure,aPhase);
+           double volume = calculateMolarVolume(temperature,pressure,z);
    
         double L = calculateL(volume, b);
 	
-        double lnfug = -Math.log((volume-b)/volume) + (z-1) * (bi/b) + (a / (Constants.R * temperature * b))*((bi/b) - (parciala/a))* L - Math.log(z);
+        double lnfug = -Math.log((volume-b)/volume) + (z-1) * (parcialb/b) + (a / (Constants.R * temperature * b))*((parcialb/b) - (parciala/a))* L - Math.log(z);
         return Math.exp(lnfug);
 
     }
@@ -245,5 +251,35 @@ public  class Cubic extends EOS{
             return false;
         }
         return true;
+    }
+
+  
+   
+    /**
+     * @return the a
+     */
+    public double get_a() {
+	return a;
+    }
+
+    /**
+     * @param a the a to set
+     */
+    public void set_a(double a) {
+	this.a = a;
+    }
+
+    /**
+     * @return the b
+     */
+    public double get_b() {
+	return b;
+    }
+
+    /**
+     * @param b the b to set
+     */
+    public void set_b(double b) {
+	this.b = b;
     }
 }

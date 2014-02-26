@@ -1,24 +1,19 @@
 package termo.eos.mixingRule;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import termo.binaryParameter.BinaryInteractionParameter;
 import termo.binaryParameter.InteractionParameter;
-import termo.component.Component;
+import termo.substance.MixtureSubstance;
 import termo.substance.PureSubstance;
 
 /**
  *
  * @author Hugo Redon Rivera
  */
-public abstract class MixingRule {
+public abstract class MixingRule extends MixtureSubstance{
     protected String name;
      
 
-     public abstract double a(double temperature,
-           
-             HashMap<PureSubstance,Double> fractions,
-             InteractionParameter k);
+     public abstract double a();
      
      public abstract double b(HashMap<PureSubstance,Double> fractions,double temperature,InteractionParameter k );
      

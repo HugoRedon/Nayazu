@@ -88,7 +88,7 @@ public class HuronVidalMixingRuleTest {
 	}
 	
 	double expResult = 9.70355653e5;
-	double result = instance.a(temperature, fractions, k);
+	double result = instance.calculate_a_cubicParameter(temperature, fractions, k);
 	assertEquals(expResult, result, 1e-3);
 
     }

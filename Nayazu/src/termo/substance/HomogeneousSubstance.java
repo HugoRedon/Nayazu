@@ -10,22 +10,23 @@ import termo.phase.Phase;
  *
  * @author Hugo Redon Rivera
  */
-public abstract class  HomogeneousSubstance  {
+public abstract class  HomogeneousSubstance extends Cubic {
     
-    private Cubic cubicEquationOfState;    
-    private Phase phase;
-    protected double temperature;
+//    private Cubic cubicEquationOfState;    
+       protected double temperature;
     protected double pressure;
+    protected double volume;
+    protected Phase phase;
     
     public HomogeneousSubstance(){
 	
     }
     public HomogeneousSubstance(Cubic eos){
-	this.cubicEquationOfState= eos;
+	//this.cubicEquationOfState= eos;
     }
     public HomogeneousSubstance(Cubic eos,Phase phase){
-	this.cubicEquationOfState = eos;
-	this.phase = phase;
+//	this.cubicEquationOfState = eos;
+	//this.phase = phase;
     }
 
     public abstract double temperatureParcial_a();
@@ -35,22 +36,8 @@ public abstract class  HomogeneousSubstance  {
     public  abstract double calculateIdealGasEntropy() ;
     public abstract double oneOver_N_Parcial_a(PureSubstance pureSubstance);
     
-    public double calculateMolarVolume(){
-	//return 220.746180;
-	double z = calculateCompresibilityFactor();
-	
-	
-	return cubicEquationOfState.calculateVolume(temperature, pressure, z);
-    }
-    public double calculateCompresibilityFactor(){
-	double a = calculate_a_cubicParameter();
-	double b = calculate_b_cubicParameter();
-	
-	double A = cubicEquationOfState.get_A(temperature, pressure, a);
-	double B = cubicEquationOfState.get_B(temperature, pressure, b);
-	
-	return  cubicEquationOfState.calculateCompresibilityFactor(A, B, getPhase());
-    }
+
+  
     
 //     public double bi(PureSubstance pureSubstance){
 //        return pureSubstance.calculate_b_cubicParameter();
@@ -58,61 +45,57 @@ public abstract class  HomogeneousSubstance  {
     
        
     protected double calculateFugacity( PureSubstance pureSubstance){
-        double a = calculate_a_cubicParameter();
-        double b = calculate_b_cubicParameter();
+         a =calculate_a_cubicParameter();
+         b = calculate_b_cubicParameter();
 
 	
 	
         double  parcialb = pureSubstance.calculate_b_cubicParameter();//bi(pureSubstance);
         double parciala = oneOver_N_Parcial_a( pureSubstance);
         
-        return getCubicEquationOfState().calculateFugacity(temperature, pressure, a, b, parciala, parcialb, getPhase());
+        return calculateFugacity(temperature, pressure, parciala, parcialb, phase);
     }
     
-    private double calculateEntropy( double volume){
+    private double calculateEntropy(){
+	volume = calculateMolarVolume(temperature, pressure, phase);
         double idealGasEntropy = calculateIdealGasEntropy();
-        double b = calculate_b_cubicParameter();
+         b = calculate_b_cubicParameter();
         double Temp_parcial_a = temperatureParcial_a( );
         
-        double L = cubicEquationOfState.calculateL(volume, b);
-	double z = calculateCompresibilityFactor();
+        double L = calculateL(volume, b);
+	double z = calculateCompresibilityFactor(temperature, pressure, phase);
         
         //return idealGasEntropy +  Constants.R * Math.log( (pressure *(volume - b))/(Constants.R * temperature)) + L * (Temp_parcial_a)/(b);
-	return idealGasEntropy +  Constants.R * Math.log( (z *(volume - b))/(volume)) + L * (Temp_parcial_a)/(temperature*b);
+	return idealGasEntropy +  Constants.R * Math.log( (z *(volume - b))/(volume)) + L * (Temp_parcial_a)/(getTemperature()*b);
     }
-    public double calculateEntropy(){
-	double volume = calculateMolarVolume();
-	return calculateEntropy( volume);
-    }
-    private  double calculateEnthalpy( double volume){
+   
+    private  double calculateEnthalpy( ){
+	volume = calculateMolarVolume(temperature, pressure, phase);
         double idealGasEnthalpy = calculateIdealGasEnthalpy();
-        double a = calculate_a_cubicParameter();
-        double b = calculate_b_cubicParameter();
-        double L = cubicEquationOfState.calculateL(volume, b);
+         a = calculate_a_cubicParameter();
+         b = calculate_b_cubicParameter();
+        double L = calculateL(volume, b);
         //double alphaValue = alpha.alpha(temperature, component);
         
         double Temp_parcial_a = temperatureParcial_a( );
         
-        return idealGasEnthalpy + ((Temp_parcial_a - a)/b) * L  + pressure * volume - Constants.R *temperature;
+        return idealGasEnthalpy + ((Temp_parcial_a - a)/b) * L  + getPressure() * volume - Constants.R *getTemperature();
     }
-    public final double calculateEnthalpy(){
-	double volume = calculateMolarVolume();
-	return calculateEnthalpy( volume);
-    }
+   
         
-            /**
-     * @return the cubicEquationOfState
-     */
-    public Cubic getCubicEquationOfState() {
-        return cubicEquationOfState;
-    }
-
-    /**
-     * @param cubicEquationOfState the cubicEquationOfState to set
-     */
-    public void setCubicEquationOfState(Cubic cubicEquationOfState) {
-        this.cubicEquationOfState = cubicEquationOfState;
-    }
+//            /**
+//     * @return the cubicEquationOfState
+//     */
+//    public Cubic getCubicEquationOfState() {
+//        return cubicEquationOfState;
+//    }
+//
+//    /**
+//     * @param cubicEquationOfState the cubicEquationOfState to set
+//     */
+//    public void setCubicEquationOfState(Cubic cubicEquationOfState) {
+//        this.cubicEquationOfState = cubicEquationOfState;
+//    }
 
     public abstract double calculatetAcentricFactorBasedVaporPressure();
 //    public abstract EquilibriaSolution bubbleTemperature(double pressure);
@@ -128,48 +111,48 @@ public abstract class  HomogeneousSubstance  {
      * @return the phase
      */
     public Phase getPhase() {
-	return phase;
+	return getPhase();
     }
 
     /**
      * @param phase the phase to set
      */
     public void setPhase(Phase phase) {
-	this.phase = phase;
+	this.setPhase(phase);
     }
 
     public double calculateGibbs() {
 	double enthalpy = calculateEnthalpy();
 	double entropy = calculateEntropy();
 	
-	return enthalpy - temperature * entropy;
+	return enthalpy - getTemperature() * entropy;
     }
 
     /**
      * @return the temperature
      */
     public double getTemperature() {
-	return temperature;
+	return getTemperature();
     }
 
     /**
      * @param temperature the temperature to set
      */
     public void setTemperature(double temperature) {
-	this.temperature = temperature;
+	this.setTemperature(temperature);
     }
 
     /**
      * @return the pressure
      */
     public double getPressure() {
-	return pressure;
+	return getPressure();
     }
 
     /**
      * @param pressure the pressure to set
      */
     public void setPressure(double pressure) {
-	this.pressure = pressure;
+	this.setPressure(pressure);
     }
 }

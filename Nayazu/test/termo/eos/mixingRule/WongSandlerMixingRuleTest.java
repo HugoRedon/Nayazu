@@ -134,7 +134,7 @@ public class WongSandlerMixingRuleTest {
 	InteractionParameter k = null;
 	WongSandlerMixingRule instance = null;
 	double expResult = 0.0;
-	double result = instance.a(temperature, fractions, k);
+	double result = instance.calculate_a_cubicParameter(temperature, fractions, k);
 	assertEquals(expResult, result, 0.0);
 	// TODO review the generated test code and remove the default call to fail.
 	fail("The test case is a prototype.");
@@ -148,7 +148,7 @@ public class WongSandlerMixingRuleTest {
 	ActivityModelBinaryParameter params = null;
 	WongSandlerMixingRule instance = null;
 	double expResult = 0.0;
-	double result = instance.b(fractions, temperature, params);
+	double result = instance.calculate_b_cubicParameter(fractions, temperature, params);
 	assertEquals(expResult, result, 0.0);
 	// TODO review the generated test code and remove the default call to fail.
 	fail("The test case is a prototype.");
@@ -163,7 +163,7 @@ public class WongSandlerMixingRuleTest {
 	InteractionParameter k = null;
 	WongSandlerMixingRule instance = null;
 	double expResult = 0.0;
-	double result = instance.oneOverNParcial_aN2RespectN(temperature, ci, fractions, k);
+	double result = instance.oneOver_N_Parcial_a(temperature, ci, fractions, k);
 	assertEquals(expResult, result, 0.0);
 	// TODO review the generated test code and remove the default call to fail.
 	fail("The test case is a prototype.");

@@ -76,7 +76,7 @@ public class PureSubstance extends HomogeneousSubstance {
     
     public boolean equals(PureSubstance substance){
         if(substance.getComponent().equals(component) &&
-                substance.getCubicEquationOfState().equals(this.getCubicEquationOfState()) &&
+//                substance.getCubicEquationOfState().equals(this.getCubicEquationOfState()) &&
                 substance.getAlpha().equals(this.getAlpha())){
             return true;
         }else{
@@ -84,17 +84,17 @@ public class PureSubstance extends HomogeneousSubstance {
         }
     }
     
-    @Override
-    public String toString(){
-        String equationOfStateName = getCubicEquationOfState().getName();
-        String alphaName = getAlpha().getName();
-        String componentName = getComponent().getName();
-        
-        return "Pure substance with: Cubic Equation of State: " + equationOfStateName + 
-                " Alpha Expression: " + alphaName + 
-                " Component: " + componentName;
-        
-    }
+//    @Override
+//    public String toString(){
+////        String equationOfStateName = getCubicEquationOfState().getName();
+//        String alphaName = getAlpha().getName();
+//        String componentName = getComponent().getName();
+//        
+//        return "Pure substance with: Cubic Equation of State: " + equationOfStateName + 
+//                " Alpha Expression: " + alphaName + 
+//                " Component: " + componentName;
+//        
+//    }
     
     @Override
     public double calculateIdealGasEnthalpy(){
@@ -122,12 +122,12 @@ public class PureSubstance extends HomogeneousSubstance {
     @Override
     public double calculate_a_cubicParameter(){
         
-        double omega_a = getCubicEquationOfState().getOmega_a();
+//        double omega_a = getCubicEquationOfState().getOmega_a();
         
 	double tc = component.getCriticalTemperature();
         double pc = component.getCriticalPressure();
         
-	double alphaE = alpha.alpha(super.getTemperature(),component);
+	double alphaE = alpha.alpha(getTemperature(),component);
 	
 	
         return (omega_a * Math.pow( Constants.R  * tc,2) *alphaE )/ (pc);  
@@ -136,7 +136,7 @@ public class PureSubstance extends HomogeneousSubstance {
     @Override
     public double calculate_b_cubicParameter(){
          
-        double omega_b = getCubicEquationOfState().getOmega_b();
+//        double omega_b = getCubicEquationOfState().getOmega_b();
         
           double tc = component.getCriticalTemperature();
         double pc = component.getCriticalPressure();
@@ -177,7 +177,7 @@ public class PureSubstance extends HomogeneousSubstance {
 	//calculating idealgas of formation from enthalpy and gibbs
 	double enthalpy = component.getEnthalpyofFormationofIdealgasat298_15Kand101325Pa();
 	double gibbs = component.getGibbsEnergyofFormationofIdealGasat298_15Kand101325Pa();
-	double entropyFormation = (enthalpy - gibbs)/temperature;
+	double entropyFormation = (enthalpy - gibbs)/getTemperature();
 	
 	entropyReference = entropyFormation;
 	
@@ -194,7 +194,7 @@ public class PureSubstance extends HomogeneousSubstance {
 	double w = component.getAcentricFactor();
 	double tc = component.getCriticalTemperature();
 
-	return  pc * Math.pow(10,(-7d/3d)* (1+w) * ((tc/temperature) - 1 ) );
+	return  pc * Math.pow(10,(-7d/3d)* (1+w) * ((tc/getTemperature()) - 1 ) );
     }
 
     
